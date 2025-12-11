@@ -1,6 +1,9 @@
+import Hero from "@/components/sections/hero";
+
 export default function Home() {
   return (
     <>
+      <Hero />
       <div className="bg-spf-green-900 text-muted grid h-screen w-full items-center">
         <div className="container mx-auto space-y-4 px-4 lg:px-0">
           <h1 className="text-6xl font-bold">Hello, gworld!</h1>
