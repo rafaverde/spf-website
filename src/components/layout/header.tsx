@@ -109,7 +109,7 @@ export default function Header() {
         </nav>
 
         {/* Mobile Navigation */}
-        <Sheet open={isMobileOpen} onOpenChange={() => setIsMobileOpen(true)}>
+        <Sheet open={isMobileOpen} onOpenChange={setIsMobileOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
