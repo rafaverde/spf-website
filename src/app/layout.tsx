@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Funnel_Display, Vend_Sans } from "next/font/google";
+import { Funnel_Display, Public_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/header";
 
 const funnel = Funnel_Display({
   subsets: ["latin"],
@@ -8,9 +9,9 @@ const funnel = Funnel_Display({
   display: "swap",
 });
 
-const vend = Vend_Sans({
+const publicSans = Public_Sans({
   subsets: ["latin"],
-  variable: "--font-vend-sans",
+  variable: "--font-public-sans",
 });
 
 export const metadata: Metadata = {
@@ -24,9 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${funnel.variable} ${vend.variable} antialiased`}>
-        {children}
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${funnel.variable} ${publicSans.variable} font-sans antialiased`}
+      >
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );
