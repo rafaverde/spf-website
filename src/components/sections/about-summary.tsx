@@ -62,8 +62,13 @@ export default function AboutSummary() {
                 key={index}
                 className="md:basis-1/2 lg:basis-1/4 2xl:basis-1/5"
               >
-                <div className="relative aspect-square overflow-hidden rounded-4xl">
-                  <Image src={img} alt="" fill className="object-cover" />
+                <div className="bg-spf-green-900 relative aspect-square overflow-hidden rounded-4xl">
+                  <Image
+                    src={img}
+                    alt=""
+                    fill
+                    className="object-cover opacity-60"
+                  />
                 </div>
               </CarouselItem>
             ))}
