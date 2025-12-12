@@ -34,12 +34,12 @@ export default function Hero({
       )}
     >
       {/* Content Layer */}
-      <div className="relative z-10 container mx-auto flex h-full flex-col justify-center px-4 lg:px-8">
+      <div className="relative z-10 container mx-auto flex h-full flex-col justify-center px-4 lg:px-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-5xl p-20"
+          className="py-20"
         >
           <h1 className="text-5xl font-bold text-white">
             {staticTitle} <br />
