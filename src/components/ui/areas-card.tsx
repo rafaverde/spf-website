@@ -1,10 +1,7 @@
 import { cn } from "@/lib/utils";
 import { RiAddLine, RiArrowRightUpLine } from "@remixicon/react";
-import { hover, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-
-import imgTeste from "../../../public/areas/paif.webp";
 
 interface AreasCardProps {
   title: string;
@@ -36,8 +33,8 @@ export default function AreasCard({
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className={cn(
-            "object-cover transition-transform duration-500",
-            isExpanded ? "scale-105 opacity-70" : "scale-100 opacity-50",
+            "object-cover object-top transition-transform duration-500 md:object-center",
+            isExpanded ? "scale-110 opacity-70" : "scale-100 opacity-50",
           )}
         />
       </div>
@@ -56,34 +53,20 @@ export default function AreasCard({
             <RiAddLine className="size-8 opacity-100 transition-all duration-300 group-hover:w-0 group-hover:opacity-0" />
           </div>
         </div>
+
+        <div className="absolute bottom-6 left-4">
+          <h3
+            className={cn(
+              "absolute bottom-0 origin-bottom-left text-2xl leading-tight text-white transition-all duration-500 ease-in-out md:text-4xl md:leading-0 md:whitespace-nowrap",
+              isExpanded
+                ? "rotate-0 md:bottom-4 md:left-4"
+                : "md:inset-0 md:left-5 md:-rotate-90",
+            )}
+          >
+            {title}
+          </h3>
+        </div>
       </div>
     </Link>
   );
 }
-
-// {
-//   /* Imagem */
-// }
-// <motion.div className="h-full w-full" initial="idle" whileHover="hover">
-//   <motion.div
-//     layout
-//     variants={{
-//       idle: { scale: 1 },
-//       hover: { scale: 1.1 },
-//     }}
-//     transition={{ duration: 0.4, ease: "easeInOut" }}
-//     className="absolute inset-0 z-0 h-full w-full"
-//   >
-//     <div className="relative h-full w-full">
-//       <Image
-//         src={image}
-//         alt={title}
-//         fill
-//         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-//         className="object-cover opacity-50 transition-opacity duration-700 group-hover:opacity-70"
-//       />
-//     </div>
-
-//     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-//   </motion.div>
-// </motion.div>;

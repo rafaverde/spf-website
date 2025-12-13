@@ -50,10 +50,8 @@ export default function AreasGrid() {
               onMouseEnter={() => setHoveredId(area.id)}
               onMouseLeave={() => setHoveredId(null)}
               className={cn(
-                "bg-spf-green-500 relative overflow-hidden rounded-4xl transition-all duration-500 ease-in-out",
-                isExpanded
-                  ? "h-300px md:h-auto md:flex-[2.5]"
-                  : "h-[100px] md:h-auto md:flex-1",
+                "bg-spf-green-500 relative h-52 overflow-hidden rounded-4xl transition-all duration-500 ease-in-out",
+                isExpanded ? "md:h-auto md:flex-[2.5]" : "md:h-auto md:flex-1",
               )}
             >
               <AreasCard
