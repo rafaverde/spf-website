@@ -41,7 +41,7 @@ export default function Hero({
           transition={{ duration: 0.8, delay: 0.2 }}
           className="py-20"
         >
-          <h1 className="text-5xl font-bold text-white">
+          <h2 className="text-3xl font-bold text-white md:text-5xl">
             {staticTitle} <br />
             <span className="text-spf-highlight-400 font-normal">
               <Typewriter
@@ -50,7 +50,7 @@ export default function Hero({
                 cursorClassName="bg-spf-highlight-400"
               />
             </span>
-          </h1>
+          </h2>
         </motion.div>
       </div>
 

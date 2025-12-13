@@ -54,8 +54,7 @@ export default function Header() {
     >
       <motion.div
         className={cn(
-          "container mx-auto mt-8 flex h-full items-center justify-between rounded-4xl md:mt-15",
-          isScrolled ? "px-8" : "px-4",
+          "container mx-auto mt-8 flex h-full items-center justify-between rounded-4xl px-4 md:mt-15 md:px-6",
         )}
         animate={{
           backgroundColor: isScrolled
@@ -71,7 +70,7 @@ export default function Header() {
             alt="Sociedad de Productores Forestales de Uruguay"
             className={cn(
               "transition-all duration-300",
-              !isScrolled && "h-auto w-[250px] brightness-0 invert",
+              !isScrolled && "h-auto brightness-0 invert md:w-[250px]",
             )}
             priority
           />

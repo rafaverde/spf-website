@@ -143,6 +143,6 @@
   }
 
   button {
-    @apply cursor-pointer!;
+    @apply hover:bg-spf-green-900! cursor-pointer! transition-colors duration-500 ease-in-out;
   }
 }
