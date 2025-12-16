@@ -1,6 +1,7 @@
 import AboutSummary from "@/components/sections/about-summary";
 import ExpertiseAreas from "@/components/sections/expertise-areas";
 import Hero from "@/components/sections/hero";
+import StaticsSection from "@/components/sections/statistics-section";
 import { VideoBackground } from "@/components/ui/video-background";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
           <Hero scrollIndicator />
           <AboutSummary />
           <ExpertiseAreas />
+          <StaticsSection />
         </div>
       </div>
     </>
