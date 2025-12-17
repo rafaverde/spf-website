@@ -1,10 +1,19 @@
-import { RiYoutubeLine } from "@remixicon/react";
+import { RiEmotionSadLine, RiYoutubeLine } from "@remixicon/react";
 import { Button } from "../ui/button";
 import { getPlayListVideos } from "@/lib/youtube/get-playlist-videos";
 import VideoCarousel from "../video/video-carousel";
+import Link from "next/link";
+import { YoutubePlaylistVideo } from "@/lib/youtube/youtube.types";
+import { div } from "motion/react-client";
 
 export default async function VideosSection() {
-  const videos = await getPlayListVideos({ maxResults: 6 });
+  let videos: YoutubePlaylistVideo[] = [];
+
+  try {
+    videos = await getPlayListVideos({ maxResults: 6 });
+  } catch (error) {
+    console.error("Failed to load YouTube videos", error);
+  }
 
   return (
     <section className="w-full bg-white py-20">
@@ -16,13 +25,29 @@ export default async function VideosSection() {
               Descubre por qué estamos orgullosos de ser forestales. 
             </p>
           </div>
-          <Button size="lg">
-            Ir a YouTube <RiYoutubeLine className="size-6" />
-          </Button>
+          <Link
+            href={`https://www.youtube.com/playlist?list=${process.env.YOUTUBE_PLAYLIST_ID}`}
+            target="_blank"
+            title="Ir a Youtube Playlist"
+          >
+            <Button size="lg">
+              Ir a YouTube <RiYoutubeLine className="size-6" />
+            </Button>
+          </Link>
         </div>
 
         {/* Carrossel de vídeos */}
-        <VideoCarousel videos={videos} />
+        {videos.length > 0 ? (
+          <VideoCarousel videos={videos} />
+        ) : (
+          <div className="flex w-full flex-col items-center justify-center gap-1 py-10 text-center">
+            <RiEmotionSadLine className="text-spf-green-500 size-10" />
+            <p className="text-muted-foreground text-sm">
+              Los videos no están disponibles en este momento. <br />
+              <strong>Accede a nuestro canal usando el botón de arriba.</strong>
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

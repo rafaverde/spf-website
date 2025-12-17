@@ -5,6 +5,8 @@ import PublicationsSection from "@/components/sections/publications-section";
 import StaticsSection from "@/components/sections/statistics-section";
 import { VideoBackground } from "@/components/ui/video-background";
 import VideosSection from "@/components/sections/videos-section";
+import { Suspense } from "react";
+import VideoCarouselSkeleton from "@/components/video/video-carousel-skeleton";
 
 export default function Home() {
   return (
@@ -17,7 +19,10 @@ export default function Home() {
           <ExpertiseAreasSection />
           <StaticsSection />
           <PublicationsSection />
-          <VideosSection />
+
+          <Suspense fallback={<VideoCarouselSkeleton />}>
+            <VideosSection />
+          </Suspense>
         </div>
       </div>
     </>
