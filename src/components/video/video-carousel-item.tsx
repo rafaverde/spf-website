@@ -21,6 +21,13 @@ export default function VideoCarouselItem({
       role="button"
       tabIndex={0}
       onClick={() => onSelect?.(video)}
+      aria-label={`Reproduzir vídeo: ${video.title}`}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect?.(video);
+        }
+      }}
     >
       <CardHeader className="relative aspect-video">
         <Image
