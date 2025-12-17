@@ -8,17 +8,26 @@ import { formatDate } from "@/lib/utils";
 
 interface VideoCarouselItemProps {
   video: YoutubePlaylistVideo;
+  onSelect?: (video: YoutubePlaylistVideo) => void;
 }
 
-export default function VideoCarouselItem({ video }: VideoCarouselItemProps) {
+export default function VideoCarouselItem({
+  video,
+  onSelect,
+}: VideoCarouselItemProps) {
   return (
-    <Card className="group h-full cursor-pointer overflow-hidden rounded-4xl p-0">
+    <Card
+      className="group h-full cursor-pointer overflow-hidden rounded-4xl p-0"
+      role="button"
+      tabIndex={0}
+      onClick={() => onSelect?.(video)}
+    >
       <CardHeader className="relative aspect-video">
         <Image
           src={video.thumbnail}
           alt={video.title}
           fill
-          className="object-cover transition-transform group-hover:scale-105"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
         />
 
