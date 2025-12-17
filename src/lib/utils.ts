@@ -4,3 +4,14 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+// Formata a data para padrão es-UY
+export function formatDate(date: string) {
+  const formattedDate = new Date(date).toLocaleDateString("es-UY", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  return formattedDate;
+}

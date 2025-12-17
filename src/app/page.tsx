@@ -4,6 +4,7 @@ import ExpertiseAreasSection from "@/components/sections/expertise-areas-section
 import PublicationsSection from "@/components/sections/publications-section";
 import StaticsSection from "@/components/sections/statistics-section";
 import { VideoBackground } from "@/components/ui/video-background";
+import VideosSection from "@/components/sections/videos-section";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           <ExpertiseAreasSection />
           <StaticsSection />
           <PublicationsSection />
+          <VideosSection />
         </div>
       </div>
     </>
