@@ -19,13 +19,13 @@ import { Button } from "../ui/button";
 import { RiMenuLine } from "@remixicon/react";
 import { globalConfig } from "@/lib/site/global.config";
 
-const navItems = [
-  { label: "Sobre SPF", href: "/sobre-spf" },
-  { label: "El Sector Forestal", href: "/sector-forestal" },
-  { label: "Publicaciones", href: "/publicaciones" },
-  { label: "Actualidad", href: "/actualidad" },
-  { label: "Contacto", href: "/contacto" },
-];
+// const navItems = [
+//   { label: "Sobre SPF", href: "/sobre-spf" },
+//   { label: "El Sector Forestal", href: "/sector-forestal" },
+//   { label: "Publicaciones", href: "/publicaciones" },
+//   { label: "Actualidad", href: "/actualidad" },
+//   { label: "Contacto", href: "/contacto" },
+// ];
 
 export default function Header() {
   const pathname = usePathname();
@@ -78,7 +78,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 lg:flex">
-          {navItems.map((item, index) => {
+          {globalConfig.navigation.map((item, index) => {
             const isActive = item.href === pathname;
 
             return (
@@ -149,7 +149,7 @@ export default function Header() {
               >
                 Home
               </Link>
-              {navItems.map((item, index) => {
+              {globalConfig.navigation.map((item, index) => {
                 const isActive = item.href === pathname;
 
                 return (
