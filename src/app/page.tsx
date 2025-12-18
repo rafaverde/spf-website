@@ -7,6 +7,7 @@ import { VideoBackground } from "@/components/ui/video-background";
 import VideosSection from "@/components/sections/videos-section";
 import { Suspense } from "react";
 import VideoCarouselSkeleton from "@/components/video/video-carousel-skeleton";
+import NewsSection from "@/components/sections/news-section";
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
           <Suspense fallback={<VideoCarouselSkeleton />}>
             <VideosSection />
           </Suspense>
+
+          <NewsSection />
         </div>
       </div>
     </>
