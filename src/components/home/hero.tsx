@@ -1,10 +1,10 @@
 "use client";
 
 import { easeIn, motion, useAnimation } from "motion/react";
-import Typewriter from "../ui/typewriter";
+import Typewriter from "../layout/typewriter";
 import { RiArrowDownWideLine } from "@remixicon/react";
 import { useEffect } from "react";
-import { ScrollIndicator } from "../ui/scroll-indicator";
+import { ScrollIndicator } from "../layout/scroll-indicator";
 import { cn } from "@/lib/utils";
 
 interface HeroProps {

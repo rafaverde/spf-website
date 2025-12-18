@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { RiArrowRightUpLine } from "@remixicon/react";
-import StatisticsCounter from "../ui/statistics-counter";
+import StatisticsCounter from "../statistics/statistics-counter";
 
 export default function StatisticsSection() {
   return (

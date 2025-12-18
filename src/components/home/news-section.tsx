@@ -1,18 +1,11 @@
-import { getLatestNews } from "@/lib/news/get-latest-news";
-import { NewsItem } from "@/lib/news/news.types";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { RiArrowRightUpLine } from "@remixicon/react";
+import NewsCarousel from "../news/news-carousel";
+import { Suspense } from "react";
+import NewsCarouselSkeleton from "../news/news-carousel-skeleton";
 
 export default async function NewsSection() {
-  let news: NewsItem[] = [];
-
-  try {
-    news = await getLatestNews({ limit: 12 });
-  } catch (error) {
-    console.error("Failed to load news: ", error);
-  }
-
   return (
     <section className="bg-spf-highlight-400 w-full py-20">
       <div className="container mx-auto flex flex-col items-end justify-between gap-8 px-4 md:flex-row md:items-start lg:px-0">
@@ -24,11 +17,16 @@ export default async function NewsSection() {
             manejo de suelos, protección contra incendios o economía
           </p>
         </div>
-        <Link href="/actualidad" target="_blank" title="Ir a Youtube Playlist">
+        <Link href="/actualidad" title="Ver más noticias">
           <Button size="lg">
             Ver más <RiArrowRightUpLine className="size-6" />
           </Button>
         </Link>
+      </div>
+      <div className="container mx-auto mt-6 px-4 lg:px-0">
+        <Suspense fallback={<NewsCarouselSkeleton />}>
+          <NewsCarousel />
+        </Suspense>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { RiArrowRightUpLine } from "@remixicon/react";
 import { Button } from "../ui/button";
-import AreasGrid from "../ui/areas-grid";
+import AreasGrid from "../areas/areas-grid";
 
 export default function ExpertiseAreasSection() {
   return (

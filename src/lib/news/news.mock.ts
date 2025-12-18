@@ -1,6 +1,6 @@
 import { NewsItem } from "./news.types";
 
-const PLACEHOLDER_IMAGE = "/images/news/placeholder.webp";
+const PLACEHOLDER_IMAGE = "/news/news-placeholder.webp";
 
 export const newsMock: NewsItem[] = [
   {
@@ -33,7 +33,7 @@ export const newsMock: NewsItem[] = [
     `,
     publishedAt: "2023-09-18",
     slug: "visita-consorcio-proteccion-fitosanitaria-chile",
-    image: "/images/news/news-1.webp",
+    image: "/news/news-1.webp",
     category: {
       id: "sanidad",
       name: "Sanidad Forestal",
@@ -101,7 +101,7 @@ export const newsMock: NewsItem[] = [
     `,
     publishedAt: "2023-10-10",
     slug: "capacitacion-tecnica-control-plagas-forestales",
-    image: "/images/news/news-3.webp",
+    image: "/news/news-3.webp",
     category: {
       id: "sanidad",
       name: "Sanidad Forestal",
@@ -133,7 +133,7 @@ export const newsMock: NewsItem[] = [
     `,
     publishedAt: "2023-10-18",
     slug: "implementacion-nuevo-protocolo-fitosanitario",
-    image: "/images/news/news-4.webp",
+    image: "/news/news-4.webp",
     category: {
       id: "sanidad",
       name: "Sanidad Forestal",
@@ -165,7 +165,7 @@ export const newsMock: NewsItem[] = [
     `,
     publishedAt: "2023-10-25",
     slug: "acuerdos-cooperacion-internacional-sanidad-forestal",
-    image: "/images/news/news-5.webp",
+    image: "/news/news-5.webp",
     category: {
       id: "institucional",
       name: "Institucional",
@@ -197,7 +197,7 @@ export const newsMock: NewsItem[] = [
     `,
     publishedAt: "2023-11-03",
     slug: "informe-anual-monitoreo-sanitario-forestal",
-    image: "/images/news/news-6.webp",
+    image: "/news/news-6.webp",
     category: {
       id: "sanidad",
       name: "Sanidad Forestal",
@@ -260,7 +260,7 @@ export const newsMock: NewsItem[] = [
     `,
     publishedAt: "2023-11-18",
     slug: "encuentro-tecnico-biodiversidad-forestal",
-    image: "/images/news/news-8.webp",
+    image: "/news/news-8.webp",
     category: {
       id: "ambiente",
       name: "Ambiente",
@@ -292,7 +292,7 @@ export const newsMock: NewsItem[] = [
     `,
     publishedAt: "2023-11-26",
     slug: "actualizacion-lineamientos-tecnicos-fitosanitarios",
-    image: "/images/news/news-9.webp",
+    image: "/news/news-9.webp",
     category: {
       id: "sanidad",
       name: "Sanidad Forestal",
@@ -354,7 +354,7 @@ export const newsMock: NewsItem[] = [
     `,
     publishedAt: "2023-12-12",
     slug: "reunion-estrategica-actores-sector-forestal",
-    image: "/images/news/news-11.webp",
+    image: "/news/news-11.webp",
     category: {
       id: "institucional",
       name: "Institucional",
@@ -385,7 +385,7 @@ export const newsMock: NewsItem[] = [
     `,
     publishedAt: "2023-12-20",
     slug: "balance-anual-proyecciones-institucionales",
-    image: "/images/news/news-12.webp",
+    image: "/news/news-12.webp",
     category: {
       id: "institucional",
       name: "Institucional",
