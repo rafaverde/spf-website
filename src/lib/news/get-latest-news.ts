@@ -11,8 +11,6 @@ export async function getLatestNews(
 ): Promise<NewsItem[]> {
   const { limit = 4 } = params;
 
-  await new Promise((resolve) => setTimeout(resolve, 10000));
-
   const sorted = [...newsMock].sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),

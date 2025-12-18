@@ -1,6 +1,7 @@
 export const globalConfig = {
   branding: {
-    logo: "/assets/spf-logo-color.svg",
+    logo: "/spf-logo-color.svg",
+    icon: "/spf-icon-color.svg",
     description: "Impulsamos oportunidades en todo Uruguay",
   },
 
