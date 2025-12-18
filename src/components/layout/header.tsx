@@ -7,9 +7,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
-import spfLogo from "@/assets/spf-logo-color.svg";
-import spfIcon from "@/assets/spf-icon-color.svg";
-
 import {
   Sheet,
   SheetContent,
@@ -20,14 +17,15 @@ import {
 } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { RiMenuLine } from "@remixicon/react";
+import { globalConfig } from "@/lib/site/global.config";
 
-const navItems = [
-  { label: "Sobre SPF", href: "/sobre-spf" },
-  { label: "El Sector Forestal", href: "/sector-forestal" },
-  { label: "Publicaciones", href: "/publicaciones" },
-  { label: "Actualidad", href: "/actualidad" },
-  { label: "Contacto", href: "/contacto" },
-];
+// const navItems = [
+//   { label: "Sobre SPF", href: "/sobre-spf" },
+//   { label: "El Sector Forestal", href: "/sector-forestal" },
+//   { label: "Publicaciones", href: "/publicaciones" },
+//   { label: "Actualidad", href: "/actualidad" },
+//   { label: "Contacto", href: "/contacto" },
+// ];
 
 export default function Header() {
   const pathname = usePathname();
@@ -66,10 +64,12 @@ export default function Header() {
         {/* Logo */}
         <Link href={isScrolled ? "#top" : "/"}>
           <Image
-            src={spfLogo}
+            src={globalConfig.branding.logo}
             alt="Sociedad de Productores Forestales de Uruguay"
+            width={250}
+            height={0}
             className={cn(
-              "transition-all duration-300",
+              "w-[140px] transition-all duration-300",
               !isScrolled && "h-auto brightness-0 invert md:w-[250px]",
             )}
             priority
@@ -78,7 +78,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 lg:flex">
-          {navItems.map((item, index) => {
+          {globalConfig.navigation.map((item, index) => {
             const isActive = item.href === pathname;
 
             return (
@@ -134,7 +134,11 @@ export default function Header() {
                 Menu principal do site
               </SheetDescription>
 
-              <Image src={spfIcon} alt="SPF Icon" className="size-10" />
+              <Image
+                src={globalConfig.branding.icon}
+                alt="SPF Icon"
+                className="size-10"
+              />
             </SheetHeader>
 
             <nav className="mx-auto flex h-full flex-col items-center justify-center gap-4 font-bold uppercase">
@@ -145,7 +149,7 @@ export default function Header() {
               >
                 Home
               </Link>
-              {navItems.map((item, index) => {
+              {globalConfig.navigation.map((item, index) => {
                 const isActive = item.href === pathname;
 
                 return (
