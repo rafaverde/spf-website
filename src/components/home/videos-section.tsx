@@ -4,7 +4,6 @@ import { getPlayListVideos } from "@/lib/youtube/get-playlist-videos";
 import VideoCarousel from "../video/video-carousel";
 import Link from "next/link";
 import { YoutubePlaylistVideo } from "@/lib/youtube/youtube.types";
-import { div } from "motion/react-client";
 
 export default async function VideosSection() {
   let videos: YoutubePlaylistVideo[] = [];
