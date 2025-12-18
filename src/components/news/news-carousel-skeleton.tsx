@@ -5,7 +5,7 @@ export default function NewsCarouselSkeleton() {
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
-            className="bg-spf-green-100 col-span-1 h-[380px] w-full animate-pulse rounded-2xl"
+            className="bg-spf-green-100 col-span-1 hidden h-[380px] w-full animate-pulse rounded-2xl first:flex md:flex md:last:hidden lg:flex lg:last:flex"
           ></div>
         ))}
       </div>

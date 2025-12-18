@@ -15,8 +15,6 @@ export async function getPlayListVideos(
   const apiKey = process.env.YOUTUBE_API_KEY;
   const playlistId = process.env.YOUTUBE_PLAYLIST_ID;
 
-  await new Promise((resolve) => setTimeout(resolve, 10000));
-
   if (!apiKey || !playlistId) {
     throw new Error("Youtube API key or Playlist ID not configured.");
   }
