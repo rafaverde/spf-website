@@ -39,7 +39,8 @@ export function VideoBackground({
       {/* Video Player */}
       <video
         ref={videoRef}
-        autoPlay
+        preload="metadata"
+        // autoPlay
         loop
         muted
         playsInline

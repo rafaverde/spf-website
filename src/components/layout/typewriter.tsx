@@ -11,7 +11,7 @@ import {
 import { useEffect, useState, useRef } from "react";
 
 interface TypewriterProps {
-  words: string[];
+  words?: string[];
   className?: string;
   cursorClassName?: string;
   waitTime?: number;
@@ -23,6 +23,10 @@ export default function Typewriter({
   cursorClassName,
   waitTime = 2000,
 }: TypewriterProps) {
+  if (!words) {
+    return;
+  }
+
   const [index, setIndex] = useState(0);
   const count = useMotionValue(0);
 

@@ -1,9 +1,7 @@
 "use client";
 
-import { easeIn, motion, useAnimation } from "motion/react";
+import { motion } from "motion/react";
 import Typewriter from "../layout/typewriter";
-import { RiArrowDownWideLine } from "@remixicon/react";
-import { useEffect } from "react";
 import { ScrollIndicator } from "../layout/scroll-indicator";
 import { cn } from "@/lib/utils";
 
@@ -14,16 +12,10 @@ interface HeroProps {
   scrollIndicator?: boolean;
 }
 
-const DEFAULT_PHRASES = [
-  "oportunidades en todo Uruguay",
-  "un futuro sostenible",
-  "el desarrollo del país",
-];
-
 export default function Hero({
   staticTitle = "Impulsamos",
   titlePosition = "center",
-  dynamicWords = DEFAULT_PHRASES,
+  dynamicWords,
   scrollIndicator = false,
 }: HeroProps) {
   return (

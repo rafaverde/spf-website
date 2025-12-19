@@ -17,7 +17,7 @@ const SUMMARY_IMAGES = [
   "/summary-carousel/image-6.webp",
 ];
 
-export default function AboutSummarySection() {
+export default function AboutUsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
