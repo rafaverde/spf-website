@@ -4,15 +4,15 @@ import { cn } from "@/lib/utils";
 import { RiLoader4Line } from "@remixicon/react";
 import { useState, useRef, useEffect } from "react";
 
-interface VideoBackgroundProps {
+interface HeroVideoBackgroundProps {
   videoSrc?: string;
   className?: string;
 }
 
-export function VideoBackground({
+export function HeroVideoBackground({
   videoSrc = "/spf-hero-video.mp4",
   className,
-}: VideoBackgroundProps) {
+}: HeroVideoBackgroundProps) {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 

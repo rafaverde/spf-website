@@ -1,23 +1,23 @@
 "use client";
 
 import { motion } from "motion/react";
-import Typewriter from "../layout/typewriter";
-import { ScrollIndicator } from "../layout/scroll-indicator";
+import Typewriter from "./typewriter";
+import { ScrollIndicator } from "./scroll-indicator";
 import { cn } from "@/lib/utils";
 
-interface HeroProps {
+interface HeroTitleProps {
   staticTitle?: string;
   titlePosition?: "center" | "end";
   dynamicWords?: string[];
   scrollIndicator?: boolean;
 }
 
-export default function Hero({
+export default function HeroTitle({
   staticTitle = "Impulsamos",
   titlePosition = "center",
   dynamicWords,
   scrollIndicator = false,
-}: HeroProps) {
+}: HeroTitleProps) {
   return (
     <section
       className={cn(

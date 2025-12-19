@@ -1,14 +1,18 @@
-import Hero from "@/components/home/hero";
-import { VideoBackground } from "@/components/layout/video-background";
+import HeroTitle from "@/components/layout/hero-title";
+import { HeroVideoBackground } from "@/components/layout/hero-video-background";
 import LinkCard from "./components/link-card";
 import VinculationsSection from "./components/vinculations-section";
 
 export default function AboutUsPage() {
   return (
     <div className="relative min-h-screen w-full">
-      <VideoBackground />
+      <HeroVideoBackground />
       <div className="relative z-10 flex flex-col">
-        <Hero staticTitle="Quiénes Somos" titlePosition="end" scrollIndicator />
+        <HeroTitle
+          staticTitle="Quiénes Somos"
+          titlePosition="end"
+          scrollIndicator
+        />
 
         <section className="bg-white py-20">
           <div className="text-spf-green-900 container mx-auto space-y-6">
