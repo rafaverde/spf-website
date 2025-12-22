@@ -75,7 +75,7 @@ export default function NewsFilters({
           <SelectValue placeholder="Filtrar por categoría" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="">Todas las categorías</SelectItem>
+          <SelectItem value="todas">Todas las categorías</SelectItem>
           <SelectItem value="sanidad-forestal">Sanidad Forestal</SelectItem>
           <SelectItem value="ambiente">Ambiente</SelectItem>
           <SelectItem value="economia">Economía</SelectItem>

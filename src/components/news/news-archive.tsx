@@ -41,7 +41,7 @@ export default async function NewsArchive({
     <div className="space-y-12">
       {/* Grid */}
       {paginatedNews.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {paginatedNews.map((news) => (
             <NewsCard key={news.id} news={news} />
           ))}

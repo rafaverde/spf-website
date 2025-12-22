@@ -1,4 +1,7 @@
+import NewsArchive from "@/components/news/news-archive";
+import NewsArchiveSkeleton from "@/components/news/news-archive-skeleton";
 import NewsFilters from "@/components/news/news-filter";
+import { Suspense } from "react";
 
 interface NewsPageProps {
   searchParams?: {
@@ -9,6 +12,10 @@ interface NewsPageProps {
 }
 
 export default function NewsPage({ searchParams }: NewsPageProps) {
+  const page = Number(searchParams?.page ?? "1");
+  const search = searchParams?.search ?? "";
+  const category = searchParams?.category ?? "";
+
   return (
     <>
       <section className="bg-spf-green-900 w-full py-20">
@@ -23,19 +30,19 @@ export default function NewsPage({ searchParams }: NewsPageProps) {
       </section>
 
       <section className="w-full bg-white py-20">
-        <div className="container mx-auto mt-[180px] space-y-4">
+        <div className="container mx-auto space-y-4">
           {/* Filters */}
           <NewsFilters initialSearch={search} initialCategory={category} />
 
           {/* News grid */}
-          {/* <Suspense fallback={<NewsArchiveSkeleton />}>
-          <NewsArchive
-            page={page}
-            pageSize={9}
-            search={search}
-            category={category}
-          />
-        </Suspense> */}
+          <Suspense fallback={<NewsArchiveSkeleton />}>
+            <NewsArchive
+              page={page}
+              pageSize={9}
+              search={search}
+              category={category}
+            />
+          </Suspense>
         </div>
       </section>
     </>
