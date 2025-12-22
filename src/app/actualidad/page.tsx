@@ -1,3 +1,5 @@
+import NewsFilters from "@/components/news/news-filter";
+
 interface NewsPageProps {
   searchParams?: {
     page?: string;
@@ -23,7 +25,7 @@ export default function NewsPage({ searchParams }: NewsPageProps) {
       <section className="w-full bg-white py-20">
         <div className="container mx-auto mt-[180px] space-y-4">
           {/* Filters */}
-          {/* <NewsFilters initialSearch={search} initialCategory={category} /> */}
+          <NewsFilters initialSearch={search} initialCategory={category} />
 
           {/* News grid */}
           {/* <Suspense fallback={<NewsArchiveSkeleton />}>
