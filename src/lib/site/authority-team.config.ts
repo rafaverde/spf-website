@@ -70,3 +70,44 @@ export const authorityConfig = {
     },
   },
 };
+
+export const teamConfig = {
+  team: [
+    {
+      name: "Miguel Elou",
+      imageSrc: "/about-us/team/miguel-helou.webp",
+      jobTitle: "Gerente General",
+      linkedInUrl: "https://www.linkedin.com/feed/",
+    },
+    {
+      name: "Claudia Pittamiglio",
+      imageSrc: "/about-us/team/claudia-pitamigllio.webp",
+      jobTitle: "Secretária Técnica",
+      linkedInUrl: "https://www.linkedin.com/feed/",
+    },
+    {
+      name: "Rafael Sosa",
+      imageSrc: "/about-us/team/rafael-sosa.webp",
+      jobTitle: "Coordinador P.A.I.F.",
+      linkedInUrl: "https://www.linkedin.com/feed/",
+    },
+    {
+      name: "Bárbara Salaberry",
+      imageSrc: "/about-us/team/barbara-salaberry.webp",
+      jobTitle: "Coordinadora de Comunicaciones",
+      linkedInUrl: "https://www.linkedin.com/feed/",
+    },
+    {
+      name: "Jorge Martínez Haedo",
+      imageSrc: "/about-us/team/jorge-martinez.webp",
+      jobTitle: "Coordinador Comisión Sanidad Forestal",
+      linkedInUrl: "https://www.linkedin.com/feed/",
+    },
+    {
+      name: "Victoria Sosa",
+      imageSrc: "",
+      jobTitle: "Secretaria Administrativa",
+      linkedInUrl: "https://www.linkedin.com/feed/",
+    },
+  ],
+};

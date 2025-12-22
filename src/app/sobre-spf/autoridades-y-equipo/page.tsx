@@ -1,12 +1,14 @@
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
 
-import { authorityConfig } from "@/lib/site/authority-team.config";
+import { authorityConfig, teamConfig } from "@/lib/site/authority-team.config";
 import AuthorityCard from "./components/authority-card";
 import AuthorityMembersList from "./components/authority-members-list";
+import TeamCard from "./components/team-card";
 
 export default function AuthorityTeamPage() {
   const { titularMembers } = authorityConfig;
+  const { team } = teamConfig;
 
   return (
     <div className="relative min-h-screen w-full">
@@ -69,6 +71,25 @@ export default function AuthorityTeamPage() {
                   titularMembers.fiscalCommition.subSectionMembers
                 }
               />
+            </div>
+          </div>
+        </section>
+
+        {/* Equipo */}
+        <section className="bg-spf-green-100 py-20">
+          <div className="text-spf-green-900 container mx-auto space-y-11 px-4 lg:px-0">
+            <h3 className="text-spf-green-500 text-4xl">Nuestro equipo</h3>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {team.map((member) => (
+                <TeamCard
+                  key={member.name}
+                  name={member.name}
+                  jobTitle={member.jobTitle}
+                  imageSrc={member.imageSrc}
+                  linkedInUrl={member.linkedInUrl}
+                />
+              ))}
             </div>
           </div>
         </section>
