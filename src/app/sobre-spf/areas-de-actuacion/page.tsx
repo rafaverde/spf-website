@@ -26,7 +26,7 @@ export default function ExpertiseAreasPage() {
 
             <div
               id="comision-de-sanidad"
-              className="border-spf-green-300 grid grid-cols-1 gap-8 border-t py-12 md:grid-cols-2"
+              className="border-spf-green-300 grid scroll-mt-28 grid-cols-1 gap-8 border-t py-12 md:grid-cols-2"
             >
               <div className="space-y-4">
                 <h3 className="text-spf-green-500 text-4xl">
@@ -56,7 +56,7 @@ export default function ExpertiseAreasPage() {
 
             <div
               id="paif"
-              className="border-spf-green-300 grid grid-cols-1 gap-8 border-t py-12 md:grid-cols-2"
+              className="border-spf-green-300 grid scroll-mt-28 grid-cols-1 gap-8 border-t pt-12 md:grid-cols-2"
             >
               <div className="space-y-4">
                 <h3 className="text-spf-green-500 text-4xl">Operativo PAIF</h3>
@@ -89,8 +89,8 @@ export default function ExpertiseAreasPage() {
             </div>
 
             <div
-              id="asuntos-laborales"
-              className="border-spf-green-300 grid grid-cols-1 gap-8 border-t py-12 md:grid-cols-2"
+              id="laborales"
+              className="border-spf-green-300 grid scroll-mt-28 grid-cols-1 gap-8 border-t pt-12 md:grid-cols-2"
             >
               <div className="space-y-4">
                 <h3 className="text-spf-green-500 text-4xl">
@@ -128,7 +128,7 @@ export default function ExpertiseAreasPage() {
 
             <div
               id="comunicacion"
-              className="border-spf-green-300 grid grid-cols-1 gap-8 border-t py-12 md:grid-cols-2"
+              className="border-spf-green-300 grid scroll-mt-28 grid-cols-1 gap-8 border-t pt-12 md:grid-cols-2"
             >
               <div className="space-y-4">
                 <h3 className="text-spf-green-500 text-4xl">

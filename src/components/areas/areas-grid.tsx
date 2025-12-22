@@ -11,25 +11,25 @@ const AREAS = [
     id: "sanidad",
     title: "Sanidad Forestal",
     image: "/areas/sanidad.webp",
-    href: "/areas/sanidad",
+    href: "/sobre-spf/areas-de-actuacion/#sanidad",
   },
   {
     id: "paif",
     title: "Operativo PAIF",
     image: "/areas/paif.webp",
-    href: "/areas/paif",
+    href: "/sobre-spf/areas-de-actuacion/#paif",
   },
   {
     id: "laborales",
     title: "Asuntos Laborales",
     image: "/areas/laborales.webp",
-    href: "/areas/laborales",
+    href: "/sobre-spf/areas-de-actuacion/#laborales",
   },
   {
     id: "comunicacion",
     title: "Comunicación",
     image: "/areas/comunicacion.webp",
-    href: "/areas/comunicacion",
+    href: "/sobre-spf/areas-de-actuacion/#comunicacion",
   },
 ];
 
