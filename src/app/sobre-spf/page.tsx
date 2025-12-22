@@ -1,7 +1,7 @@
 import HeroTitle from "@/components/layout/hero-title";
 import { HeroVideoBackground } from "@/components/layout/hero-video-background";
-import LinkCard from "./components/link-card";
-import VinculationsSection from "./components/vinculations-section";
+import LinkCard from "../../components/about-us/link-card";
+import VinculationsSection from "../../components/about-us/vinculations-section";
 
 export default function AboutUsPage() {
   return (
