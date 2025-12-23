@@ -1,31 +1,28 @@
 "use client";
 
-import { easeIn, motion, useAnimation } from "motion/react";
-import Typewriter from "../layout/typewriter";
-import { RiArrowDownWideLine } from "@remixicon/react";
-import { useEffect } from "react";
-import { ScrollIndicator } from "../layout/scroll-indicator";
+import { motion } from "motion/react";
+import Typewriter from "./typewriter";
+import { ScrollIndicator } from "./scroll-indicator";
 import { cn } from "@/lib/utils";
+import { Badge } from "../ui/badge";
 
-interface HeroProps {
+interface HeroTitleProps {
   staticTitle?: string;
   titlePosition?: "center" | "end";
   dynamicWords?: string[];
   scrollIndicator?: boolean;
+  categoryBadge?: string;
+  postDate?: string;
 }
 
-const DEFAULT_PHRASES = [
-  "oportunidades en todo Uruguay",
-  "un futuro sostenible",
-  "el desarrollo del país",
-];
-
-export default function Hero({
+export default function HeroTitle({
   staticTitle = "Impulsamos",
   titlePosition = "center",
-  dynamicWords = DEFAULT_PHRASES,
+  dynamicWords,
   scrollIndicator = false,
-}: HeroProps) {
+  categoryBadge,
+  postDate,
+}: HeroTitleProps) {
   return (
     <section
       className={cn(
@@ -51,6 +48,15 @@ export default function Hero({
               />
             </span>
           </h2>
+
+          <div className="mt-4 space-y-4">
+            {categoryBadge && <Badge>{categoryBadge}</Badge>}
+            {postDate && (
+              <span className="block text-sm text-white uppercase">
+                {postDate}
+              </span>
+            )}
+          </div>
         </motion.div>
       </div>
 
