@@ -4,12 +4,15 @@ import { motion } from "motion/react";
 import Typewriter from "./typewriter";
 import { ScrollIndicator } from "./scroll-indicator";
 import { cn } from "@/lib/utils";
+import { Badge } from "../ui/badge";
 
 interface HeroTitleProps {
   staticTitle?: string;
   titlePosition?: "center" | "end";
   dynamicWords?: string[];
   scrollIndicator?: boolean;
+  categoryBadge?: string;
+  postDate?: string;
 }
 
 export default function HeroTitle({
@@ -17,6 +20,8 @@ export default function HeroTitle({
   titlePosition = "center",
   dynamicWords,
   scrollIndicator = false,
+  categoryBadge,
+  postDate,
 }: HeroTitleProps) {
   return (
     <section
@@ -43,6 +48,15 @@ export default function HeroTitle({
               />
             </span>
           </h2>
+
+          <div className="mt-4 space-y-4">
+            {categoryBadge && <Badge>{categoryBadge}</Badge>}
+            {postDate && (
+              <span className="block text-sm text-white uppercase">
+                {postDate}
+              </span>
+            )}
+          </div>
         </motion.div>
       </div>
 
