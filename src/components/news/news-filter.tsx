@@ -52,6 +52,8 @@ export default function NewsFilters({
       params.delete("category");
     }
 
+    if (category === "todas") params.delete("category");
+
     // reset page
     params.delete("page");
 
@@ -65,13 +67,13 @@ export default function NewsFilters({
         placeholder="Buscar noticias..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="md:max-w-xs"
+        className="md:max-w-lg"
         aria-label="Buscar noticias"
       />
 
       {/* Category */}
       <Select value={category} onValueChange={setCategory}>
-        <SelectTrigger className="md:max-w-xs">
+        <SelectTrigger className="hover:text-white md:max-w-lg">
           <SelectValue placeholder="Filtrar por categoría" />
         </SelectTrigger>
         <SelectContent>

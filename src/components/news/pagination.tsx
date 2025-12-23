@@ -47,6 +47,7 @@ export default function Pagination({
             ? "text-muted-foreground pointer-events-none"
             : "hover:bg-muted",
         )}
+        scroll={false}
       >
         <RiArrowLeftSLine />
         Anterior
@@ -65,6 +66,7 @@ export default function Pagination({
                 ? "bg-spf-green-900 text-white"
                 : "hover:bg-muted",
             )}
+            scroll={false}
           >
             {page}
           </Link>
@@ -81,6 +83,7 @@ export default function Pagination({
             ? "text-muted-foreground pointer-events-none"
             : "hover:bg-muted",
         )}
+        scroll={false}
       >
         Siguiente
         <RiArrowRightSLine className="size-5" />
