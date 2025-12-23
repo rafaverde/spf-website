@@ -1,20 +1,24 @@
+export const dynamic = "force-dynamic";
+
 import NewsArchive from "@/components/news/news-archive";
 import NewsArchiveSkeleton from "@/components/news/news-archive-skeleton";
 import NewsFilters from "@/components/news/news-filter";
 import { Suspense } from "react";
 
 interface NewsPageProps {
-  searchParams?: {
+  searchParams?: Promise<{
     page?: string;
     search?: string;
     category?: string;
-  };
+  }>;
 }
 
-export default function NewsPage({ searchParams }: NewsPageProps) {
-  const page = Number(searchParams?.page ?? "1");
-  const search = searchParams?.search ?? "";
-  const category = searchParams?.category ?? "";
+export default async function NewsPage({ searchParams }: NewsPageProps) {
+  const params = await searchParams;
+
+  const page = Number(params?.page ?? "1");
+  const search = params?.search ?? "";
+  const category = params?.category ?? "";
 
   return (
     <>

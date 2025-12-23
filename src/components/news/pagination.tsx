@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/react";
-import { param } from "motion/react-client";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
