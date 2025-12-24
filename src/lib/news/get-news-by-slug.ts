@@ -1,7 +1,6 @@
-import { newsMock } from "./news.mock";
+import { getPostBySlug } from "../wp/get-post-by-slug";
 import { NewsItem } from "./news.types";
 
 export async function getNewsBySlug(slug: string): Promise<NewsItem | null> {
-  const news = newsMock.find((item) => item.slug === slug);
-  return news ?? null;
+  return getPostBySlug(slug);
 }

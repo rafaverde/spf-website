@@ -14,11 +14,16 @@ import {
 interface NewsFiltersProps {
   initialSearch?: string;
   initialCategory?: string;
+  categories: {
+    slug: string;
+    name: string;
+  }[];
 }
 
 export default function NewsFilters({
   initialSearch = "",
   initialCategory = "",
+  categories,
 }: NewsFiltersProps) {
   const router = useRouter();
   const pathname = usePathname();
@@ -78,10 +83,12 @@ export default function NewsFilters({
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="todas">Todas las categorías</SelectItem>
-          <SelectItem value="sanidad-forestal">Sanidad Forestal</SelectItem>
-          <SelectItem value="ambiente">Ambiente</SelectItem>
-          <SelectItem value="economia">Economía</SelectItem>
-          <SelectItem value="manejo-de-suelos">Manejo de Suelos</SelectItem>
+
+          {categories.map((cat) => (
+            <SelectItem key={cat.slug} value={cat.name}>
+              {cat.name}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
     </div>

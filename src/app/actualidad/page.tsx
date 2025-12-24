@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 import NewsArchive from "@/components/news/news-archive";
 import NewsArchiveSkeleton from "@/components/news/news-archive-skeleton";
 import NewsFilters from "@/components/news/news-filter";
+import { getCategories } from "@/lib/wp/get-categories";
 import { Suspense } from "react";
 
 interface NewsPageProps {
@@ -20,6 +21,8 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
   const search = params?.search ?? "";
   const category = params?.category ?? "";
 
+  const categories = await getCategories();
+
   return (
     <>
       <section className="bg-spf-green-900 w-full py-20">
@@ -36,7 +39,11 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
       <section className="w-full bg-white py-20">
         <div className="container mx-auto space-y-4">
           {/* Filters */}
-          <NewsFilters initialSearch={search} initialCategory={category} />
+          <NewsFilters
+            initialSearch={search}
+            initialCategory={category}
+            categories={categories}
+          />
 
           {/* News grid */}
           <Suspense fallback={<NewsArchiveSkeleton />}>

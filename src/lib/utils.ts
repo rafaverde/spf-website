@@ -1,5 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { WpPost } from "./wp/wp.types";
+import { NewsItem } from "./news/news.types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

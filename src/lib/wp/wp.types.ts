@@ -11,6 +11,10 @@ export interface WpPost {
     rendered: string;
   };
   date: string;
-  featured_media: number;
   categories: number[];
+  _embedded?: {
+    "wp:featuredmedia"?: Array<{
+      source_url: string;
+    }>;
+  };
 }

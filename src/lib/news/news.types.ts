@@ -1,16 +1,16 @@
 export interface NewsCategory {
-  id: string;
-  name: string;
-  slug: string;
+  id: number;
+  name?: string;
+  slug?: string;
 }
 
 export interface NewsItem {
-  id: string;
+  id: number;
   title: string;
   excerpt: string;
   content: string;
   publishedAt: string;
   slug: string;
-  image: string;
+  image?: string;
   category: NewsCategory;
 }

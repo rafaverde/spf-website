@@ -1,10 +1,30 @@
-// src/lib/news/get-all-news.ts
 import "server-only";
-import { newsMock } from "./news.mock";
 
-export async function getAllNews() {
-  return [...newsMock].sort(
-    (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-  );
+import { NewsItem } from "./news.types";
+import { getPosts } from "../wp/get-posts";
+
+interface GetAllNewsParams {
+  page: number;
+  perPage: number;
+  search?: string;
+  category?: string;
+}
+
+export async function getAllNews({
+  page,
+  perPage,
+  search,
+  category,
+}: GetAllNewsParams): Promise<{ news: NewsItem[]; totalPages: number }> {
+  const { posts, totalPages } = await getPosts({
+    page,
+    perPage,
+    search,
+    category,
+  });
+
+  return {
+    news: posts,
+    totalPages,
+  };
 }

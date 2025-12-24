@@ -21,7 +21,7 @@ export default function HeroImageBackground({
           src={imageSrc}
           alt=""
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="100vw"
           className="inset-0 top-0 left-0 z-0 h-full w-full object-cover opacity-65"
         />
 
