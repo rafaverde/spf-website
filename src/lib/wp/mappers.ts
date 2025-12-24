@@ -8,7 +8,7 @@ export function mapWPPostToNews(post: WpPost): NewsItem {
     id: post.id,
     slug: post.slug,
     title: post.title.rendered,
-    excerpt: post.excerpt.rendered,
+    excerpt: generateExcerptFromHtml(post.excerpt.rendered, 75),
     content: post.content.rendered,
     publishedAt: post.date,
     image,
@@ -17,4 +17,19 @@ export function mapWPPostToNews(post: WpPost): NewsItem {
       name: "",
     },
   };
+}
+
+// Gerador de excerpt, caso não exista
+export function generateExcerptFromHtml(
+  html: string,
+  maxLength: number = 160,
+): string {
+  const text = html
+    .replace(/<[^>]+>/g, "") // remove HTML
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (text.length <= maxLength) return text;
+
+  return text.slice(0, maxLength).trim() + "…";
 }

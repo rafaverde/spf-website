@@ -14,7 +14,7 @@ export default async function NewsCarousel() {
   let news: NewsItem[] = [];
 
   try {
-    news = await getLatestNews({ limit: 12 });
+    news = await getLatestNews(12);
   } catch (error) {
     console.error("Failed to load news: ", error);
   }
