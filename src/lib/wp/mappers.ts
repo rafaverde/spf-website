@@ -1,4 +1,5 @@
 import { NewsItem } from "../news/news.types";
+import { Publication } from "../publications/publication.types";
 import { WpPost } from "./wp.types";
 
 export function mapWPPostToNews(post: WpPost): NewsItem {
@@ -38,4 +39,14 @@ export function generateExcerptFromHtml(
   if (text.length <= maxLength) return text;
 
   return text.slice(0, maxLength).trim() + "…";
+}
+
+export function mapWpPublication(post: WpPost): Publication {
+  return {
+    id: post.id,
+    title: post.title.rendered,
+    pdfUrl: post.acf?.pdf_file_source?.formatted_value ?? "",
+    documentDate:
+      post.acf?.document_date_source?.formatted_value ?? post.date.slice(0, 10),
+  };
 }
