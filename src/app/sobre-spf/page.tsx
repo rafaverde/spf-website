@@ -15,7 +15,7 @@ export default function AboutUsPage() {
         />
 
         <section className="bg-white py-20">
-          <div className="text-spf-green-900 container mx-auto space-y-6">
+          <div className="text-spf-green-900 container mx-auto space-y-6 px-4 lg:px-0">
             <p>
               Somos la Sociedad de Productores Forestales del Uruguay (SPF), una
               asociación civil fundada en 1959 que reúne a los principales

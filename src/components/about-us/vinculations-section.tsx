@@ -6,11 +6,11 @@ import Link from "next/link";
 export default function VinculationsSection() {
   return (
     <section className="bg-spf-green-100 py-20">
-      <div className="text-spf-green-900 container mx-auto space-y-6">
+      <div className="text-spf-green-900 container mx-auto space-y-6 px-4 lg:px-0">
         <h2 className="text-4xl">Vinculaciones</h2>
 
         {/* Consorcio Forestal Maderero  */}
-        <div className="border-spf-green-300 grid grid-cols-2 gap-6 border-b py-11">
+        <div className="border-spf-green-300 grid gap-6 border-b py-11 md:grid-cols-2">
           <div className="space-y-6">
             <h3 className="text-spf-green-500 text-2xl">
               Consorcio Forestal Maderero 
@@ -44,8 +44,8 @@ export default function VinculationsSection() {
         </div>
 
         {/* PEFC y FSC  */}
-        <div className="border-spf-green-300 grid grid-cols-12 gap-6 border-b py-11">
-          <div className="col-span-9 space-y-6">
+        <div className="border-spf-green-300 gap-6 border-b py-11 md:grid md:grid-cols-12">
+          <div className="space-y-6 md:col-span-9">
             <h3 className="text-spf-green-500 text-2xl">PEFC y FSC </h3>
             <p>
               <span className="font-bold uppercase">
@@ -87,7 +87,7 @@ export default function VinculationsSection() {
               sostenibilidad en toda la cadena de valor forestal. 
             </p>
           </div>
-          <div className="col-span-3 flex flex-col items-center gap-10">
+          <div className="flex flex-col items-center gap-10 md:col-span-3">
             <div className="flex w-full flex-col items-center gap-4">
               <Image
                 src="/about-us/logo-pefc.webp"
@@ -119,7 +119,7 @@ export default function VinculationsSection() {
         </div>
 
         {/* Centro Tecnológico Forestal Maderero  */}
-        <div className="border-spf-green-300 grid grid-cols-2 gap-6 border-b py-11">
+        <div className="border-spf-green-300 grid gap-6 border-b py-11 md:grid-cols-2">
           <div className="space-y-6">
             <h3 className="text-spf-green-500 text-2xl">
               Centro Tecnológico Forestal Maderero 
