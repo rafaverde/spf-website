@@ -40,7 +40,7 @@ export function HeroVideoBackground({
       <video
         ref={videoRef}
         preload="metadata"
-        // autoPlay
+        autoPlay
         loop
         muted
         playsInline
