@@ -12,6 +12,11 @@ export interface WpPost {
   };
   date: string;
   categories: number[];
+  meta?: {
+    pdf_file?: string;
+    document_date?: string;
+    [key: string]: any;
+  };
   _embedded?: {
     "wp:featuredmedia"?: Array<{
       source_url: string;
