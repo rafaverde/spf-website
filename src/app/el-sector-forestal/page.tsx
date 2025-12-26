@@ -83,7 +83,7 @@ export default function StatisticsPage() {
 
         {/* Empleo y tributos */}
         <section className="bg-spf-green-500/75 py-24">
-          <div className="container mx-auto space-y-16">
+          <div className="container mx-auto space-y-16 px-4 lg:px-0">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-muted text-3xl">
                 Empleo, salarios y tributos
@@ -127,7 +127,7 @@ export default function StatisticsPage() {
 
         {/* Productividad */}
         <section className="bg-white py-24">
-          <div className="container mx-auto space-y-16">
+          <div className="container mx-auto space-y-16 px-4 lg:px-0">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-3xl">
                 Productividad y competitividad sectorial

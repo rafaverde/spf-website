@@ -19,14 +19,6 @@ import { Button } from "../ui/button";
 import { RiMenuLine } from "@remixicon/react";
 import { globalConfig } from "@/lib/site/global.config";
 
-// const navItems = [
-//   { label: "Sobre SPF", href: "/sobre-spf" },
-//   { label: "El Sector Forestal", href: "/sector-forestal" },
-//   { label: "Publicaciones", href: "/publicaciones" },
-//   { label: "Actualidad", href: "/actualidad" },
-//   { label: "Contacto", href: "/contacto" },
-// ];
-
 export default function Header() {
   const pathname = usePathname();
 
@@ -69,7 +61,7 @@ export default function Header() {
             width={250}
             height={0}
             className={cn(
-              "w-[140px] transition-all duration-300",
+              "h-auto w-[140px] transition-all duration-300",
               !isScrolled && "h-auto brightness-0 invert md:w-[250px]",
             )}
             priority
@@ -137,6 +129,8 @@ export default function Header() {
               <Image
                 src={globalConfig.branding.icon}
                 alt="SPF Icon"
+                width={40}
+                height={40}
                 className="size-10"
               />
             </SheetHeader>
