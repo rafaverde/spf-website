@@ -11,8 +11,12 @@ import {
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
 import Link from "next/link";
+import { getPublications } from "@/lib/wp/get-publications";
+import PublicationCard from "../publications/publication-card";
 
-export default function PublicationsSection() {
+export default async function PublicationsSection() {
+  const publications = await getPublications({ perPage: 6 });
+
   return (
     <section className="bg-spf-green-300 relative w-full py-20">
       <Image
@@ -48,25 +52,9 @@ export default function PublicationsSection() {
         <div className="order-1 mb-8 lg:col-span-3">
           <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent>
-              {Array.from({ length: 6 }).map((_, i) => (
+              {publications.map((item, i) => (
                 <CarouselItem key={i} className="lg:basis-1/3">
-                  <Link href="#">
-                    <Card className="bg-spf-green-100 group p-6">
-                      <CardContent className="text-spf-green-900 flex flex-col items-center justify-center gap-3">
-                        <RiFilePdf2Fill className="group-hover:text-spf-highlight-400 m-2 size-12 transition-all duration-500 ease-in-out" />
-                        <h3 className="text-center leading-tight">
-                          Sistema de información y monitoreo de la biodiversidad
-                          en el sector forestal
-                        </h3>
-
-                        <Badge className="tracking-wide uppercase">
-                          Ambiente
-                        </Badge>
-
-                        <span className="text-sm">Noviembre 2022</span>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                  <PublicationCard publication={item} />
                 </CarouselItem>
               ))}
             </CarouselContent>

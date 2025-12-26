@@ -12,11 +12,18 @@ export interface WpPost {
   };
   date: string;
   categories: number[];
-  meta?: {
-    pdf_file?: string;
+
+  acf?: {
+    pdf_file?: number;
+    pdf_file_source?: {
+      formatted_value?: string;
+    };
     document_date?: string;
-    [key: string]: any;
+    document_date_source?: {
+      formatted_value?: string;
+    };
   };
+
   _embedded?: {
     "wp:featuredmedia"?: Array<{
       source_url: string;

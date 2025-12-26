@@ -45,7 +45,8 @@ export function mapWpPublication(post: WpPost): Publication {
   return {
     id: post.id,
     title: post.title.rendered,
-    pdfUrl: post.meta?.pdf_file ?? "",
-    documentDate: post.meta?.document_date ?? "",
+    pdfUrl: post.acf?.pdf_file_source?.formatted_value ?? "",
+    documentDate:
+      post.acf?.document_date_source?.formatted_value ?? post.date.slice(0, 10),
   };
 }

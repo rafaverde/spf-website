@@ -1,4 +1,6 @@
+import PublicationCard from "@/components/publications/publication-card";
 import { getPublications } from "@/lib/wp/get-publications";
+import { RiEmotionSadLine } from "@remixicon/react";
 
 export default async function PublicationsPage() {
   const publications = await getPublications({ perPage: 12 });
@@ -12,6 +14,26 @@ export default async function PublicationsPage() {
             Informes, estudios y documentos técnicos vinculados al sector
             forestal.
           </p>
+        </div>
+      </section>
+
+      <section className="w-full bg-white py-20">
+        <div className="container mx-auto space-y-4">
+          {publications.length > 0 ? (
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
+              {publications.map((publication) => (
+                <PublicationCard publication={publication} />
+              ))}
+            </div>
+          ) : (
+            <div className="flex w-full flex-col items-center justify-center gap-1 py-10 text-center">
+              <RiEmotionSadLine className="text-spf-green-500 size-10" />
+              <p className="text-muted-foreground text-sm">
+                No se encontraron documentos en este momento. <br />
+                <strong>Inténtalo de nuevo más tarde.</strong>
+              </p>
+            </div>
+          )}
         </div>
       </section>
     </>
