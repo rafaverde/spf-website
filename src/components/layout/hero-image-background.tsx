@@ -22,6 +22,7 @@ export default function HeroImageBackground({
           alt=""
           fill
           sizes="100vw"
+          unoptimized
           className="inset-0 top-0 left-0 z-0 h-full w-full object-cover opacity-65"
         />
 

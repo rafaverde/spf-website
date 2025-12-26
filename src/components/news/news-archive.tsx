@@ -20,7 +20,7 @@ export default async function NewsArchive({
     page,
     perPage: pageSize,
     search,
-    category: category || undefined,
+    category: category,
   });
 
   return (

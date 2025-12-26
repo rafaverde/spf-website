@@ -50,7 +50,9 @@ export default function HeroTitle({
           </h2>
 
           <div className="mt-4 space-y-4">
-            {categoryBadge && <Badge>{categoryBadge}</Badge>}
+            {categoryBadge && (
+              <Badge className="py-1 uppercase">{categoryBadge}</Badge>
+            )}
             {postDate && (
               <span className="block text-sm text-white uppercase">
                 {postDate}

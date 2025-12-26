@@ -85,7 +85,7 @@ export default function NewsFilters({
           <SelectItem value="todas">Todas las categorías</SelectItem>
 
           {categories.map((cat) => (
-            <SelectItem key={cat.slug} value={cat.name}>
+            <SelectItem key={cat.slug} value={cat.slug}>
               {cat.name}
             </SelectItem>
           ))}

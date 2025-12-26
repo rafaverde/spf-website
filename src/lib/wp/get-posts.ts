@@ -25,7 +25,7 @@ export async function getPosts({
       per_page: perPage,
       search,
       categories: categoryId,
-      _embed: "wp:featuredmedia",
+      _embed: "wp:featuredmedia,wp:term",
     },
     revalidate: 60,
   });

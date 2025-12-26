@@ -12,5 +12,5 @@ export interface NewsItem {
   publishedAt: string;
   slug: string;
   image?: string;
-  category: NewsCategory;
+  category: NewsCategory | undefined;
 }

@@ -24,6 +24,8 @@ export default async function NewsSinglePage({ params }: NewsSinglePageProps) {
     notFound();
   }
 
+  console.log(news);
+
   return (
     <article className="w-full">
       <div className="relative min-h-screen w-full">
@@ -34,7 +36,9 @@ export default async function NewsSinglePage({ params }: NewsSinglePageProps) {
           <HeroTitle
             staticTitle={news.title}
             titlePosition="end"
-            categoryBadge={news.category.name}
+            categoryBadge={
+              news.category?.name ? news.category.name : "Sin categorización"
+            }
             postDate={formatDate(news.publishedAt)}
           />
 

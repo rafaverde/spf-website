@@ -6,6 +6,7 @@ export async function getPostBySlug(slug: string) {
   const { data } = await fetchWp<WpPost[]>("posts", {
     params: {
       slug,
+      _embed: "wp:featuredmedia,wp:term",
     },
     revalidate: 60,
   });
