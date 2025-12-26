@@ -8,7 +8,7 @@ interface GetPublicationsParams {
   perPage?: number;
 }
 
-export async function getPublicationsParams({
+export async function getPublications({
   page,
   perPage,
 }: GetPublicationsParams = {}): Promise<Publication[]> {
@@ -19,6 +19,8 @@ export async function getPublicationsParams({
     },
     revalidate: 60,
   });
+
+  console.log(data);
 
   return data.map(mapWpPublication);
 }
