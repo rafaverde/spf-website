@@ -15,7 +15,7 @@ export const globalConfig = {
 
   contact: {
     address: "Juncal 1327D oficina 204, Edificio Ciudadela",
-    email: "spf@spf.com.uy",
+    email: "contacto@spf.com.uy",
     phones: ["+598 2914 6220", "+598 2914 6221"],
   },
 
