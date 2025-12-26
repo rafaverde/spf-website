@@ -18,9 +18,10 @@ export default function NewsCard({ news }: NewsCardProps) {
       >
         <div className="absolute inset-0 z-0 h-full w-full">
           <Image
-            src={news.image}
+            src={news.image ? news.image : "/news/news-placeholder.webp"}
             alt={news.title}
             fill
+            unoptimized
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           />

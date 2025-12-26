@@ -8,7 +8,7 @@ import {
   useMotionValue,
   useTransform,
 } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 interface StatisticsCounterProps {
   value: number;

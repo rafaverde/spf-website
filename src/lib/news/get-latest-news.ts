@@ -1,20 +1,12 @@
 import "server-only";
 import { NewsItem } from "./news.types";
-import { newsMock } from "./news.mock";
+import { getPosts } from "../wp/get-posts";
 
-interface GetLatestNewsParams {
-  limit?: number;
-}
+export async function getLatestNews(limit: number = 6): Promise<NewsItem[]> {
+  const { posts } = await getPosts({
+    page: 1,
+    perPage: limit,
+  });
 
-export async function getLatestNews(
-  params: GetLatestNewsParams = {},
-): Promise<NewsItem[]> {
-  const { limit = 4 } = params;
-
-  const sorted = [...newsMock].sort(
-    (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-  );
-
-  return sorted.slice(0, limit);
+  return posts;
 }

@@ -16,33 +16,19 @@ export default async function NewsArchive({
   search,
   category,
 }: NewsArchiveProps) {
-  const allNews = await getAllNews();
-
-  const normalizedSearch = search?.toLowerCase().trim();
-
-  const filteredNews = allNews.filter((item) => {
-    const matchesSearch = normalizedSearch
-      ? item.title.toLowerCase().includes(normalizedSearch) ||
-        item.excerpt.toLowerCase().includes(normalizedSearch)
-      : true;
-
-    const matchesCategory = category ? item.category.slug === category : true;
-
-    return matchesSearch && matchesCategory;
+  const { news, totalPages } = await getAllNews({
+    page,
+    perPage: pageSize,
+    search,
+    category: category,
   });
-
-  const totalItems = filteredNews.length;
-  const totalPages = Math.ceil(totalItems / pageSize);
-
-  const startIndex = (page - 1) * pageSize;
-  const paginatedNews = filteredNews.slice(startIndex, startIndex + pageSize);
 
   return (
     <div className="space-y-12">
       {/* Grid */}
-      {paginatedNews.length > 0 ? (
+      {news.length > 0 ? (
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {paginatedNews.map((news) => (
+          {news.map((news) => (
             <NewsCard key={news.id} news={news} />
           ))}
         </div>

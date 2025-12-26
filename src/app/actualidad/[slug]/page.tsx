@@ -19,21 +19,26 @@ export default async function NewsSinglePage({ params }: NewsSinglePageProps) {
   const { slug } = await params;
 
   const news = await getNewsBySlug(slug);
-  console.log(news);
 
   if (!news) {
     notFound();
   }
 
+  console.log(news);
+
   return (
     <article className="w-full">
       <div className="relative min-h-screen w-full">
-        <HeroImageBackground imageSrc={news.image} />
+        <HeroImageBackground
+          imageSrc={news.image ? news.image : "/news/news-placeholder.webp"}
+        />
         <div className="relative z-10 flex flex-col">
           <HeroTitle
             staticTitle={news.title}
             titlePosition="end"
-            categoryBadge={news.category.name}
+            categoryBadge={
+              news.category?.name ? news.category.name : "Sin categorización"
+            }
             postDate={formatDate(news.publishedAt)}
           />
 
