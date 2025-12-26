@@ -26,7 +26,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
   return (
     <>
       <section className="bg-spf-green-900 w-full py-20">
-        <div className="container mx-auto mt-[180px] space-y-4">
+        <div className="container mx-auto mt-[180px] space-y-4 px-4 lg:px-0">
           <h2 className="text-4xl text-white">Actualidad</h2>
           <p className="text-muted w-1/2">
             Las últimas noticias sobre trabajos de investigación en áreas
@@ -37,7 +37,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
       </section>
 
       <section className="w-full bg-white py-20">
-        <div className="container mx-auto space-y-4">
+        <div className="container mx-auto space-y-4 px-4 lg:px-0">
           {/* Filters */}
           <NewsFilters
             initialSearch={search}

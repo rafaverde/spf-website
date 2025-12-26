@@ -43,7 +43,7 @@ export default async function NewsSinglePage({ params }: NewsSinglePageProps) {
           />
 
           <section className="bg-white py-20">
-            <div className="container mx-auto max-w-3xl">
+            <div className="container mx-auto max-w-3xl px-4 lg:px-0">
               <Link href="/actualidad">
                 <Button variant="outline" size="lg">
                   <RiArrowLeftLine />

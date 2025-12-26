@@ -22,7 +22,7 @@ export default async function PublicationsPage({
   return (
     <>
       <section className="bg-spf-green-900 w-full py-20">
-        <div className="container mx-auto mt-[180px] space-y-4">
+        <div className="container mx-auto mt-[180px] space-y-4 px-4 lg:px-0">
           <h2 className="text-4xl text-white">Publicaciones</h2>
           <p className="text-muted w-1/2">
             Informes, estudios y documentos técnicos vinculados al sector
@@ -31,8 +31,8 @@ export default async function PublicationsPage({
         </div>
       </section>
 
-      <section className="w-full bg-white p-20">
-        <div className="container mx-auto space-y-4">
+      <section className="w-full bg-white px-4 py-20 lg:p-20">
+        <div className="container mx-auto space-y-4 px-4 lg:px-0">
           {publications.length > 0 ? (
             <>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">

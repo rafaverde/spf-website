@@ -39,7 +39,7 @@ export default function LinkCard({ title, image, href }: LinkCardProps) {
         </div>
 
         <div className="relative z-20 flex w-full items-center justify-between">
-          <h3 className="text-4xl text-white transition-all duration-300 ease-in-out group-hover:opacity-0">
+          <h3 className="flex-1 text-2xl text-white transition-all duration-300 ease-in-out group-hover:opacity-0 md:text-4xl">
             {title}
           </h3>
           <div className="bg-spf-highlight-400 group-hover:bg-spf-green-500 flex size-10 items-center justify-center rounded-full text-white transition-all duration-500 ease-in-out group-hover:rotate-45">
