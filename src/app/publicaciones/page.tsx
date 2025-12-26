@@ -1,9 +1,23 @@
+import Pagination from "@/components/news/pagination";
 import PublicationCard from "@/components/publications/publication-card";
 import { getPublications } from "@/lib/wp/get-publications";
 import { RiEmotionSadLine } from "@remixicon/react";
 
-export default async function PublicationsPage() {
-  const publications = await getPublications({ perPage: 12 });
+interface PublicationsPageProps {
+  searchParams?: Promise<{
+    page?: string;
+  }>;
+}
+
+export default async function PublicationsPage({
+  searchParams,
+}: PublicationsPageProps) {
+  const params = await searchParams;
+  const page = Number(params?.page ?? "1");
+  const { publications, totalPages } = await getPublications({
+    page,
+    perPage: 12,
+  });
 
   return (
     <>
@@ -17,14 +31,25 @@ export default async function PublicationsPage() {
         </div>
       </section>
 
-      <section className="w-full bg-white py-20">
+      <section className="w-full bg-white p-20">
         <div className="container mx-auto space-y-4">
           {publications.length > 0 ? (
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
-              {publications.map((publication) => (
-                <PublicationCard publication={publication} />
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
+                {publications.map((publication) => (
+                  <PublicationCard
+                    key={publication.id}
+                    publication={publication}
+                  />
+                ))}
+              </div>
+
+              <div className="mt-10">
+                {totalPages > 1 && (
+                  <Pagination currentPage={page} totalPages={totalPages} />
+                )}
+              </div>
+            </>
           ) : (
             <div className="flex w-full flex-col items-center justify-center gap-1 py-10 text-center">
               <RiEmotionSadLine className="text-spf-green-500 size-10" />

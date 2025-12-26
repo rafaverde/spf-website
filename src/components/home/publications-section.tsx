@@ -1,4 +1,4 @@
-import { RiArrowRightUpLine, RiFilePdf2Fill } from "@remixicon/react";
+import { RiArrowRightUpLine } from "@remixicon/react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import {
@@ -8,14 +8,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import { Card, CardContent } from "../ui/card";
-import { Badge } from "../ui/badge";
-import Link from "next/link";
 import { getPublications } from "@/lib/wp/get-publications";
 import PublicationCard from "../publications/publication-card";
+import Link from "next/link";
 
 export default async function PublicationsSection() {
-  const publications = await getPublications({ perPage: 6 });
+  const { publications } = await getPublications({ perPage: 6 });
 
   return (
     <section className="bg-spf-green-300 relative w-full py-20">
@@ -43,9 +41,11 @@ export default async function PublicationsSection() {
             </p>
           </div>
           <div className="text-right">
-            <Button size="lg">
-              Ver todas las publicaciones <RiArrowRightUpLine />
-            </Button>
+            <Link href="/publicaciones">
+              <Button size="lg">
+                Ver todas las publicaciones <RiArrowRightUpLine />
+              </Button>
+            </Link>
           </div>
         </div>
 

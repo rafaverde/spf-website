@@ -1,18 +1,15 @@
-import { Publication } from "../publications/publication.types";
 import { mapWpPublication } from "./mappers";
 import { fetchWp } from "./wp.client";
 import { WpPost } from "./wp.types";
 
-interface GetPublicationsParams {
+export async function getPublications({
+  page = 1,
+  perPage = 12,
+}: {
   page?: number;
   perPage?: number;
-}
-
-export async function getPublications({
-  page,
-  perPage,
-}: GetPublicationsParams = {}): Promise<Publication[]> {
-  const { data } = await fetchWp<WpPost[]>("publicacion", {
+}) {
+  const { data, headers } = await fetchWp<WpPost[]>("publicacion", {
     params: {
       page,
       per_page: perPage,
@@ -20,7 +17,10 @@ export async function getPublications({
     revalidate: 60,
   });
 
-  console.log(data);
+  const totalPages = Number(headers.get("X-WP-TotalPages"));
 
-  return data.map(mapWpPublication);
+  return {
+    publications: data.map(mapWpPublication),
+    totalPages,
+  };
 }
