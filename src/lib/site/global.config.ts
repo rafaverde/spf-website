@@ -7,7 +7,7 @@ export const globalConfig = {
 
   navigation: [
     { label: "Sobre SPF", href: "/sobre-spf" },
-    { label: "El Sector Forestal", href: "/sector-forestal" },
+    { label: "El Sector Forestal", href: "/el-sector-forestal" },
     { label: "Publicaciones", href: "/publicaciones" },
     { label: "Actualidad", href: "/actualidad" },
     { label: "Contacto", href: "/contacto" },
