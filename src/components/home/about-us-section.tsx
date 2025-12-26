@@ -7,6 +7,7 @@ import { RiArrowRightUpLine } from "@remixicon/react";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
 
 const SUMMARY_IMAGES = [
   "/summary-carousel/image-1.webp",
@@ -44,9 +45,11 @@ export default function AboutUsSection() {
           </p>
         </div>
         <div>
-          <Button size="lg">
-            Más información <RiArrowRightUpLine />
-          </Button>
+          <Link href="/sobre-spf">
+            <Button size="lg">
+              Más información <RiArrowRightUpLine />
+            </Button>
+          </Link>
         </div>
       </motion.div>
 

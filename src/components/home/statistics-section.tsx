@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { RiArrowRightUpLine } from "@remixicon/react";
 import StatisticsCounter from "../statistics/statistics-counter";
+import Link from "next/link";
 
 export default function StatisticsSection() {
   return (
@@ -34,12 +35,14 @@ export default function StatisticsSection() {
         </div>
 
         <div className="text-right">
-          <Button
-            size="lg"
-            className="border-spf-green-100 border bg-transparent"
-          >
-            Más cifras <RiArrowRightUpLine />
-          </Button>
+          <Link href={"/el-sector-forestal"}>
+            <Button
+              size="lg"
+              className="border-spf-green-100 border bg-transparent"
+            >
+              Más cifras <RiArrowRightUpLine />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
