@@ -77,7 +77,7 @@ export function ScrollIndicator({
     >
       <div className="flex flex-col items-center">
         <span className="text-spf-green-100/50 text-xs tracking-widest uppercase">
-          Descubra
+          Ver más
         </span>
         <RiArrowDownWideLine className="text-spf-green-500/60" />
       </div>
