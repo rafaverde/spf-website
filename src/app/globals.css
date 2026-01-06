@@ -145,4 +145,16 @@
   button {
     @apply hover:bg-spf-green-900! cursor-pointer! transition-colors duration-500 ease-in-out;
   }
+
+  .gallery {
+    @apply mt-8 grid grid-cols-1 gap-4 select-none md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .gallery img {
+    @apply w-full rounded-lg;
+  }
+
+  .gallery-item a {
+    @apply pointer-events-none;
+  }
 }
