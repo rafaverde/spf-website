@@ -11,7 +11,7 @@ export default function StatisticsPage() {
         <HeroTitle staticTitle="El Sector Forestal" titlePosition="end" />
 
         <section className="bg-white py-20">
-          <div className="text-spf-green-900 container mx-auto space-y-11 px-4 lg:px-0">
+          <div className="text-spf-green-900 container mx-auto space-y-11 px-4">
             <p className="max-w-2xl">
               El sector forestal es un pilar estratégico de la economía
               nacional, con un impacto significativo en el producto interno
@@ -31,7 +31,7 @@ export default function StatisticsPage() {
             className="inset-0 top-0 left-0 z-0 h-full w-full object-cover opacity-20"
           />
 
-          <div className="relative container mx-auto space-y-16 px-4 lg:px-0">
+          <div className="relative container mx-auto space-y-16 px-4">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-muted text-3xl">
                 Contribución económica del sector
@@ -83,7 +83,7 @@ export default function StatisticsPage() {
 
         {/* Empleo y tributos */}
         <section className="bg-spf-green-500/75 py-24">
-          <div className="container mx-auto space-y-16 px-4 lg:px-0">
+          <div className="container mx-auto space-y-16 px-4">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-muted text-3xl">
                 Empleo, salarios y tributos
@@ -127,7 +127,7 @@ export default function StatisticsPage() {
 
         {/* Productividad */}
         <section className="bg-white py-24">
-          <div className="container mx-auto space-y-16 px-4 lg:px-0">
+          <div className="container mx-auto space-y-16 px-4">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-3xl">
                 Productividad y competitividad sectorial

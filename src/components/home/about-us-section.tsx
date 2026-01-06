@@ -31,7 +31,7 @@ export default function AboutUsSection() {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="container mx-auto flex flex-col items-end justify-center gap-8 px-4 lg:px-0"
+        className="container mx-auto flex flex-col items-end justify-center gap-8 px-4"
       >
         <div className="space-y-3">
           <h2 className="text-spf-green-300 text-4xl">Quiéne Somos</h2>
@@ -53,7 +53,7 @@ export default function AboutUsSection() {
         </div>
       </motion.div>
 
-      <div className="px-4 pt-11 lg:px-0">
+      <div className="px-4 pt-11">
         <Carousel
           opts={{ align: "start", loop: true }}
           plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}

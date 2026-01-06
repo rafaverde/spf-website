@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function VinculationsSection() {
   return (
     <section className="bg-spf-green-100 py-20">
-      <div className="text-spf-green-900 container mx-auto space-y-6 px-4 lg:px-0">
+      <div className="text-spf-green-900 container mx-auto space-y-6 px-4">
         <h2 className="text-4xl">Vinculaciones</h2>
 
         {/* Consorcio Forestal Maderero  */}

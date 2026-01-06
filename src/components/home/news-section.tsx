@@ -8,7 +8,7 @@ import NewsCarouselSkeleton from "../news/news-carousel-skeleton";
 export default async function NewsSection() {
   return (
     <section className="bg-spf-highlight-400 w-full py-20">
-      <div className="container mx-auto flex flex-col items-end justify-between gap-8 px-4 md:flex-row md:items-start lg:px-0">
+      <div className="container mx-auto flex flex-col items-end justify-between gap-8 px-4 md:flex-row md:items-start">
         <div className="lg:max-w-3xl">
           <h2 className="text-4xl text-white">Actualidad</h2>
           <p className="text-white">
@@ -23,7 +23,7 @@ export default async function NewsSection() {
           </Button>
         </Link>
       </div>
-      <div className="container mx-auto mt-6 px-4 lg:px-0">
+      <div className="container mx-auto mt-6 px-4">
         <Suspense fallback={<NewsCarouselSkeleton />}>
           <NewsCarousel />
         </Suspense>

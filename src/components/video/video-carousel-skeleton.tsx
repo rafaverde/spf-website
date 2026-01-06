@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 export default function VideoCarouselSkeleton() {
   return (
     <section className="w-full bg-white py-20">
-      <div className="container mx-auto flex flex-col gap-8 px-4 lg:px-0">
+      <div className="container mx-auto flex flex-col gap-8 px-4">
         <div className="flex flex-col items-end-safe justify-between gap-8 md:flex-row">
           <div>
             <h2 className="text-spf-yellow-400 text-4xl">Canal Forestal</h2>

@@ -31,7 +31,7 @@ export default function HeroTitle({
       )}
     >
       {/* Content Layer */}
-      <div className="relative z-10 container mx-auto flex h-full flex-col justify-center px-4 lg:px-0">
+      <div className="relative z-10 container mx-auto flex h-full flex-col justify-center px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

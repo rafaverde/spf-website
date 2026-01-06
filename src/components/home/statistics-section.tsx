@@ -15,7 +15,7 @@ export default function StatisticsSection() {
         className="inset-0 top-0 left-0 z-0 h-full w-full object-cover opacity-20"
       />
 
-      <div className="relative container mx-auto px-4 lg:px-0">
+      <div className="relative container mx-auto px-4">
         <h2 className="text-spf-green-100 text-4xl">El sector en cifras</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3">

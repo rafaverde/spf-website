@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <motion.header
       id="top"
-      className="fixed top-0 right-0 left-0 z-50 w-full border-b border-transparent px-4 lg:px-0"
+      className="fixed top-0 right-0 left-0 z-50 w-full border-b border-transparent px-4"
       animate={{
         height: isScrolled ? "64px" : "100px",
       }}
