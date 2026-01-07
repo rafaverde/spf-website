@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import * as Icons from "@remixicon/react";
 import { Button } from "../ui/button";
+import MacondoSignature from "./macondo-signature";
 
 export default function Footer() {
   return (

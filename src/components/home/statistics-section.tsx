@@ -56,8 +56,8 @@ export default function StatisticsSection() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {yearsAgroSurface.map((item) => (
-                    <TableRow key={item.year}>
+                  {yearsAgroSurface.map((item, index) => (
+                    <TableRow key={index}>
                       <TableCell className="text-spf-green-100 text-center">
                         {item.year}
                       </TableCell>
