@@ -38,7 +38,7 @@ export default function StatisticsSection() {
           <StatisticsCounter
             value={6.6}
             sufix="%"
-            title="Superficie Agropecuaria"
+            title="Superficie agropecuaria"
             decimals={1}
           />
 
