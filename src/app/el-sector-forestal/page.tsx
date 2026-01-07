@@ -24,8 +24,7 @@ export default function StatisticsPage() {
                 sostenida del patrimonio forestal a lo largo de las últimas tres
                 décadas. El impulso inicial más expresivo se registró entre 1990
                 y 2000, período en el que el área plantada se triplicó,
-                escalando de
-                <b>178.925 hectáreas a casi 600.000 hectáreas.</b>
+                escalando de <b>178.925 hectáreas a casi 600.000 hectáreas.</b>
               </p>
               <p>
                 La tendencia de crecimiento se mantuvo constante en la década
@@ -46,7 +45,7 @@ export default function StatisticsPage() {
               <StatisticsCounter
                 value={6.6}
                 sufix="%"
-                title="Superficie Agropecuaria"
+                title="Superficie agropecuaria"
                 decimals={1}
               />
             </div>
@@ -78,7 +77,7 @@ export default function StatisticsPage() {
                 value={4100}
                 prefix="US$"
                 sufix=" M"
-                title="Valor Bruto de Producción"
+                title="Valor bruto de producción"
               />
               <StatisticsCounter
                 value={4700}
