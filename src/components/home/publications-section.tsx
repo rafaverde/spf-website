@@ -25,7 +25,7 @@ export default async function PublicationsSection() {
         className="inset-0 top-0 left-0 z-0 h-full w-full object-cover opacity-20"
       />
 
-      <div className="relative container mx-auto grid grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-5 lg:px-0">
+      <div className="relative container mx-auto grid grid-cols-1 gap-6 px-4 md:grid-cols-2 lg:grid-cols-5">
         <div className="flex flex-col justify-between gap-6 p-2 md:order-2 lg:col-span-2">
           <div className="space-y-3">
             <h2 className="text-spf-green-900 text-3xl md:text-4xl">

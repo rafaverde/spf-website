@@ -3,6 +3,22 @@ import { Button } from "../ui/button";
 import { RiArrowRightUpLine } from "@remixicon/react";
 import StatisticsCounter from "../statistics/statistics-counter";
 import Link from "next/link";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
+
+const yearsAgroSurface = [
+  { year: 1990, value: 178.925 },
+  { year: 2000, value: 598.891 },
+  { year: 2010, value: 870.424 },
+  { year: 2020, value: 1087.109 },
+  { year: 2020, value: 1161.851 },
+];
 
 export default function StatisticsSection() {
   return (
@@ -15,17 +31,19 @@ export default function StatisticsSection() {
         className="inset-0 top-0 left-0 z-0 h-full w-full object-cover opacity-20"
       />
 
-      <div className="relative container mx-auto px-4 lg:px-0">
+      <div className="relative container mx-auto px-4">
         <h2 className="text-spf-green-100 text-4xl">El sector en cifras</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3">
           <StatisticsCounter
             value={6.6}
             sufix="%"
-            title="Áreas forestadas"
+            title="Superficie Agropecuaria"
             decimals={1}
           />
+
           <StatisticsCounter value={46000} title="Puestos de trabajo" />
+
           <StatisticsCounter
             value={3000}
             sufix="M"

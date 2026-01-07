@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function VinculationsSection() {
   return (
     <section className="bg-spf-green-100 py-20">
-      <div className="text-spf-green-900 container mx-auto space-y-6 px-4 lg:px-0">
+      <div className="text-spf-green-900 container mx-auto space-y-6 px-4">
         <h2 className="text-4xl">Vinculaciones</h2>
 
         {/* Consorcio Forestal Maderero  */}
@@ -33,6 +33,56 @@ export default function VinculationsSection() {
             <div className="absolute inset-0">
               <Image
                 src="/about-us/consorcio-forestal-maderero.webp"
+                alt=""
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              />
+              <div className="bg-spf-green-500/30 absolute h-full w-full"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Centro Tecnológico Forestal Maderero  */}
+        <div className="border-spf-green-300 grid gap-6 border-b py-11 md:grid-cols-2">
+          <div className="space-y-6">
+            <h3 className="text-spf-green-500 text-2xl">
+              Centro Tecnológico Forestal Maderero 
+            </h3>
+            <p>
+              El CENTRO TECNOLÓGICO FORESTAL MADERERO (CTFM) surge en el marco
+              del Acuerdo de Inversión ROU – UPM, en el que se crea un
+              fideicomiso y el Fondo de Innovación Sectorial (FIS). 
+            </p>
+            <p>
+              La gobernanza del CTFM está constituida por el Ministerio de
+              Industria, Energía y Minería (MIEM, quien preside), el Ministerio
+              de Ganadería, Agricultura y Pesca (MGAP, a través de la Dirección
+              General Forestal), la Oficina de Planeamiento y Presupuesto (OPP),
+              la Sociedad de Productores Forestales (SPF) y la Asociación de
+              Empresarios de la Madera y Afines (ADEMA). 
+            </p>
+            <p>
+              La misión del CTFM es promover la articulación y coordinación de
+              todos los actores de la cadena forestal-maderera, identificando
+              desafíos y buscando soluciones innovadoras, mejorando la
+              competitividad e impulsando el desarrollo sostenible.
+            </p>
+            <Link
+              href="https://ctfm.uy/"
+              title="Centro Tecnológico Forestal Maderero"
+              target="_blank"
+            >
+              <Button size="lg">
+                Más información <RiArrowRightUpLine className="size-6" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="relative min-h-[380px] w-full overflow-hidden rounded-4xl">
+            <div className="absolute inset-0">
+              <Image
+                src="/about-us/centro-tec-forestal-maderero.webp"
                 alt=""
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -114,56 +164,6 @@ export default function VinculationsSection() {
                   Más información <RiArrowRightUpLine className="size-6" />
                 </Button>
               </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Centro Tecnológico Forestal Maderero  */}
-        <div className="border-spf-green-300 grid gap-6 border-b py-11 md:grid-cols-2">
-          <div className="space-y-6">
-            <h3 className="text-spf-green-500 text-2xl">
-              Centro Tecnológico Forestal Maderero 
-            </h3>
-            <p>
-              El CENTRO TECNOLÓGICO FORESTAL MADERERO (CTFM) surge en el marco
-              del Acuerdo de Inversión ROU – UPM, en el que se crea un
-              fideicomiso y el Fondo de Innovación Sectorial (FIS). 
-            </p>
-            <p>
-              La gobernanza del CTFM está constituida por el Ministerio de
-              Industria, Energía y Minería (MIEM, quien preside), el Ministerio
-              de Ganadería, Agricultura y Pesca (MGAP, a través de la Dirección
-              General Forestal), la Oficina de Planeamiento y Presupuesto (OPP),
-              la Sociedad de Productores Forestales (SPF) y la Asociación de
-              Empresarios de la Madera y Afines (ADEMA). 
-            </p>
-            <p>
-              La misión del CTFM es promover la articulación y coordinación de
-              todos los actores de la cadena forestal-maderera, identificando
-              desafíos y buscando soluciones innovadoras, mejorando la
-              competitividad e impulsando el desarrollo sostenible.
-            </p>
-            <Link
-              href="https://ctfm.uy/"
-              title="Centro Tecnológico Forestal Maderero"
-              target="_blank"
-            >
-              <Button size="lg">
-                Más información <RiArrowRightUpLine className="size-6" />
-              </Button>
-            </Link>
-          </div>
-
-          <div className="relative min-h-[380px] w-full overflow-hidden rounded-4xl">
-            <div className="absolute inset-0">
-              <Image
-                src="/about-us/centro-tec-forestal-maderero.webp"
-                alt=""
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-              />
-              <div className="bg-spf-green-500/30 absolute h-full w-full"></div>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import * as Icons from "@remixicon/react";
 import { Button } from "../ui/button";
+import MacondoSignature from "./macondo-signature";
 
 export default function Footer() {
   return (
@@ -18,7 +19,7 @@ export default function Footer() {
         aria-hidden
       />
 
-      <div className="relative z-20 container mx-auto px-4 lg:px-0">
+      <div className="relative z-20 container mx-auto px-4">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:grid-rows-1 lg:gap-8">
           <div className="flex flex-col gap-6 self-start">
             <Image

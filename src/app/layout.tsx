@@ -3,6 +3,7 @@ import { Funnel_Display, Public_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import MacondoSignature from "@/components/layout/macondo-signature";
 
 const funnel = Funnel_Display({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <MacondoSignature className="bg-spf-green-900 relative" />
       </body>
     </html>
   );

@@ -14,7 +14,7 @@ export default function ContactPage() {
       <div className="relative z-10 flex flex-col">
         <HeroTitle staticTitle="Contacto" titlePosition="end" />
         <section className="bg-white py-20">
-          <div className="text-spf-green-900 container mx-auto space-y-11 px-4 lg:px-0">
+          <div className="text-spf-green-900 container mx-auto space-y-11 px-4">
             <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
               <div className="h-full lg:col-span-7">
                 <ContactForm />

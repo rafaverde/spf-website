@@ -11,13 +11,45 @@ export default function StatisticsPage() {
         <HeroTitle staticTitle="El Sector Forestal" titlePosition="end" />
 
         <section className="bg-white py-20">
-          <div className="text-spf-green-900 container mx-auto space-y-11 px-4 lg:px-0">
-            <p className="max-w-2xl">
-              El sector forestal es un pilar estratégico de la economía
-              nacional, con un impacto significativo en el producto interno
-              bruto, el empleo, las exportaciones y el desarrollo territorial
-              sostenible.
-            </p>
+          <div className="text-spf-green-900 container mx-auto flex flex-col items-start justify-center gap-8 space-y-11 px-4 lg:flex-row">
+            <div className="flex flex-col gap-4">
+              <p>
+                El sector forestal es un pilar estratégico de la economía
+                nacional, con un impacto significativo en el producto interno
+                bruto, el empleo, las exportaciones y el desarrollo territorial
+                sostenible.
+              </p>
+              <p>
+                Esta relevancia se sustenta en una expansión vigorosa y
+                sostenida del patrimonio forestal a lo largo de las últimas tres
+                décadas. El impulso inicial más expresivo se registró entre 1990
+                y 2000, período en el que el área plantada se triplicó,
+                escalando de
+                <b>178.925 hectáreas a casi 600.000 hectáreas.</b>
+              </p>
+              <p>
+                La tendencia de crecimiento se mantuvo constante en la década
+                siguiente y se consolidó hacia 2020, año en el que el sector
+                superó la barrera simbólica del millón de hectáreas (registrando
+                un acumulado superior a <b>1,16 millones de ha</b>). Este
+                desarrollo continuo posiciona hoy a la forestación como un actor
+                clave en el uso del suelo: según datos de la Dirección General
+                Forestal (MGAP, 2024), actualmente el{" "}
+                <b>
+                  6,6% de la superficie agropecuaria nacional está destinada a
+                  la forestación.
+                </b>
+              </p>
+            </div>
+
+            <div className="bg-muted-foreground w-full rounded-xl p-10 lg:min-w-xs">
+              <StatisticsCounter
+                value={6.6}
+                sufix="%"
+                title="Superficie Agropecuaria"
+                decimals={1}
+              />
+            </div>
           </div>
         </section>
 
@@ -31,7 +63,7 @@ export default function StatisticsPage() {
             className="inset-0 top-0 left-0 z-0 h-full w-full object-cover opacity-20"
           />
 
-          <div className="relative container mx-auto space-y-16 px-4 lg:px-0">
+          <div className="relative container mx-auto space-y-16 px-4">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-muted text-3xl">
                 Contribución económica del sector
@@ -83,7 +115,7 @@ export default function StatisticsPage() {
 
         {/* Empleo y tributos */}
         <section className="bg-spf-green-500/75 py-24">
-          <div className="container mx-auto space-y-16 px-4 lg:px-0">
+          <div className="container mx-auto space-y-16 px-4">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-muted text-3xl">
                 Empleo, salarios y tributos
@@ -127,7 +159,7 @@ export default function StatisticsPage() {
 
         {/* Productividad */}
         <section className="bg-white py-24">
-          <div className="container mx-auto space-y-16 px-4 lg:px-0">
+          <div className="container mx-auto space-y-16 px-4">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-3xl">
                 Productividad y competitividad sectorial
@@ -138,7 +170,7 @@ export default function StatisticsPage() {
               </p>
             </header>
 
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+            <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
               <div className="bg-muted-foreground rounded-xl p-10">
                 <StatisticsCounter
                   value={4275}
