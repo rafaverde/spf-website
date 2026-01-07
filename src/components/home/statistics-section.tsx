@@ -35,54 +35,21 @@ export default function StatisticsSection() {
         <h2 className="text-spf-green-100 text-4xl">El sector en cifras</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3">
-          <div className="flex flex-col items-center justify-center">
-            <StatisticsCounter
-              value={6.6}
-              sufix="%"
-              title="Superficie Agropecuaria"
-              decimals={1}
-            />
+          <StatisticsCounter
+            value={6.6}
+            sufix="%"
+            title="Superficie Agropecuaria"
+            decimals={1}
+          />
 
-            <div>
-              <Table className="border">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="text-spf-green-300 text-center">
-                      Año
-                    </TableHead>
-                    <TableHead className="text-spf-green-300 text-center">
-                      Total Acumulado (ha)
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {yearsAgroSurface.map((item, index) => (
-                    <TableRow key={index}>
-                      <TableCell className="text-spf-green-100 text-center">
-                        {item.year}
-                      </TableCell>
-                      <TableCell className="text-spf-green-100 text-center">
-                        {item.value}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
+          <StatisticsCounter value={46000} title="Puestos de trabajo" />
 
-          <div>
-            <StatisticsCounter value={46000} title="Puestos de trabajo" />
-          </div>
-
-          <div>
-            <StatisticsCounter
-              value={3000}
-              sufix="M"
-              prefix="US$"
-              title="Exportaciones"
-            />
-          </div>
+          <StatisticsCounter
+            value={3000}
+            sufix="M"
+            prefix="US$"
+            title="Exportaciones"
+          />
         </div>
 
         <div className="text-right">
