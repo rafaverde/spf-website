@@ -50,20 +50,19 @@ export const authorityConfig = {
         { name: "Ricardo Inciarte" },
         { name: "Carlos Sarazola" },
         { name: "Luis Gomes" },
-        { name: "Alejandro Venturino" },
+        { name: "Sebastián Ferrés" },
         { name: "Laura Martignone" },
       ],
     },
     fiscalCommition: {
       sectionTitle: "Comisión Fiscal",
       members: [
-        { name: "Leonardo Dotti" },
+        { name: "Enrique Galli" },
         { name: "Andrea Regusci" },
         { name: "Bernardo Riet" },
       ],
       subsectionTitle: "Suplentes",
       subSectionMembers: [
-        { name: "Enrique Galli" },
         { name: "Lucas Máscolo" },
         { name: "Rosario Linares" },
       ],
