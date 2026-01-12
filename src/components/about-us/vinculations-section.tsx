@@ -7,7 +7,7 @@ export default function VinculationsSection() {
   return (
     <section className="bg-spf-green-100 py-20">
       <div className="text-spf-green-900 container mx-auto space-y-6 px-4">
-        <h2 className="text-4xl">Vinculaciones</h2>
+        <h2 className="text-4xl">Impulsamos</h2>
 
         {/* Consorcio Forestal Maderero  */}
         <div className="border-spf-green-300 grid gap-6 border-b py-11 md:grid-cols-2">
@@ -96,7 +96,9 @@ export default function VinculationsSection() {
         {/* PEFC y FSC  */}
         <div className="border-spf-green-300 gap-6 border-b py-11 md:grid md:grid-cols-12">
           <div className="space-y-6 md:col-span-9">
-            <h3 className="text-spf-green-500 text-2xl">PEFC y FSC </h3>
+            <h3 className="text-spf-green-500 text-2xl">
+              PEFC y FSC<sup className="text-base">®</sup>
+            </h3>
             <p>
               <span className="font-bold uppercase">
                 ¿Qué significa estar certificados?

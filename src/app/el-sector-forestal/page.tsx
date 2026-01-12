@@ -20,20 +20,18 @@ export default function StatisticsPage() {
                 sostenible.
               </p>
               <p>
-                Esta relevancia se sustenta en una expansión vigorosa y
-                sostenida del patrimonio forestal a lo largo de las últimas tres
-                décadas. El impulso inicial más expresivo se registró entre 1990
-                y 2000, período en el que el área plantada se triplicó,
-                escalando de <b>178.925 hectáreas a casi 600.000 hectáreas.</b>
+                Esta relevancia se sustenta en una expansión sostenida del
+                patrimonio forestal a lo largo de las últimas tres décadas. El
+                impulso inicial más expresivo se registró entre 1990 y 2000,
+                período en el que el área plantada se triplicó, escalando de{" "}
+                <b>178.925 hectáreas a casi 600.000 hectáreas.</b>
               </p>
               <p>
                 La tendencia de crecimiento se mantuvo constante en la década
                 siguiente y se consolidó hacia 2020, año en el que el sector
                 superó la barrera simbólica del millón de hectáreas (registrando
-                un acumulado superior a <b>1,16 millones de ha</b>). Este
-                desarrollo continuo posiciona hoy a la forestación como un actor
-                clave en el uso del suelo: según datos de la Dirección General
-                Forestal (MGAP, 2024), actualmente el{" "}
+                un acumulado superior a <b>1,16 millones de ha</b>). Según datos
+                de la Dirección General Forestal (MGAP, 2024), actualmente el{" "}
                 <b>
                   6,6% de la superficie agropecuaria nacional está destinada a
                   la forestación.
@@ -185,10 +183,9 @@ export default function StatisticsPage() {
                   que la ganadería o la lechería.
                 </p>
                 <p>
-                  Además, cada <strong>46 hectáreas forestadas</strong>{" "}
-                  sostienen un empleo directo o indirecto, posicionando al
-                  sector como uno de los más eficientes en términos de impacto
-                  económico y social.
+                  Cada <b>46 hectáreas forestadas</b> sostienen un empleo
+                  directo o indirecto, posicionando al sector como uno de los
+                  más eficientes en términos de impacto económico y social.
                 </p>
               </div>
             </div>

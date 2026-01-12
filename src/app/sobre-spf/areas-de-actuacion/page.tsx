@@ -106,7 +106,7 @@ export default function ExpertiseAreasPage() {
                 </p>
 
                 <Link
-                  href="https://www.gub.uy/ministerio-trabajo-seguridad-social/tematica/trabajo-rural-0"
+                  href="https://www.app.spf.com.uy/wp-content/uploads/2026/01/acta-grupo-24.pdf"
                   target="_blank"
                 >
                   <Button size="lg">
