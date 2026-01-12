@@ -178,11 +178,6 @@ export default function StatisticsPage() {
 
               <div className="space-y-6">
                 <p>
-                  El sector forestal genera en promedio más de{" "}
-                  <strong>cuatro veces</strong> el valor agregado por hectárea
-                  que la ganadería o la lechería.
-                </p>
-                <p>
                   Cada <b>46 hectáreas forestadas</b> sostienen un empleo
                   directo o indirecto, posicionando al sector como uno de los
                   más eficientes en términos de impacto económico y social.
