@@ -178,9 +178,14 @@ export default function StatisticsPage() {
 
               <div className="space-y-6">
                 <p>
-                  Cada <b>46 hectáreas forestadas</b> sostienen un empleo
-                  directo o indirecto, posicionando al sector como uno de los
-                  más eficientes en términos de impacto económico y social.
+                  El sector forestal <b>genera 42 empleos cada mil hectáreas</b>
+                  , lo que equivale a <b>un empleo por cada 23 hectáreas</b>,
+                  principalmente en actividades que combinan labores de
+                  silvicultura, industria, logísticas y de servicios. Se trata,
+                  en su mayoría, <b>de empleos estables</b>, con niveles de
+                  formalidad superiores al promedio nacional, y con
+                  oportunidades de formación y desarrollo de capacidades en los
+                  territorios donde opera la cadena.
                 </p>
               </div>
             </div>
