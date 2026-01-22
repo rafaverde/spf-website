@@ -8,7 +8,7 @@ interface TeamCardProps {
   name: string;
   jobTitle: string;
   imageSrc?: string;
-  linkedInUrl: string;
+  linkedInUrl?: string;
   className?: string;
 }
 
@@ -44,9 +44,11 @@ export default function TeamCard({
       <CardContent className="pb-6">
         <h4 className="text-spf-green-900 text-2xl">{name}</h4>
         <p className="text-spf-green-900">{jobTitle}</p>
-        <Link href={linkedInUrl} target="_blank">
-          <RiLinkedinFill className="text-spf-green-300 hover:text-spf-green-500 size-6 transition-all duration-500 ease-in-out" />
-        </Link>
+        {linkedInUrl && (
+          <Link href={linkedInUrl} target="_blank">
+            <RiLinkedinFill className="text-spf-green-300 hover:text-spf-green-500 size-6 transition-all duration-500 ease-in-out" />
+          </Link>
+        )}
       </CardContent>
     </Card>
   );
