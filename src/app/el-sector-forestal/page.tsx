@@ -1,9 +1,14 @@
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
 import StatisticsCounter from "@/components/statistics/statistics-counter";
+import { getStatistics } from "@/lib/statistics/get-statistics";
+import { mapStatisticsByKey } from "@/lib/statistics/statistics.helper";
 import Image from "next/image";
 
-export default function StatisticsPage() {
+export default async function StatisticsPage() {
+  const stats = await getStatistics();
+  const statsByKey = mapStatisticsByKey(stats);
+
   return (
     <article className="relative min-h-screen w-full">
       <HeroImageBackground imageSrc="/sector/bg-header-sector.webp" />
