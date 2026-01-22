@@ -1,9 +1,14 @@
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
 import StatisticsCounter from "@/components/statistics/statistics-counter";
+import { getStatistics } from "@/lib/statistics/get-statistics";
+import { mapStatisticsByKey } from "@/lib/statistics/statistics.helper";
 import Image from "next/image";
 
-export default function StatisticsPage() {
+export default async function StatisticsPage() {
+  const stats = await getStatistics();
+  const statsByKey = mapStatisticsByKey(stats);
+
   return (
     <article className="relative min-h-screen w-full">
       <HeroImageBackground imageSrc="/sector/bg-header-sector.webp" />
@@ -40,12 +45,11 @@ export default function StatisticsPage() {
             </div>
 
             <div className="bg-muted-foreground w-full rounded-xl p-10 lg:min-w-xs">
-              <StatisticsCounter
-                value={6.6}
-                sufix="%"
-                title="Superficie agropecuaria"
-                decimals={1}
-              />
+              {statsByKey["sector.agriculture_surface"] && (
+                <StatisticsCounter
+                  {...statsByKey["sector.agriculture_surface"]}
+                />
+              )}
             </div>
           </div>
         </section>
@@ -71,24 +75,21 @@ export default function StatisticsPage() {
             </header>
 
             <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-              <StatisticsCounter
-                value={4100}
-                prefix="US$"
-                sufix=" M"
-                title="Valor bruto de producción"
-              />
-              <StatisticsCounter
-                value={4700}
-                prefix="US$"
-                sufix=" M"
-                title="Contribución total"
-              />
-              <StatisticsCounter
-                value={5.8}
-                sufix="%"
-                decimals={1}
-                title="Participación en el PIB"
-              />
+              {statsByKey["sector.gross_production_value"] && (
+                <StatisticsCounter
+                  {...statsByKey["sector.gross_production_value"]}
+                />
+              )}
+
+              {statsByKey["sector.total_contribution"] && (
+                <StatisticsCounter
+                  {...statsByKey["sector.total_contribution"]}
+                />
+              )}
+
+              {statsByKey["sector.gdp_share"] && (
+                <StatisticsCounter {...statsByKey["sector.gdp_share"]} />
+              )}
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -124,14 +125,17 @@ export default function StatisticsPage() {
             </header>
 
             <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-              <StatisticsCounter value={23200} title="Empleos directos" />
-              <StatisticsCounter value={46000} title="Empleos totales" />
-              <StatisticsCounter
-                value={2.7}
-                sufix="%"
-                decimals={1}
-                title="Empleo nacional"
-              />
+              {statsByKey["sector.direct_jobs"] && (
+                <StatisticsCounter {...statsByKey["sector.direct_jobs"]} />
+              )}
+              {statsByKey["sector.total_jobs"] && (
+                <StatisticsCounter {...statsByKey["sector.total_jobs"]} />
+              )}
+              {statsByKey["sector.national_employment_share"] && (
+                <StatisticsCounter
+                  {...statsByKey["sector.national_employment_share"]}
+                />
+              )}
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -169,11 +173,11 @@ export default function StatisticsPage() {
 
             <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
               <div className="bg-muted-foreground rounded-xl p-10">
-                <StatisticsCounter
-                  value={4275}
-                  prefix="US$"
-                  title="Valor agregado por hectárea"
-                />
+                {statsByKey["sector.value_per_hectare"] && (
+                  <StatisticsCounter
+                    {...statsByKey["sector.value_per_hectare"]}
+                  />
+                )}
               </div>
 
               <div className="space-y-6">

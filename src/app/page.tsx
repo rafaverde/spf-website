@@ -9,8 +9,11 @@ import { Suspense } from "react";
 import VideoCarouselSkeleton from "@/components/video/video-carousel-skeleton";
 import NewsSection from "@/components/home/news-section";
 import { HOME_HERO_PHRASES } from "@/lib/site/home.config";
+import { getStatistics } from "@/lib/statistics/get-statistics";
 
-export default function Home() {
+export default async function Home() {
+  const stats = await getStatistics();
+
   return (
     <>
       <div className="relative min-h-screen w-full">
@@ -19,7 +22,7 @@ export default function Home() {
           <HeroTitle scrollIndicator dynamicWords={HOME_HERO_PHRASES} />
           <AboutUsSection />
           <ExpertiseAreasSection />
-          <StaticsSection />
+          <StaticsSection stats={stats} />
           <PublicationsSection />
 
           <Suspense fallback={<VideoCarouselSkeleton />}>

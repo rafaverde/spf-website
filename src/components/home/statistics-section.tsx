@@ -3,24 +3,16 @@ import { Button } from "../ui/button";
 import { RiArrowRightUpLine } from "@remixicon/react";
 import StatisticsCounter from "../statistics/statistics-counter";
 import Link from "next/link";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../ui/table";
+import { StatisticDatum } from "@/lib/statistics/statistics.types";
+import { mapStatisticsByKey } from "@/lib/statistics/statistics.helper";
 
-const yearsAgroSurface = [
-  { year: 1990, value: 178.925 },
-  { year: 2000, value: 598.891 },
-  { year: 2010, value: 870.424 },
-  { year: 2020, value: 1087.109 },
-  { year: 2020, value: 1161.851 },
-];
+export default function StatisticsSection({
+  stats,
+}: {
+  stats: StatisticDatum[];
+}) {
+  const statsByKey = mapStatisticsByKey(stats);
 
-export default function StatisticsSection() {
   return (
     <section className="bg-spf-green-500 relative w-full py-20">
       <Image
@@ -35,21 +27,17 @@ export default function StatisticsSection() {
         <h2 className="text-spf-green-100 text-4xl">El sector en cifras</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3">
-          <StatisticsCounter
-            value={6.6}
-            sufix="%"
-            title="Superficie agropecuaria"
-            decimals={1}
-          />
+          {statsByKey["sector.agriculture_surface"] && (
+            <StatisticsCounter {...statsByKey["sector.agriculture_surface"]} />
+          )}
 
-          <StatisticsCounter value={46000} title="Puestos de trabajo" />
+          {statsByKey["sector.jobs"] && (
+            <StatisticsCounter {...statsByKey["sector.jobs"]} />
+          )}
 
-          <StatisticsCounter
-            value={3000}
-            sufix="M"
-            prefix="US$"
-            title="Exportaciones"
-          />
+          {statsByKey["sector.exports"] && (
+            <StatisticsCounter {...statsByKey["sector.exports"]} />
+          )}
         </div>
 
         <div className="text-right">
