@@ -1,5 +1,5 @@
 export interface StatisticDatum {
-  key: string;
+  statsKey: string;
   value: number;
   title: string;
   prefix?: string;

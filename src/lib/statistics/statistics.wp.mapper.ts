@@ -3,7 +3,7 @@ import { WpStatistic } from "./statistics.wp.types";
 
 export function mapWpStatisticToDomain(item: WpStatistic): StatisticDatum {
   return {
-    key: item.acf.key,
+    statsKey: item.acf.key,
     value: Number(item.acf.value),
     title: item.title.rendered,
     prefix: item.acf.prefix || undefined,
