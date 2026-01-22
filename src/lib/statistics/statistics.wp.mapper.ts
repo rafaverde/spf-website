@@ -5,7 +5,7 @@ export function mapWpStatisticToDomain(item: WpStatistic): StatisticDatum {
   return {
     key: item.acf.key,
     value: Number(item.acf.value),
-    title: item.acf.title,
+    title: item.title.rendered,
     prefix: item.acf.prefix || undefined,
     suffix: item.acf.suffix || undefined,
     decimals:

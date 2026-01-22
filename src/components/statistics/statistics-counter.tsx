@@ -12,9 +12,9 @@ import { useEffect, useRef } from "react";
 
 interface StatisticsCounterProps {
   value: number;
-  title?: string;
+  title: string;
   prefix?: string;
-  sufix?: string;
+  suffix?: string;
   decimals?: number;
   className?: string;
 }
@@ -23,7 +23,7 @@ export default function StatisticsCounter({
   value,
   title,
   prefix,
-  sufix,
+  suffix,
   decimals,
   className,
 }: StatisticsCounterProps) {
@@ -69,9 +69,9 @@ export default function StatisticsCounter({
         <motion.span className="font-display text-7xl font-extrabold text-white">
           {displayValue}
         </motion.span>
-        {sufix && (
+        {suffix && (
           <span className="font-display text-7xl font-extrabold text-white">
-            {sufix}
+            {suffix}
           </span>
         )}
       </div>
