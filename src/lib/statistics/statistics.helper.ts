@@ -4,7 +4,7 @@ export function mapStatisticsByKey(
   stats: StatisticDatum[],
 ): Record<string, StatisticDatum> {
   return stats.reduce<Record<string, StatisticDatum>>((acc, item) => {
-    acc[item.key] = item;
+    acc[item.statsKey] = item;
     return acc;
   }, {});
 }
