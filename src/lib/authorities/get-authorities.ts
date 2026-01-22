@@ -1,10 +1,17 @@
 import { mapAuthorities } from "./authorities.mapper";
-import { RawAuthorityItem } from "./authorities.raw";
-import { AuthorityRole } from "./authority.roles";
+import { fetchWp } from "@/lib/wp/wp.client";
+import { mapWpAuthorityToRaw, WpAuthority } from "./authority.wp.mapper";
 
 export async function getAuthorities() {
-  // TEMP: mock / placeholder
-  const raw: RawAuthorityItem[] = [];
+  const { data } = await fetchWp<WpAuthority[]>("authority", {
+    params: {
+      per_page: 100,
+      _embed: "wp:featuredmedia",
+    },
+    revalidate: 60,
+  });
 
-  return mapAuthorities(raw);
+  const rawItems = data.map(mapWpAuthorityToRaw);
+
+  return mapAuthorities(rawItems);
 }

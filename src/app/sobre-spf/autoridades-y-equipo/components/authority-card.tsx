@@ -4,7 +4,7 @@ import Image from "next/image";
 interface AuthorityCardProps {
   imageSrc?: string;
   name: string;
-  title: string;
+  title?: string;
 }
 
 export default function AuthorityCard({

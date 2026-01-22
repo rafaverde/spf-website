@@ -1,13 +1,15 @@
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
 
-import { authorityConfig, teamConfig } from "@/lib/site/authority-team.config";
+import { teamConfig } from "@/lib/site/authority-team.config";
 import AuthorityCard from "./components/authority-card";
 import AuthorityMembersList from "./components/authority-members-list";
 import TeamCard from "./components/team-card";
+import { getAuthorities } from "@/lib/authorities/get-authorities";
+import ErrorDataLoading from "@/components/errors/error-data-loading";
 
-export default function AuthorityTeamPage() {
-  const { titularMembers } = authorityConfig;
+export default async function AuthorityTeamPage() {
+  const { titularMembers } = await getAuthorities();
   const { team } = teamConfig;
 
   return (
@@ -28,50 +30,58 @@ export default function AuthorityTeamPage() {
               </h3>
             </div>
 
-            {/* Presidencia */}
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              {titularMembers.presidency.map((member, index) => (
-                <AuthorityCard
-                  key={index}
-                  name={member.name}
-                  imageSrc={member.imageSrc}
-                  title={member.title}
-                />
-              ))}
-            </div>
+            {titularMembers ? (
+              <>
+                {/* Presidencia */}
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                  {titularMembers.presidency.map((member, index) => (
+                    <AuthorityCard
+                      key={index}
+                      name={member.name}
+                      imageSrc={member.imageSrc}
+                      title={member.title}
+                    />
+                  ))}
+                </div>
 
-            {/* Membros */}
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <AuthorityMembersList
-                sectionTitle={titularMembers.secretary.sectionTitle}
-                names={titularMembers.secretary.members}
-              />
+                {/* Membros */}
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+                  <AuthorityMembersList
+                    sectionTitle={titularMembers.secretary.sectionTitle}
+                    names={titularMembers.secretary.members}
+                  />
 
-              <AuthorityMembersList
-                sectionTitle={titularMembers.treasury.sectionTitle}
-                names={titularMembers.treasury.members}
-                className="col-span-2"
-              />
+                  <AuthorityMembersList
+                    sectionTitle={titularMembers.treasury.sectionTitle}
+                    names={titularMembers.treasury.members}
+                    className="col-span-2"
+                  />
 
-              <AuthorityMembersList
-                sectionTitle={titularMembers.vowels.sectionTitle}
-                names={titularMembers.vowels.members}
-              />
+                  <AuthorityMembersList
+                    sectionTitle={titularMembers.vowels.sectionTitle}
+                    names={titularMembers.vowels.members}
+                  />
 
-              <AuthorityMembersList
-                sectionTitle={titularMembers.alternates.sectionTitle}
-                names={titularMembers.alternates.members}
-              />
+                  <AuthorityMembersList
+                    sectionTitle={titularMembers.alternates.sectionTitle}
+                    names={titularMembers.alternates.members}
+                  />
 
-              <AuthorityMembersList
-                sectionTitle={titularMembers.fiscalCommition.sectionTitle}
-                names={titularMembers.fiscalCommition.members}
-                subSectionTitle={titularMembers.fiscalCommition.subsectionTitle}
-                subSectionNames={
-                  titularMembers.fiscalCommition.subSectionMembers
-                }
-              />
-            </div>
+                  <AuthorityMembersList
+                    sectionTitle={titularMembers.fiscalCommition.sectionTitle}
+                    names={titularMembers.fiscalCommition.members}
+                    subSectionTitle={
+                      titularMembers.fiscalCommition.subsectionTitle
+                    }
+                    subSectionNames={
+                      titularMembers.fiscalCommition.subSectionMembers
+                    }
+                  />
+                </div>
+              </>
+            ) : (
+              <ErrorDataLoading />
+            )}
           </div>
         </section>
 
