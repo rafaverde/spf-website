@@ -17,8 +17,47 @@ const publicSans = Public_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "SPF - Sociedad de Productores Forestales",
-  description: "Impulsamos oportunidades en todo Uruguay.",
+  title: {
+    template: "%s | SPF - Sociedad de Productores Forestales",
+    default: "Impulsamos oportunidades en todo Uruguay.",
+  },
+
+  description:
+    "Somos la Sociedad de Productores Forestales del Uruguay (SPF), una asociación civil fundada en 1959 que reúne a los principales actores de la cadena forestal uruguaya. ",
+
+  keywords: [
+    "sector forestal uruguay",
+    "forestación en uruguay",
+    "sociedad de productores forestales",
+    "industria forestal",
+    "economía forestal",
+    "empleo forestal",
+    "exportaciones forestales",
+    "estadísticas forestales",
+    "noticias forestales",
+    "publicaciones forestales",
+    "manejo forestal sostenible",
+    "sanidad forestal",
+    "desarrollo forestal",
+    "medio ambiente y forestación",
+  ],
+
+  openGraph: {
+    title: "SPF - Sociedad de Productores Forestales",
+    description:
+      "Somos la Sociedad de Productores Forestales del Uruguay (SPF), una asociación civil fundada en 1959 que reúne a los principales actores de la cadena forestal uruguaya. ",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.spf.com.uy",
+    siteName: "SPF - Sociedad de Productores Forestales",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "es_UY",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
