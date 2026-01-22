@@ -7,6 +7,8 @@ export default async function getTeam(): Promise<TeamMember[]> {
   const { data } = await fetchWp<WpTeamMember[]>("team", {
     params: {
       per_page: 100,
+      orderby: "date",
+      order: "asc",
       _embed: "wp:featuredmedia",
     },
     revalidate: 60,
