@@ -5,15 +5,15 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "spf-antigo",
-        port: "8890",
+        hostname: "www.app.spf.com.uy",
+        port: "",
         pathname: "/wp-content/uploads/**",
         search: "",
       },
       {
         protocol: "http",
-        hostname: "spf-antigo",
-        port: "8890",
+        hostname: "www.app.spf.com.uy",
+        port: "",
         pathname: "/wp-content/uploads/**",
         search: "",
       },
