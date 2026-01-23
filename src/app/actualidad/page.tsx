@@ -14,6 +14,10 @@ interface NewsPageProps {
   }>;
 }
 
+export const metadata = {
+  title: "Actualidad",
+};
+
 export default async function NewsPage({ searchParams }: NewsPageProps) {
   const params = await searchParams;
 

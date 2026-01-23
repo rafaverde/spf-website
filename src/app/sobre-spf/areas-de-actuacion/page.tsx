@@ -5,6 +5,10 @@ import { RiArrowRightUpLine } from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Áreas de Actuación",
+};
+
 export default function ExpertiseAreasPage() {
   return (
     <div className="relative min-h-screen w-full">

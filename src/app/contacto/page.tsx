@@ -7,6 +7,10 @@ import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Contacto",
+};
+
 export default function ContactPage() {
   return (
     <section className="relative min-h-screen w-full">

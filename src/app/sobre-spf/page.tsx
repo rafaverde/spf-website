@@ -2,6 +2,14 @@ import HeroTitle from "@/components/layout/hero-title";
 import { HeroVideoBackground } from "@/components/layout/hero-video-background";
 import LinkCard from "../../components/about-us/link-card";
 import VinculationsSection from "../../components/about-us/vinculations-section";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Quiénes Somos",
+  robots: {
+    index: false,
+  },
+};
 
 export default function AboutUsPage() {
   return (

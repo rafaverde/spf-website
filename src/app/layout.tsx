@@ -20,7 +20,8 @@ const publicSans = Public_Sans({
 export const metadata: Metadata = {
   title: {
     template: "%s | SPF - Sociedad de Productores Forestales",
-    default: "Impulsamos oportunidades en todo Uruguay.",
+    default:
+      "Impulsamos oportunidades en todo Uruguay | SPF - Sociedad de Productores Forestales",
   },
 
   description:
