@@ -15,9 +15,6 @@ export interface WpPost {
 
   acf?: {
     pdf_file?: number;
-    pdf_file_source?: {
-      formatted_value?: string;
-    };
     document_date?: string;
     document_date_source?: {
       formatted_value?: string;
