@@ -9,7 +9,7 @@ export async function getPostBySlugForMetadata(slug: string) {
   url.searchParams.set("_embed", "wp:featuredmedia,wp:term");
 
   const response = await fetch(url.toString(), {
-    cache: "no-store", // ✅ AQUI FUNCIONA
+    cache: "no-store",
   });
 
   if (!response.ok) return null;

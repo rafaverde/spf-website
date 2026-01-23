@@ -41,12 +41,11 @@ export function generateExcerptFromHtml(
   return text.slice(0, maxLength).trim() + "…";
 }
 
-export function mapWpPublication(post: WpPost): Publication {
+export function mapWpPublication(post: WpPost, pdfUrl?: string): Publication {
   return {
     id: post.id,
     title: post.title.rendered,
-    pdfUrl: post.acf?.pdf_file_source?.formatted_value ?? "",
-    documentDate:
-      post.acf?.document_date_source?.formatted_value ?? post.date.slice(0, 10),
+    pdfUrl: pdfUrl ?? "",
+    documentDate: post.acf?.document_date ?? post.date.slice(0, 10),
   };
 }
