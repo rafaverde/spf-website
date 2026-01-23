@@ -5,11 +5,13 @@ import { generateNewsMetadata } from "@/lib/metadata";
 import { getNewsBySlug } from "@/lib/news/get-news-by-slug";
 import { NewsItem } from "@/lib/news/news.types";
 import { formatDate } from "@/lib/utils";
+import { getPostBySlugForMetadata } from "@/lib/wp/get-post-by-slug.metadata";
 import { RiArrowLeftLine } from "@remixicon/react";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 interface MetadataProps {
@@ -21,7 +23,8 @@ interface MetadataProps {
 export async function generateMetadata({
   params,
 }: MetadataProps): Promise<Metadata> {
-  const newsPost: NewsItem | null = await getNewsBySlug(params.slug);
+  const { slug } = await params;
+  const newsPost: NewsItem | null = await getPostBySlugForMetadata(slug);
 
   return generateNewsMetadata(newsPost);
 }
@@ -40,8 +43,6 @@ export default async function NewsSinglePage({ params }: NewsSinglePageProps) {
   if (!news) {
     notFound();
   }
-
-  console.log(news);
 
   return (
     <article className="w-full">
