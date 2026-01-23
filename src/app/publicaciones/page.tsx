@@ -9,6 +9,10 @@ interface PublicationsPageProps {
   }>;
 }
 
+export const metadata = {
+  title: "Publicaciones",
+};
+
 export default async function PublicationsPage({
   searchParams,
 }: PublicationsPageProps) {

@@ -5,6 +5,10 @@ import { getStatistics } from "@/lib/statistics/get-statistics";
 import { mapStatisticsByKey } from "@/lib/statistics/statistics.helper";
 import Image from "next/image";
 
+export const metadata = {
+  title: "El Sector Forestal",
+};
+
 export default async function StatisticsPage() {
   const stats = await getStatistics();
   const statsByKey = mapStatisticsByKey(stats);

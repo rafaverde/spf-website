@@ -6,6 +6,11 @@ import TeamCard from "./components/team-card";
 import { getAuthorities } from "@/lib/authorities/get-authorities";
 import ErrorDataLoading from "@/components/errors/error-data-loading";
 import getTeam from "@/lib/team/get-team";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Autoridades y Equipo",
+};
 
 export default async function AuthorityTeamPage() {
   const { titularMembers } = await getAuthorities();

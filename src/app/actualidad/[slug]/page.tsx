@@ -1,13 +1,30 @@
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
 import { Button } from "@/components/ui/button";
+import { generateNewsMetadata } from "@/lib/metadata";
 import { getNewsBySlug } from "@/lib/news/get-news-by-slug";
+import { NewsItem } from "@/lib/news/news.types";
 import { formatDate } from "@/lib/utils";
 import { RiArrowLeftLine } from "@remixicon/react";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const dynamic = "force-dynamic";
+
+interface MetadataProps {
+  params: {
+    slug: string;
+  };
+}
+
+export async function generateMetadata({
+  params,
+}: MetadataProps): Promise<Metadata> {
+  const newsPost: NewsItem | null = await getNewsBySlug(params.slug);
+
+  return generateNewsMetadata(newsPost);
+}
 
 interface NewsSinglePageProps {
   params: Promise<{
