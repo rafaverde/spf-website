@@ -114,7 +114,7 @@ export default function ExpertiseAreasPage() {
                   target="_blank"
                 >
                   <Button size="lg">
-                    Acta Consejo de Salarios Enero 2025 <RiArrowRightUpLine />
+                    Acta Consejo de Salarios Enero 2026 <RiArrowRightUpLine />
                   </Button>
                 </Link>
               </div>
