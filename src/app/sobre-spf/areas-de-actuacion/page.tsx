@@ -110,7 +110,7 @@ export default function ExpertiseAreasPage() {
                 </p>
 
                 <Link
-                  href="https://www.app.spf.com.uy/wp-content/uploads/2026/01/acta-grupo-24.pdf"
+                  href="https://www.app.spf.com.uy/wp-content/uploads/2026/02/acta-consejo-trabajo-2026.pdf"
                   target="_blank"
                 >
                   <Button size="lg">
