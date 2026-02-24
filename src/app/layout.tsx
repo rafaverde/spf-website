@@ -5,6 +5,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import MacondoSignature from "@/components/layout/macondo-signature";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 const funnel = Funnel_Display({
   subsets: ["latin"],
@@ -77,6 +78,11 @@ export default function RootLayout({
         <Footer />
         <MacondoSignature className="bg-spf-green-900 relative" />
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
+
+        <Script
+          src="https://hub.fromdoppler.com/public/dhtrack.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
