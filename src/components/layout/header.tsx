@@ -17,7 +17,6 @@ import {
 } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { RiMenuLine } from "@remixicon/react";
-import { globalConfig } from "@/lib/site/global.config";
 import { GlobalOptions } from "@/lib/site/global.types";
 
 export default function Header({ branding, navigation }: GlobalOptions) {
@@ -144,7 +143,7 @@ export default function Header({ branding, navigation }: GlobalOptions) {
               >
                 Home
               </Link>
-              {globalConfig.navigation.map((item, index) => {
+              {navigation?.map((item, index) => {
                 const isActive = item.href === pathname;
 
                 return (
