@@ -20,7 +20,7 @@ import { RiMenuLine } from "@remixicon/react";
 import { globalConfig } from "@/lib/site/global.config";
 import { GlobalOptions } from "@/lib/site/global.types";
 
-export default function Header({ branding }: GlobalOptions) {
+export default function Header({ branding, navigation }: GlobalOptions) {
   const pathname = usePathname();
 
   // Motion hook for Scroll event
@@ -57,7 +57,7 @@ export default function Header({ branding }: GlobalOptions) {
         {/* Logo */}
         <Link href={isScrolled ? "#top" : "/"}>
           <Image
-            src={branding.logo_principal}
+            src={branding?.logo_principal || "/spf-logo-color.svg"}
             alt="Sociedad de Productores Forestales de Uruguay"
             width={250}
             height={0}
@@ -71,7 +71,7 @@ export default function Header({ branding }: GlobalOptions) {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 lg:flex">
-          {globalConfig.navigation.map((item, index) => {
+          {navigation?.map((item, index) => {
             const isActive = item.href === pathname;
 
             return (
@@ -128,7 +128,7 @@ export default function Header({ branding }: GlobalOptions) {
               </SheetDescription>
 
               <Image
-                src={branding.icon_marca}
+                src={branding?.icon_marca || "/spf-icon-color.svg"}
                 alt="SPF Icon"
                 width={40}
                 height={40}
