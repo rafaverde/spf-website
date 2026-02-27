@@ -18,8 +18,9 @@ import {
 import { Button } from "../ui/button";
 import { RiMenuLine } from "@remixicon/react";
 import { globalConfig } from "@/lib/site/global.config";
+import { GlobalOptions } from "@/lib/site/global.types";
 
-export default function Header() {
+export default function Header({ branding }: GlobalOptions) {
   const pathname = usePathname();
 
   // Motion hook for Scroll event
@@ -56,7 +57,7 @@ export default function Header() {
         {/* Logo */}
         <Link href={isScrolled ? "#top" : "/"}>
           <Image
-            src={globalConfig.branding.logo}
+            src={branding.logo_principal}
             alt="Sociedad de Productores Forestales de Uruguay"
             width={250}
             height={0}
@@ -127,7 +128,7 @@ export default function Header() {
               </SheetDescription>
 
               <Image
-                src={globalConfig.branding.icon}
+                src={branding.icon_marca}
                 alt="SPF Icon"
                 width={40}
                 height={40}

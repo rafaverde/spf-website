@@ -6,6 +6,7 @@ import Footer from "@/components/layout/footer";
 import MacondoSignature from "@/components/layout/macondo-signature";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
+import { getGlobalOptions } from "@/lib/site/get-global-options";
 
 const funnel = Funnel_Display({
   subsets: ["latin"],
@@ -63,17 +64,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { branding } = await getGlobalOptions();
+
   return (
     <html lang="es" className="scroll-smooth">
       <body
         className={`${funnel.variable} ${publicSans.variable} font-sans antialiased`}
       >
-        <Header />
+        <Header branding={branding} />
         <main>{children}</main>
         <Footer />
         <MacondoSignature className="bg-spf-green-900 relative" />
