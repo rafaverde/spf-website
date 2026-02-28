@@ -1,7 +1,7 @@
 import ContactForm from "@/components/contact/contact-form";
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
-import { globalConfig } from "@/lib/site/global.config";
+import { getGlobalOptions } from "@/lib/site/get-global-options";
 import * as Icons from "@remixicon/react";
 import Link from "next/link";
 
@@ -11,7 +11,9 @@ export const metadata = {
   title: "Contacto",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const globalOptions = await getGlobalOptions();
+
   return (
     <section className="relative min-h-screen w-full">
       <HeroImageBackground imageSrc="/sector/bg-header-sector.webp" />
@@ -36,23 +38,23 @@ export default function ContactPage() {
                   <li className="group hover:text-spf-highlight-400 flex gap-1 transition-colors duration-300 ease-in-out">
                     <Icons.RiMapPinLine className="text-spf-green-300 group-hover:text-spf-highlight-400 transition-colors duration-300 ease-in-out" />
                     <span className="select-none">
-                      {globalConfig.contact.address}
+                      {globalOptions.contact?.address}
                     </span>
                   </li>
 
                   <li className="group hover:text-spf-highlight-400 transition-colors duration-300 ease-in-out">
                     <Link
-                      href={`mailto:${globalConfig.contact.email}`}
+                      href={`mailto:${globalOptions.contact?.email}`}
                       className="flex gap-1"
                     >
                       <Icons.RiMailLine className="text-spf-green-300 group-hover:text-spf-highlight-400 transition-colors duration-300 ease-in-out" />
-                      <span>{globalConfig.contact.email}</span>
+                      <span>{globalOptions.contact?.email}</span>
                     </Link>
                   </li>
 
-                  {globalConfig.contact.phones.map((phone) => (
+                  {globalOptions.contact?.phones.map(({ phone }, index) => (
                     <li
-                      key={phone}
+                      key={`phones-${index}-${phone}`}
                       className="group hover:text-spf-highlight-400 transition-colors duration-300 ease-in-out"
                     >
                       <Link href={`tel:${phone}`} className="flex gap-1">

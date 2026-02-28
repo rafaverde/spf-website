@@ -17,9 +17,13 @@ import {
 } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { RiMenuLine } from "@remixicon/react";
-import { globalConfig } from "@/lib/site/global.config";
+import { GlobalOptions } from "@/lib/site/global.types";
 
-export default function Header() {
+interface HeaderProps {
+  globalOptions: GlobalOptions;
+}
+
+export default function Header({ globalOptions }: HeaderProps) {
   const pathname = usePathname();
 
   // Motion hook for Scroll event
@@ -56,7 +60,9 @@ export default function Header() {
         {/* Logo */}
         <Link href={isScrolled ? "#top" : "/"}>
           <Image
-            src={globalConfig.branding.logo}
+            src={
+              globalOptions.branding?.logo_principal || "/spf-logo-color.svg"
+            }
             alt="Sociedad de Productores Forestales de Uruguay"
             width={250}
             height={0}
@@ -70,7 +76,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 lg:flex">
-          {globalConfig.navigation.map((item, index) => {
+          {globalOptions.navigation?.map((item, index) => {
             const isActive = item.href === pathname;
 
             return (
@@ -127,7 +133,9 @@ export default function Header() {
               </SheetDescription>
 
               <Image
-                src={globalConfig.branding.icon}
+                src={
+                  globalOptions.branding?.icon_marca || "/spf-icon-color.svg"
+                }
                 alt="SPF Icon"
                 width={40}
                 height={40}
@@ -143,7 +151,7 @@ export default function Header() {
               >
                 Home
               </Link>
-              {globalConfig.navigation.map((item, index) => {
+              {globalOptions.navigation?.map((item, index) => {
                 const isActive = item.href === pathname;
 
                 return (

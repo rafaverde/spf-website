@@ -1,6 +1,7 @@
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
 import { Button } from "@/components/ui/button";
+import { getGlobalOptions } from "@/lib/site/get-global-options";
 import { RiArrowRightUpLine } from "@remixicon/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,9 @@ export const metadata = {
   title: "Áreas de Actuación",
 };
 
-export default function ExpertiseAreasPage() {
+export default async function ExpertiseAreasPage() {
+  const globalOptions = await getGlobalOptions();
+
   return (
     <div className="relative min-h-screen w-full">
       <HeroImageBackground imageSrc="/areas/bg-header-areas.webp" />
@@ -110,11 +113,12 @@ export default function ExpertiseAreasPage() {
                 </p>
 
                 <Link
-                  href="https://www.app.spf.com.uy/wp-content/uploads/2026/02/acta-consejo-trabajo-2026.pdf"
+                  href={globalOptions.general?.asuntos_laborales.file_url || ""}
                   target="_blank"
                 >
                   <Button size="lg">
-                    Acta Consejo de Salarios Enero 2026 <RiArrowRightUpLine />
+                    {globalOptions.general?.asuntos_laborales.label}
+                    <RiArrowRightUpLine />
                   </Button>
                 </Link>
               </div>
