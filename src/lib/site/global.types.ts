@@ -22,4 +22,11 @@ export interface GlobalOptions {
     cta: { label: string; href: string };
     copyright: string;
   };
+
+  general?: {
+    asuntos_laborales: {
+      label: string;
+      file_url: string;
+    };
+  };
 }
