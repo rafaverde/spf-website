@@ -15,4 +15,11 @@ export interface GlobalOptions {
     email: string;
     phones: { phone: string }[];
   };
+
+  social?: { label: string; href: string; icon: string }[];
+
+  footer?: {
+    cta: { label: string; href: string };
+    copyright: string;
+  };
 }

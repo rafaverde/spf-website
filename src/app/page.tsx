@@ -10,13 +10,9 @@ import VideoCarouselSkeleton from "@/components/video/video-carousel-skeleton";
 import NewsSection from "@/components/home/news-section";
 import { HOME_HERO_PHRASES } from "@/lib/site/home.config";
 import { getStatistics } from "@/lib/statistics/get-statistics";
-import { getGlobalOptions } from "@/lib/site/get-global-options";
 
 export default async function Home() {
   const stats = await getStatistics();
-  const globalOptions = await getGlobalOptions();
-
-  console.log(globalOptions);
 
   return (
     <>

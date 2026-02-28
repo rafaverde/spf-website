@@ -1,4 +1,3 @@
-import { globalConfig } from "@/lib/site/global.config";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,7 +35,7 @@ export default function Footer({ globalOptions }: FooterProps) {
               className="h-auto brightness-0 invert md:w-[300px]"
             />
             <p className="text-spf-green-300 text-xs">
-              {globalConfig.copyright}
+              {globalOptions.footer?.copyright}
             </p>
           </div>
 
@@ -72,7 +71,7 @@ export default function Footer({ globalOptions }: FooterProps) {
               </h2>
 
               <div className="flex gap-2">
-                {globalConfig.social.map((item) => {
+                {globalOptions.social?.map((item) => {
                   const Icon = Icons[item.icon as keyof typeof Icons];
 
                   return (
@@ -91,9 +90,9 @@ export default function Footer({ globalOptions }: FooterProps) {
                 ¿Te interesa ser socio? Escribinos. 
               </h2>
 
-              <Link href={globalConfig.cta.footer.href}>
+              <Link href={globalOptions.footer?.cta.href || ""}>
                 <Button size="lg">
-                  {globalConfig.cta.footer.label} <Icons.RiArrowRightUpLine />
+                  {globalOptions.footer?.cta.label} <Icons.RiArrowRightUpLine />
                 </Button>
               </Link>
             </div>
