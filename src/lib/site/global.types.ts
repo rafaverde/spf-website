@@ -9,4 +9,10 @@ export interface GlobalOptions {
     label: string;
     href: string;
   }[];
+
+  contact?: {
+    address: string;
+    email: string;
+    phones: { phone: string }[];
+  };
 }

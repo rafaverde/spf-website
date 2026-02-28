@@ -69,16 +69,16 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { branding, navigation } = await getGlobalOptions();
+  const globalOptions = await getGlobalOptions();
 
   return (
     <html lang="es" className="scroll-smooth">
       <body
         className={`${funnel.variable} ${publicSans.variable} font-sans antialiased`}
       >
-        <Header branding={branding} navigation={navigation} />
+        <Header globalOptions={globalOptions} />
         <main>{children}</main>
-        <Footer />
+        <Footer globalOptions={globalOptions} />
         <MacondoSignature className="bg-spf-green-900 relative" />
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
 

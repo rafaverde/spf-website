@@ -19,7 +19,11 @@ import { Button } from "../ui/button";
 import { RiMenuLine } from "@remixicon/react";
 import { GlobalOptions } from "@/lib/site/global.types";
 
-export default function Header({ branding, navigation }: GlobalOptions) {
+interface HeaderProps {
+  globalOptions: GlobalOptions;
+}
+
+export default function Header({ globalOptions }: HeaderProps) {
   const pathname = usePathname();
 
   // Motion hook for Scroll event
@@ -56,7 +60,9 @@ export default function Header({ branding, navigation }: GlobalOptions) {
         {/* Logo */}
         <Link href={isScrolled ? "#top" : "/"}>
           <Image
-            src={branding?.logo_principal || "/spf-logo-color.svg"}
+            src={
+              globalOptions.branding?.logo_principal || "/spf-logo-color.svg"
+            }
             alt="Sociedad de Productores Forestales de Uruguay"
             width={250}
             height={0}
@@ -70,7 +76,7 @@ export default function Header({ branding, navigation }: GlobalOptions) {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 lg:flex">
-          {navigation?.map((item, index) => {
+          {globalOptions.navigation?.map((item, index) => {
             const isActive = item.href === pathname;
 
             return (
@@ -127,7 +133,9 @@ export default function Header({ branding, navigation }: GlobalOptions) {
               </SheetDescription>
 
               <Image
-                src={branding?.icon_marca || "/spf-icon-color.svg"}
+                src={
+                  globalOptions.branding?.icon_marca || "/spf-icon-color.svg"
+                }
                 alt="SPF Icon"
                 width={40}
                 height={40}
@@ -143,7 +151,7 @@ export default function Header({ branding, navigation }: GlobalOptions) {
               >
                 Home
               </Link>
-              {navigation?.map((item, index) => {
+              {globalOptions.navigation?.map((item, index) => {
                 const isActive = item.href === pathname;
 
                 return (

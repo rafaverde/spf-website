@@ -5,9 +5,13 @@ import Link from "next/link";
 
 import * as Icons from "@remixicon/react";
 import { Button } from "../ui/button";
-import MacondoSignature from "./macondo-signature";
+import { GlobalOptions } from "@/lib/site/global.types";
 
-export default function Footer() {
+interface FooterProps {
+  globalOptions: GlobalOptions;
+}
+
+export default function Footer({ globalOptions }: FooterProps) {
   return (
     <footer className="bg-spf-green-900 relative w-full py-20">
       <Image
@@ -23,8 +27,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:grid-rows-1 lg:gap-8">
           <div className="flex flex-col gap-6 self-start">
             <Image
-              src={globalConfig.branding.logo}
-              alt={globalConfig.branding.description}
+              src={
+                globalOptions.branding?.logo_principal || "/spf-logo-color.svg"
+              }
+              alt={globalOptions.branding?.footer_description || ""}
               width={200}
               height={0}
               className="h-auto brightness-0 invert md:w-[300px]"
@@ -41,7 +47,7 @@ export default function Footer() {
               </h2>
 
               <ul className="flex flex-col gap-1 text-white">
-                {globalConfig.navigation.map((link) => (
+                {globalOptions.navigation?.map((link) => (
                   <li key={link.href} className="relative flex">
                     <Link
                       href={link.href}
@@ -101,26 +107,26 @@ export default function Footer() {
                 <li className="group hover:text-spf-highlight-400 flex gap-1 transition-colors duration-300 ease-in-out">
                   <Icons.RiMapPinLine className="text-spf-green-300 group-hover:text-spf-highlight-400 transition-colors duration-300 ease-in-out" />
                   <span className="select-none">
-                    {globalConfig.contact.address}
+                    {globalOptions.contact?.address}
                   </span>
                 </li>
 
                 <li className="group hover:text-spf-highlight-400 transition-colors duration-300 ease-in-out">
                   <Link
-                    href={`mailto:${globalConfig.contact.email}`}
+                    href={`mailto:${globalOptions.contact?.email}`}
                     className="flex gap-1"
                   >
                     <Icons.RiMailLine className="text-spf-green-300 group-hover:text-spf-highlight-400 transition-colors duration-300 ease-in-out" />
-                    <span>{globalConfig.contact.email}</span>
+                    <span>{globalOptions.contact?.email}</span>
                   </Link>
                 </li>
 
-                {globalConfig.contact.phones.map((phone) => (
+                {globalOptions.contact?.phones.map(({ phone }, index) => (
                   <li
-                    key={phone}
+                    key={`phone-numbers-${[index]}`}
                     className="group hover:text-spf-highlight-400 transition-colors duration-300 ease-in-out"
                   >
-                    <Link href={`tel:${phone}`} className="flex gap-1">
+                    <Link href={`tel:${[phone]}`} className="flex gap-1">
                       <Icons.RiPhoneLine className="text-spf-green-300 group-hover:text-spf-highlight-400 transition-colors duration-300 ease-in-out" />
                       <span>{phone}</span>
                     </Link>
