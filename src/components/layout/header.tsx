@@ -144,13 +144,6 @@ export default function Header({ globalOptions }: HeaderProps) {
             </SheetHeader>
 
             <nav className="mx-auto flex h-full flex-col items-center justify-center gap-4 font-bold uppercase">
-              <Link
-                href="/"
-                onClick={(prevState) => setIsMobileOpen(!prevState)}
-                className={cn("", pathname === "/" && "text-spf-yellow-400")}
-              >
-                Home
-              </Link>
               {globalOptions.navigation?.map((item, index) => {
                 const isActive = item.href === pathname;
 
