@@ -7,6 +7,7 @@ import MacondoSignature from "@/components/layout/macondo-signature";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { getGlobalOptions } from "@/lib/site/get-global-options";
+import { NextIntlClientProvider } from "next-intl";
 
 const funnel = Funnel_Display({
   subsets: ["latin"],
@@ -76,10 +77,12 @@ export default async function RootLayout({
       <body
         className={`${funnel.variable} ${publicSans.variable} font-sans antialiased`}
       >
-        <Header globalOptions={globalOptions} />
-        <main>{children}</main>
-        <Footer globalOptions={globalOptions} />
-        <MacondoSignature className="bg-spf-green-900 relative" />
+        <NextIntlClientProvider>
+          <Header globalOptions={globalOptions} />
+          <main>{children}</main>
+          <Footer globalOptions={globalOptions} />
+          <MacondoSignature className="bg-spf-green-900 relative" />
+        </NextIntlClientProvider>
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
 
         <Script
