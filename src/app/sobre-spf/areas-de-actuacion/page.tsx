@@ -1,8 +1,10 @@
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
 import { Button } from "@/components/ui/button";
+import { AppLocale } from "@/i18n/routing";
 import { getGlobalOptions } from "@/lib/site/get-global-options";
 import { RiArrowRightUpLine } from "@remixicon/react";
+import { getLocale } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +13,8 @@ export const metadata = {
 };
 
 export default async function ExpertiseAreasPage() {
-  const globalOptions = await getGlobalOptions();
+  const locale = (await getLocale()) as AppLocale;
+  const globalOptions = await getGlobalOptions(locale);
 
   return (
     <div className="relative min-h-screen w-full">

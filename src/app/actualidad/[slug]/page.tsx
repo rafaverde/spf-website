@@ -1,6 +1,7 @@
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
 import { Button } from "@/components/ui/button";
+import { AppLocale } from "@/i18n/routing";
 import { generateNewsMetadata } from "@/lib/metadata";
 import { getNewsBySlug } from "@/lib/news/get-news-by-slug";
 import { NewsItem } from "@/lib/news/news.types";
@@ -8,6 +9,7 @@ import { formatDate } from "@/lib/utils";
 import { getPostBySlugForMetadata } from "@/lib/wp/get-post-by-slug.metadata";
 import { RiArrowLeftLine } from "@remixicon/react";
 import { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -24,7 +26,12 @@ export async function generateMetadata({
   params,
 }: MetadataProps): Promise<Metadata> {
   const { slug } = await params;
-  const newsPost: NewsItem | null = await getPostBySlugForMetadata(slug);
+  const locale = (await getLocale()) as AppLocale;
+
+  const newsPost: NewsItem | null = await getPostBySlugForMetadata(
+    slug,
+    locale,
+  );
 
   return generateNewsMetadata(newsPost);
 }
@@ -37,8 +44,9 @@ interface NewsSinglePageProps {
 
 export default async function NewsSinglePage({ params }: NewsSinglePageProps) {
   const { slug } = await params;
+  const locale = (await getLocale()) as AppLocale;
 
-  const news = await getNewsBySlug(slug);
+  const news = await getNewsBySlug(slug, locale);
 
   if (!news) {
     notFound();

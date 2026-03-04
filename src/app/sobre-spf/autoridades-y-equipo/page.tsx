@@ -7,14 +7,18 @@ import { getAuthorities } from "@/lib/authorities/get-authorities";
 import ErrorDataLoading from "@/components/errors/error-data-loading";
 import getTeam from "@/lib/team/get-team";
 import { Metadata } from "next";
+import { getLocale } from "next-intl/server";
+import { AppLocale } from "@/i18n/routing";
 
 export const metadata: Metadata = {
   title: "Autoridades y Equipo",
 };
 
 export default async function AuthorityTeamPage() {
-  const { titularMembers } = await getAuthorities();
-  const team = await getTeam();
+  const locale = (await getLocale()) as AppLocale;
+
+  const { titularMembers } = await getAuthorities(locale);
+  const team = await getTeam(locale);
 
   return (
     <div className="relative min-h-screen w-full">

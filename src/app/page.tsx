@@ -10,9 +10,12 @@ import VideoCarouselSkeleton from "@/components/video/video-carousel-skeleton";
 import NewsSection from "@/components/home/news-section";
 import { HOME_HERO_PHRASES } from "@/lib/site/home.config";
 import { getStatistics } from "@/lib/statistics/get-statistics";
+import { getLocale } from "next-intl/server";
+import { AppLocale } from "@/i18n/routing";
 
 export default async function Home() {
-  const stats = await getStatistics();
+  const locale = (await getLocale()) as AppLocale;
+  const stats = await getStatistics(locale);
 
   return (
     <>

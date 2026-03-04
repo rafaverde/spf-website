@@ -1,8 +1,10 @@
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
 import StatisticsCounter from "@/components/statistics/statistics-counter";
+import { AppLocale } from "@/i18n/routing";
 import { getStatistics } from "@/lib/statistics/get-statistics";
 import { mapStatisticsByKey } from "@/lib/statistics/statistics.helper";
+import { getLocale } from "next-intl/server";
 import Image from "next/image";
 
 export const metadata = {
@@ -10,7 +12,8 @@ export const metadata = {
 };
 
 export default async function StatisticsPage() {
-  const stats = await getStatistics();
+  const locale = (await getLocale()) as AppLocale;
+  const stats = await getStatistics(locale);
   const statsByKey = mapStatisticsByKey(stats);
 
   return (

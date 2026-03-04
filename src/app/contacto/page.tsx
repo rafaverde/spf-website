@@ -1,8 +1,10 @@
 import ContactForm from "@/components/contact/contact-form";
 import HeroImageBackground from "@/components/layout/hero-image-background";
 import HeroTitle from "@/components/layout/hero-title";
+import { AppLocale } from "@/i18n/routing";
 import { getGlobalOptions } from "@/lib/site/get-global-options";
 import * as Icons from "@remixicon/react";
+import { getLocale } from "next-intl/server";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
@@ -12,7 +14,8 @@ export const metadata = {
 };
 
 export default async function ContactPage() {
-  const globalOptions = await getGlobalOptions();
+  const locale = (await getLocale()) as AppLocale;
+  const globalOptions = await getGlobalOptions(locale);
 
   return (
     <section className="relative min-h-screen w-full">

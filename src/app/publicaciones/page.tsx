@@ -1,7 +1,9 @@
 import Pagination from "@/components/news/pagination";
 import PublicationCard from "@/components/publications/publication-card";
+import { AppLocale } from "@/i18n/routing";
 import { getPublications } from "@/lib/wp/get-publications";
 import { RiEmotionSadLine } from "@remixicon/react";
+import { getLocale } from "next-intl/server";
 
 interface PublicationsPageProps {
   searchParams?: Promise<{
@@ -18,9 +20,11 @@ export default async function PublicationsPage({
 }: PublicationsPageProps) {
   const params = await searchParams;
   const page = Number(params?.page ?? "1");
+  const locale = (await getLocale()) as AppLocale;
   const { publications, totalPages } = await getPublications({
     page,
     perPage: 12,
+    locale,
   });
 
   return (

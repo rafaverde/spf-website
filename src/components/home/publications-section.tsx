@@ -11,9 +11,12 @@ import {
 import { getPublications } from "@/lib/wp/get-publications";
 import PublicationCard from "../publications/publication-card";
 import Link from "next/link";
+import { getLocale } from "next-intl/server";
+import { AppLocale } from "@/i18n/routing";
 
 export default async function PublicationsSection() {
-  const { publications } = await getPublications({ perPage: 6 });
+  const locale = (await getLocale()) as AppLocale;
+  const { publications } = await getPublications({ perPage: 6, locale });
 
   return (
     <section className="bg-spf-green-300 relative w-full py-20">

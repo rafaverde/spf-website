@@ -5,7 +5,7 @@ import { AppLocale } from "@/i18n/routing";
 
 export async function getLatestNews(
   limit: number = 6,
-  locale: AppLocale,
+  locale: AppLocale = "es",
 ): Promise<NewsItem[]> {
   const { posts } = await getPosts({
     page: 1,

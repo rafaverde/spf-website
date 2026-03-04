@@ -8,6 +8,8 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { getGlobalOptions } from "@/lib/site/get-global-options";
 import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
+import { AppLocale } from "@/i18n/routing";
 
 const funnel = Funnel_Display({
   subsets: ["latin"],
@@ -70,7 +72,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const globalOptions = await getGlobalOptions();
+  const locale = (await getLocale()) as AppLocale;
+  const globalOptions = await getGlobalOptions(locale);
 
   return (
     <html lang="es" className="scroll-smooth">
