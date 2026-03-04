@@ -96,9 +96,9 @@ export default async function AuthorityTeamPage() {
 
             {team && team.length > 0 ? (
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {team.map((member) => (
+                {team.map((member, index) => (
                   <TeamCard
-                    key={member.name}
+                    key={member.name + index}
                     name={member.name}
                     jobTitle={member.jobTitle}
                     imageSrc={member.imageSrc}

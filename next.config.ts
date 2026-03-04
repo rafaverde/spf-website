@@ -22,6 +22,20 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "spf.com.uy",
+        port: "8890",
+        pathname: "/wp-content/uploads/**",
+        search: "",
+      },
+      {
+        protocol: "http",
+        hostname: "spf.com.uy",
+        port: "8890",
+        pathname: "/wp-content/uploads/**",
+        search: "",
+      },
+      {
+        protocol: "https",
         hostname: "i.ytimg.com",
         port: "",
         pathname: "/**",
