@@ -1,3 +1,4 @@
+import { AppLocale } from "@/i18n/routing";
 import { getMediaByIds } from "./get-media-by-id";
 import { mapWpPublication } from "./mappers";
 import { fetchWp } from "./wp.client";
@@ -6,14 +7,17 @@ import { WpPost } from "./wp.types";
 export async function getPublications({
   page = 1,
   perPage = 12,
+  locale = "es",
 }: {
   page?: number;
   perPage?: number;
+  locale: AppLocale;
 }) {
   const { data: posts, headers } = await fetchWp<WpPost[]>("publicacion", {
     params: {
       page,
       per_page: perPage,
+      locale,
     },
     revalidate: 60,
   });

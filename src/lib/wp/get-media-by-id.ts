@@ -1,8 +1,10 @@
 import { fetchWp } from "@/lib/wp/wp.client";
 import { WpMedia } from "./wp-media.types";
+import { AppLocale } from "@/i18n/routing";
 
 export async function getMediaByIds(
   ids: number[],
+  locale: AppLocale = "es",
 ): Promise<Record<number, string>> {
   if (!ids.length) return {};
 
@@ -10,6 +12,7 @@ export async function getMediaByIds(
     params: {
       include: ids.join(","),
       per_page: ids.length,
+      locale,
     },
     revalidate: 60,
   });

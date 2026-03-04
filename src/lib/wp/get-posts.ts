@@ -1,3 +1,4 @@
+import { AppLocale } from "@/i18n/routing";
 import { NewsItem } from "../news/news.types";
 import { getCategoryIdBySlug } from "./get-category-id-by-slug";
 import { mapWPPostToNews } from "./mappers";
@@ -9,6 +10,7 @@ interface GetPostsParams {
   perPage: number;
   search?: string;
   category?: string;
+  locale?: AppLocale;
 }
 
 export async function getPosts({
@@ -16,6 +18,7 @@ export async function getPosts({
   perPage,
   search,
   category,
+  locale = "es",
 }: GetPostsParams) {
   const categoryId = category ? await getCategoryIdBySlug(category) : undefined;
 
@@ -26,6 +29,7 @@ export async function getPosts({
       search,
       categories: categoryId,
       _embed: "wp:featuredmedia,wp:term",
+      locale,
     },
     revalidate: 60,
   });
