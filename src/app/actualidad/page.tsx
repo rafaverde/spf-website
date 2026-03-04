@@ -3,7 +3,9 @@ export const dynamic = "force-dynamic";
 import NewsArchive from "@/components/news/news-archive";
 import NewsArchiveSkeleton from "@/components/news/news-archive-skeleton";
 import NewsFilters from "@/components/news/news-filter";
+import { AppLocale } from "@/i18n/routing";
 import { getCategories } from "@/lib/wp/get-categories";
+import { getLocale } from "next-intl/server";
 import { Suspense } from "react";
 
 interface NewsPageProps {
@@ -24,8 +26,9 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
   const page = Number(params?.page ?? "1");
   const search = params?.search ?? "";
   const category = params?.category ?? "";
+  const locale = (await getLocale()) as AppLocale;
 
-  const categories = await getCategories();
+  const categories = await getCategories(locale);
 
   return (
     <>
@@ -56,6 +59,7 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
               pageSize={9}
               search={search}
               category={category}
+              locale={locale}
             />
           </Suspense>
         </div>

@@ -2,12 +2,14 @@ import { getAllNews } from "@/lib/news/get-all-news";
 import { RiEmotionSadLine } from "@remixicon/react";
 import NewsCard from "./news-card";
 import Pagination from "./pagination";
+import { AppLocale } from "@/i18n/routing";
 
 interface NewsArchiveProps {
   page: number;
   pageSize: number;
   search?: string;
   category?: string;
+  locale?: AppLocale;
 }
 
 export default async function NewsArchive({
@@ -15,12 +17,14 @@ export default async function NewsArchive({
   pageSize,
   search,
   category,
+  locale = "es",
 }: NewsArchiveProps) {
   const { news, totalPages } = await getAllNews({
     page,
     perPage: pageSize,
     search,
     category: category,
+    locale,
   });
 
   return (
