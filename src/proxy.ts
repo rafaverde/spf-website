@@ -1,12 +1,8 @@
-import { NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "@/i18n/routing";
 
-// FE-02 transition mode:
-// Keep proxy in place, but do not rewrite routes yet.
-// Route rewriting with next-intl middleware requires `app/[locale]/...` to exist.
-export default function proxy() {
-  return NextResponse.next();
-}
+export default createMiddleware(routing);
 
 export const config = {
-  matcher: [],
+  matcher: ["/((?!api|trpc|_next|_vercel|.*\\..*).*)"],
 };

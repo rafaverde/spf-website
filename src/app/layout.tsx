@@ -26,9 +26,7 @@ export default async function RootLayout({
       <body
         className={`${funnel.variable} ${publicSans.variable} font-sans antialiased`}
       >
-        <NextIntlClientProvider>
-          <main>{children}</main>
-        </NextIntlClientProvider>
+        <main>{children}</main>
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
 
         <Script
