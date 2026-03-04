@@ -1,3 +1,4 @@
+import { AppLocale } from "@/i18n/routing";
 import { getCategories } from "../wp/get-categories";
 
 export interface NewsCategory {
@@ -5,8 +6,10 @@ export interface NewsCategory {
   name: string;
 }
 
-export async function getNewsCategories(): Promise<NewsCategory[]> {
-  const categories = await getCategories();
+export async function getNewsCategories(
+  locale: AppLocale = "es",
+): Promise<NewsCategory[]> {
+  const categories = await getCategories(locale);
 
   return categories.map((cat) => ({
     slug: cat.slug,

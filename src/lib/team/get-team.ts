@@ -1,9 +1,12 @@
+import { AppLocale } from "@/i18n/routing";
 import { fetchWp } from "../wp/wp.client";
 import { TeamMember } from "./team.types";
 import { mapWpTeamMembersToTeam } from "./team.wp.mapper";
 import { WpTeamMember } from "./team.wp.types";
 
-export default async function getTeam(): Promise<TeamMember[]> {
+export default async function getTeam(
+  locale: AppLocale = "es",
+): Promise<TeamMember[]> {
   const { data } = await fetchWp<WpTeamMember[]>("team", {
     params: {
       per_page: 100,
@@ -11,6 +14,7 @@ export default async function getTeam(): Promise<TeamMember[]> {
       order: "asc",
       _embed: "wp:featuredmedia",
     },
+    locale,
     revalidate: 60,
   });
 
