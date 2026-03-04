@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
 import { Funnel_Display, Public_Sans } from "next/font/google";
 import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
-import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
 
 const funnel = Funnel_Display({
   subsets: ["latin"],
@@ -21,8 +20,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang={locale} className="scroll-smooth">
       <body
         className={`${funnel.variable} ${publicSans.variable} font-sans antialiased`}
       >

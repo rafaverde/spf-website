@@ -8,51 +8,54 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { AppLocale, routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import { getLocaleSeo, siteUrl } from "@/lib/seo/seo.config";
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s | SPF - Sociedad de Productores Forestales",
-    default:
-      "Impulsamos oportunidades en todo Uruguay | SPF - Sociedad de Productores Forestales",
-  },
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
 
-  description:
-    "Somos la Sociedad de Productores Forestales del Uruguay (SPF), una asociación civil fundada en 1959 que reúne a los principales actores de la cadena forestal uruguaya. ",
+  if (!routing.locales.includes(locale as AppLocale)) {
+    notFound();
+  }
 
-  keywords: [
-    "sector forestal uruguay",
-    "forestación en uruguay",
-    "sociedad de productores forestales",
-    "industria forestal",
-    "economía forestal",
-    "empleo forestal",
-    "exportaciones forestales",
-    "estadísticas forestales",
-    "noticias forestales",
-    "publicaciones forestales",
-    "manejo forestal sostenible",
-    "sanidad forestal",
-    "desarrollo forestal",
-    "medio ambiente y forestación",
-  ],
+  const typedLocale = locale as AppLocale;
+  const seo = getLocaleSeo(typedLocale);
 
-  openGraph: {
-    title: "SPF - Sociedad de Productores Forestales",
-    description:
-      "Somos la Sociedad de Productores Forestales del Uruguay (SPF), una asociación civil fundada en 1959 que reúne a los principales actores de la cadena forestal uruguaya. ",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.spf.com.uy",
-    siteName: "SPF - Sociedad de Productores Forestales",
-    images: [
-      {
-        url: "/og-image.webp",
-        width: 1200,
-        height: 630,
+  return {
+    title: {
+      template: "%s | SPF - Sociedad de Productores Forestales",
+      default: seo.titleDefault,
+    },
+    description: seo.description,
+    alternates: {
+      canonical: `/${typedLocale}`,
+      languages: {
+        es: "/es",
+        en: "/en",
       },
-    ],
-    locale: "es_UY",
-    type: "website",
-  },
-};
+    },
+    keywords: seo.keywords,
+
+    openGraph: {
+      title: "SPF - Sociedad de Productores Forestales",
+      description: seo.description,
+      url: `${siteUrl}/${typedLocale}`,
+      siteName: "SPF - Sociedad de Productores Forestales",
+      images: [
+        {
+          url: "/og-image.webp",
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: seo.ogLocale,
+      type: "website",
+    },
+  };
+}
 
 interface LocaleLayoutProps {
   children: React.ReactNode;

@@ -17,9 +17,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 interface MetadataProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({
@@ -33,7 +31,7 @@ export async function generateMetadata({
     locale,
   );
 
-  return generateNewsMetadata(newsPost);
+  return generateNewsMetadata(newsPost, locale);
 }
 
 interface NewsSinglePageProps {

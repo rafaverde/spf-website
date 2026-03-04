@@ -1,13 +1,19 @@
 import { Metadata } from "next";
 import { NewsItem } from "./news/news.types";
+import { siteUrl } from "./seo/seo.config";
+import { AppLocale } from "@/i18n/routing";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-
-export function generateNewsMetadata(news: NewsItem | null): Metadata {
+export function generateNewsMetadata(
+  news: NewsItem | null,
+  locale: AppLocale,
+): Metadata {
   if (!news) {
     return {
-      title: "Noticia no encontrada",
-      description: "Esta noticia ha sido eliminada o no existe.",
+      title: locale === "en" ? "News not found" : "Noticia no encontrada",
+      description:
+        locale === "en"
+          ? "This news item was removed or does not exists."
+          : "Esta noticia ha sido eliminada o no existe.",
     };
   }
 
@@ -17,8 +23,17 @@ export function generateNewsMetadata(news: NewsItem | null): Metadata {
     openGraph: {
       title: news.title,
       description: news.excerpt,
-      url: `${siteUrl}/actualidad/${news.slug}`,
+      url: `${siteUrl}/${locale}/actualidad/${news.slug}`,
       images: [{ url: news.image || "/news/news-placeholder.webp" }],
+      locale: locale === "en" ? "en_US" : "es_UY",
+      type: "article",
+    },
+    alternates: {
+      canonical: `/${locale}/actualidad/${news.slug}`,
+      languages: {
+        es: `/es/actualidad/${news.slug}`,
+        en: `/en/actualidad/${news.slug}`,
+      },
     },
   };
 }
