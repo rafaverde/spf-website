@@ -6,6 +6,7 @@ import { AppLocale } from "@/i18n/routing";
 export function generateNewsMetadata(
   news: NewsItem | null,
   locale: AppLocale,
+  alternatesByLang: Partial<Record<"es" | "en", string>>,
 ): Metadata {
   if (!news) {
     return {
@@ -29,11 +30,13 @@ export function generateNewsMetadata(
       type: "article",
     },
     alternates: {
-      canonical: `/${locale}/actualidad/${news.slug}`,
-      languages: {
-        es: `/es/actualidad/${news.slug}`,
-        en: `/en/actualidad/${news.slug}`,
-      },
+      canonical: `${siteUrl}${alternatesByLang[locale] ?? `/${locale}/actualidad/${news.slug}`}`,
+      languages: Object.fromEntries(
+        Object.entries(alternatesByLang).map(([lang, path]) => [
+          lang,
+          `${siteUrl}${path}`,
+        ]),
+      ),
     },
   };
 }

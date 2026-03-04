@@ -12,6 +12,7 @@ import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
+import { getPostAlternatesBySlug } from "@/lib/wp/get-post-alternates-by-slug";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,13 +26,14 @@ export async function generateMetadata({
 }: MetadataProps): Promise<Metadata> {
   const { slug } = await params;
   const locale = (await getLocale()) as AppLocale;
+  const alternates = await getPostAlternatesBySlug(slug, locale);
 
   const newsPost: NewsItem | null = await getPostBySlugForMetadata(
     slug,
     locale,
   );
 
-  return generateNewsMetadata(newsPost, locale);
+  return generateNewsMetadata(newsPost, locale, alternates);
 }
 
 interface NewsSinglePageProps {
