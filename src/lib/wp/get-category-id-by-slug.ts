@@ -14,8 +14,8 @@ export async function getCategoryIdBySlug(
     params: {
       slug,
       per_page: 1,
-      locale,
     },
+    locale,
     revalidate: 60 * 60,
   });
 

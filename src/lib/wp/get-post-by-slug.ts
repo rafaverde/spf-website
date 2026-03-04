@@ -8,8 +8,8 @@ export async function getPostBySlug(slug: string, locale: AppLocale = "es") {
     params: {
       slug,
       _embed: "wp:featuredmedia,wp:term",
-      locale,
     },
+    locale,
     revalidate: 60,
   });
 

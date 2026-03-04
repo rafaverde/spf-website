@@ -20,7 +20,9 @@ export async function getPosts({
   category,
   locale = "es",
 }: GetPostsParams) {
-  const categoryId = category ? await getCategoryIdBySlug(category) : undefined;
+  const categoryId = category
+    ? await getCategoryIdBySlug(category, locale)
+    : undefined;
 
   const { data, headers } = await fetchWp<WpPost[]>("posts", {
     params: {
@@ -29,8 +31,8 @@ export async function getPosts({
       search,
       categories: categoryId,
       _embed: "wp:featuredmedia,wp:term",
-      locale,
     },
+    locale,
     revalidate: 60,
   });
   const posts: NewsItem[] = data.map(mapWPPostToNews);

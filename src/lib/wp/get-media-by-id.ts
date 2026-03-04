@@ -12,8 +12,8 @@ export async function getMediaByIds(
     params: {
       include: ids.join(","),
       per_page: ids.length,
-      locale,
     },
+    locale,
     revalidate: 60,
   });
 

@@ -14,8 +14,8 @@ export async function getCategories(
     params: {
       per_page: 100,
       hide_empty: 1,
-      locale,
     },
+    locale,
     revalidate: 60 * 60 * 6, // 6 horas
   });
 

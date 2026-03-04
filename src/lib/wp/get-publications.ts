@@ -11,14 +11,14 @@ export async function getPublications({
 }: {
   page?: number;
   perPage?: number;
-  locale: AppLocale;
+  locale?: AppLocale;
 }) {
   const { data: posts, headers } = await fetchWp<WpPost[]>("publicacion", {
     params: {
       page,
       per_page: perPage,
-      locale,
     },
+    locale,
     revalidate: 60,
   });
 
@@ -26,7 +26,8 @@ export async function getPublications({
     .map((p) => p.acf?.pdf_file)
     .filter((id): id is number => typeof id === "number");
 
-  const pdfUrlsById = pdfIds.length > 0 ? await getMediaByIds(pdfIds) : {};
+  const pdfUrlsById =
+    pdfIds.length > 0 ? await getMediaByIds(pdfIds, locale) : {};
 
   const publications = posts.map((post) =>
     mapWpPublication(
