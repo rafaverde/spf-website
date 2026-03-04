@@ -1,27 +1,13 @@
 import type { Metadata } from "next";
-import { Funnel_Display, Public_Sans } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import MacondoSignature from "@/components/layout/macondo-signature";
-import { GoogleTagManager } from "@next/third-parties/google";
-import Script from "next/script";
 import { getGlobalOptions } from "@/lib/site/get-global-options";
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 import { AppLocale, routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-
-const funnel = Funnel_Display({
-  subsets: ["latin"],
-  variable: "--font-funnel-display",
-  display: "swap",
-});
-
-const publicSans = Public_Sans({
-  subsets: ["latin"],
-  variable: "--font-public-sans",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -88,23 +74,11 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={typedLocale} className="scroll-smooth">
-      <body
-        className={`${funnel.variable} ${publicSans.variable} font-sans antialiased`}
-      >
-        <NextIntlClientProvider locale={typedLocale} messages={messages}>
-          <Header globalOptions={globalOptions} />
-          <main>{children}</main>
-          <Footer globalOptions={globalOptions} />
-          <MacondoSignature className="bg-spf-green-900 relative" />
-        </NextIntlClientProvider>
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
-
-        <Script
-          src="https://hub.fromdoppler.com/public/dhtrack.js"
-          strategy="afterInteractive"
-        />
-      </body>
-    </html>
+    <NextIntlClientProvider locale={typedLocale} messages={messages}>
+      <Header globalOptions={globalOptions} />
+      <main>{children}</main>
+      <Footer globalOptions={globalOptions} />
+      <MacondoSignature className="bg-spf-green-900 relative" />
+    </NextIntlClientProvider>
   );
 }
