@@ -2,7 +2,7 @@ import { NewsItem } from "@/lib/news/news.types";
 import Image from "next/image";
 import { Card } from "../ui/card";
 import { formatDate } from "@/lib/utils";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface NewsCardProps {
   news: NewsItem;

@@ -10,7 +10,7 @@ import { getPostBySlugForMetadata } from "@/lib/wp/get-post-by-slug.metadata";
 import { RiArrowLeftLine } from "@remixicon/react";
 import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 
 export const runtime = "nodejs";

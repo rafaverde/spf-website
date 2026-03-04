@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Button } from "../ui/button";
 import { RiArrowRightUpLine } from "@remixicon/react";
 import NewsCarousel from "../news/news-carousel";
