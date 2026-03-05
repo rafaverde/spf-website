@@ -10,6 +10,7 @@ export async function getGlobalOptions(
     {
       namespace: "spf/v1",
       locale,
+      revalidate: 60,
     },
   );
 
