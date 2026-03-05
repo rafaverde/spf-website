@@ -8,6 +8,7 @@ import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const SUMMARY_IMAGES = [
   "/summary-carousel/image-1.webp",
@@ -22,6 +23,9 @@ export default function AboutUsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const tCommon = useTranslations("common");
+  const tAboutUs = useTranslations("aboutUs");
+
   return (
     <section
       ref={ref}
@@ -34,20 +38,13 @@ export default function AboutUsSection() {
         className="container mx-auto flex flex-col items-end justify-center gap-8 px-4"
       >
         <div className="space-y-3">
-          <h2 className="text-spf-green-300 text-4xl">Quiénes Somos</h2>
-          <p className="text-spf-green-100">
-            Somos la Sociedad de Productores Forestales del Uruguay (SPF), una
-            asociación civil fundada en 1959 que reúne a los principales actores
-            de la cadena forestal uruguaya: productores rurales, empresas
-            forestales, administradores de fondos de inversión y de
-            pensión, viveristas, técnicos, empresas de servicios e industrias
-            vinculadas al sector. 
-          </p>
+          <h2 className="text-spf-green-300 text-4xl">{tAboutUs("title")}</h2>
+          <p className="text-spf-green-100">{tAboutUs("description")}</p>
         </div>
         <div>
           <Link href="/sobre-spf">
             <Button size="lg">
-              Más información <RiArrowRightUpLine />
+              {tCommon("actions.moreInfo")} <RiArrowRightUpLine />
             </Button>
           </Link>
         </div>

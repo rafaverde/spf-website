@@ -1,1 +1,21 @@
-{}
+{
+  "actions": {
+    "moreInfo": "More information",
+    "moreNumbers": "More numbers",
+    "viewAllPosts": "View all posts",
+    "goToYoutube": "Go to YouTube",
+    "seeMore": "See more",
+    "view": "View",
+    "previous": "Previous",
+    "next": "Next",
+    "searchNews": "Search news...",
+    "filterByCategory": "Filter by category"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit message"
+  }
+}
