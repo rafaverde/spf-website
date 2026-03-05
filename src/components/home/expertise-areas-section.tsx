@@ -1,8 +1,8 @@
 import { RiArrowRightUpLine } from "@remixicon/react";
 import { Button } from "../ui/button";
 import AreasGrid from "../areas/areas-grid";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function ExpertiseAreasSection() {
   const tCommon = useTranslations("common");
