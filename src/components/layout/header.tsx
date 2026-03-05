@@ -4,8 +4,9 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+import NextLink from "next/link";
 import Image from "next/image";
+import { Link as LocaleLink } from "@/i18n/navigation";
 
 import {
   Sheet,
@@ -25,6 +26,14 @@ interface HeaderProps {
 
 export default function Header({ globalOptions }: HeaderProps) {
   const pathname = usePathname();
+  const localePrefixRegex = /^\/(es|en)(?=\/|$)/;
+
+  const toLocaleHref = (href: string) => {
+    const normalized = href.replace(localePrefixRegex, "");
+    return normalized === "" ? "/" : normalized;
+  };
+
+  const isInternalHref = (href: string) => href.startsWith("/");
 
   // Motion hook for Scroll event
   const { scrollY } = useScroll();
@@ -58,7 +67,7 @@ export default function Header({ globalOptions }: HeaderProps) {
         }}
       >
         {/* Logo */}
-        <Link href={isScrolled ? "#top" : "/"}>
+        <LocaleLink href={isScrolled ? "/#top" : "/"}>
           <Image
             src={
               globalOptions.branding?.logo_principal || "/spf-logo-color.svg"
@@ -72,35 +81,64 @@ export default function Header({ globalOptions }: HeaderProps) {
             )}
             priority
           />
-        </Link>
+        </LocaleLink>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 lg:flex">
           {globalOptions.navigation?.map((item, index) => {
-            const isActive = item.href === pathname;
+            const href = toLocaleHref(item.href);
+            const isActive =
+              href === "/"
+                ? /^\/(es|en)$/.test(pathname)
+                : pathname.endsWith(href);
 
             return (
-              <Link
-                key={index}
-                href={item.href}
-                className={cn("group relative", isScrolled ? "py-1" : "py-2")}
-              >
-                <span
-                  className={cn(
-                    "text-sm font-bold tracking-tight uppercase transition-colors duration-300",
-                    isScrolled ? "text-spf-green-900" : "text-white",
-                  )}
-                >
-                  {item.label}
-                </span>
-                <span
-                  className={cn(
-                    "absolute right-0 bottom-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full",
-                    isScrolled ? "bg-spf-green-500" : "bg-spf-yellow-400",
-                    isActive && "w-full",
-                  )}
-                ></span>
-              </Link>
+              <div key={index}>
+                {isInternalHref(item.href) ? (
+                  <LocaleLink
+                    href={href}
+                    className={cn(
+                      "group relative",
+                      isScrolled ? "py-1" : "py-2",
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        "text-sm font-bold tracking-tight uppercase transition-colors duration-300",
+                        isScrolled ? "text-spf-green-900" : "text-white",
+                      )}
+                    >
+                      {item.label}
+                    </span>
+                    <span
+                      className={cn(
+                        "absolute right-0 bottom-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full",
+                        isScrolled ? "bg-spf-green-500" : "bg-spf-yellow-400",
+                        isActive && "w-full",
+                      )}
+                    ></span>
+                  </LocaleLink>
+                ) : (
+                  <NextLink
+                    href={item.href}
+                    className={cn(
+                      "group relative",
+                      isScrolled ? "py-1" : "py-2",
+                    )}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span
+                      className={cn(
+                        "text-sm font-bold tracking-tight uppercase transition-colors duration-300",
+                        isScrolled ? "text-spf-green-900" : "text-white",
+                      )}
+                    >
+                      {item.label}
+                    </span>
+                  </NextLink>
+                )}
+              </div>
             );
           })}
         </nav>
@@ -145,17 +183,34 @@ export default function Header({ globalOptions }: HeaderProps) {
 
             <nav className="mx-auto flex h-full flex-col items-center justify-center gap-4 font-bold uppercase">
               {globalOptions.navigation?.map((item, index) => {
-                const isActive = item.href === pathname;
+                const href = toLocaleHref(item.href);
+                const isActive =
+                  href === "/"
+                    ? /^\/(es|en)$/.test(pathname)
+                    : pathname.endsWith(href);
 
                 return (
-                  <Link
-                    key={index}
-                    href={item.href}
-                    className={cn("", isActive && "text-spf-yellow-400")}
-                    onClick={(prevState) => setIsMobileOpen(!prevState)}
-                  >
-                    {item.label}
-                  </Link>
+                  <div key={index}>
+                    {isInternalHref(item.href) ? (
+                      <LocaleLink
+                        href={href}
+                        className={cn("", isActive && "text-spf-yellow-400")}
+                        onClick={() => setIsMobileOpen(false)}
+                      >
+                        {item.label}
+                      </LocaleLink>
+                    ) : (
+                      <NextLink
+                        href={item.href}
+                        className={cn("", isActive && "text-spf-yellow-400")}
+                        onClick={() => setIsMobileOpen(false)}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {item.label}
+                      </NextLink>
+                    )}
+                  </div>
                 );
               })}
             </nav>
