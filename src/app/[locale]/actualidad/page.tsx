@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import NewsArchive from "@/components/news/news-archive";
 import NewsArchiveSkeleton from "@/components/news/news-archive-skeleton";
 import NewsFilters from "@/components/news/news-filter";

@@ -15,7 +15,6 @@ import { notFound } from "next/navigation";
 import { getPostAlternatesBySlug } from "@/lib/wp/get-post-alternates-by-slug";
 
 export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
 
 interface MetadataProps {
   params: Promise<{ slug: string }>;

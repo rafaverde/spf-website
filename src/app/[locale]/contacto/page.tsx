@@ -7,8 +7,6 @@ import * as Icons from "@remixicon/react";
 import { getLocale } from "next-intl/server";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
-
 export const metadata = {
   title: "Contacto",
 };
