@@ -8,21 +8,28 @@ import VideosSection from "@/components/home/videos-section";
 import { Suspense } from "react";
 import VideoCarouselSkeleton from "@/components/video/video-carousel-skeleton";
 import NewsSection from "@/components/home/news-section";
-import { HOME_HERO_PHRASES } from "@/lib/site/home.config";
 import { getStatistics } from "@/lib/statistics/get-statistics";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { AppLocale } from "@/i18n/routing";
 
 export default async function Home() {
   const locale = (await getLocale()) as AppLocale;
   const stats = await getStatistics(locale);
 
+  const tSlider = await getTranslations("slider");
+  const tHeroStaticTitle = tSlider("staticTitle");
+  const tSliderPhrases = tSlider.raw("sliderPhrases") as string[];
+
   return (
     <>
       <div className="relative min-h-screen w-full">
         <HeroVideoBackground />
         <div className="relative z-10 flex flex-col">
-          <HeroTitle scrollIndicator dynamicWords={HOME_HERO_PHRASES} />
+          <HeroTitle
+            scrollIndicator
+            dynamicWords={tSliderPhrases}
+            staticTitle={tHeroStaticTitle}
+          />
           <AboutUsSection />
           <ExpertiseAreasSection />
           <StaticsSection stats={stats} />

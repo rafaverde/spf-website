@@ -1,5 +1,6 @@
 import { RiArrowDownWideLine } from "@remixicon/react";
 import { motion, useAnimation } from "motion/react";
+import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 
 interface ScrollIndicatorProps {
@@ -14,6 +15,8 @@ export function ScrollIndicator({
   repeatTimes = 1,
 }: ScrollIndicatorProps) {
   const controls = useAnimation();
+
+  const tCommon = useTranslations("common");
 
   useEffect(() => {
     let isMounted = true; // Flag para evitar updates se o componente desmontar
@@ -75,7 +78,7 @@ export function ScrollIndicator({
     >
       <div className="flex flex-col items-center">
         <span className="text-spf-green-100/50 text-xs tracking-widest uppercase">
-          Ver más
+          {tCommon("actions.seeMore")}
         </span>
         <RiArrowDownWideLine className="text-spf-green-500/60" />
       </div>
