@@ -24,6 +24,7 @@ export default function AreasCard({
       title={title}
       className={cn(
         "bg-spf-green-500 group relative block h-full w-full overflow-hidden",
+        className,
       )}
     >
       <div className="absolute inset-0 z-0 h-full w-full">

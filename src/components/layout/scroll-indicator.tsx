@@ -3,14 +3,12 @@ import { motion, useAnimation } from "motion/react";
 import { useEffect } from "react";
 
 interface ScrollIndicatorProps {
-  className?: string;
   delay?: number; // Tempo de atraso para entrada do indicador. Padrão 2s
   jumpTimes?: number; // Número de vezes que o indicador pula. Padrão 3
   repeatTimes?: number | "infinity"; // Número de vezes que se repete a sequência. Padrão 1
 }
 
 export function ScrollIndicator({
-  className,
   delay = 2000,
   jumpTimes = 3,
   repeatTimes = 1,
