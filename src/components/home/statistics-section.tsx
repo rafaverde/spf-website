@@ -5,12 +5,15 @@ import StatisticsCounter from "../statistics/statistics-counter";
 import Link from "next/link";
 import { StatisticDatum } from "@/lib/statistics/statistics.types";
 import { mapStatisticsByKey } from "@/lib/statistics/statistics.helper";
+import { useTranslations } from "next-intl";
 
 export default function StatisticsSection({
   stats,
 }: {
   stats: StatisticDatum[];
 }) {
+  const tNumbers = useTranslations("sectorNumbers");
+  const tCommon = useTranslations("common");
   const statsByKey = mapStatisticsByKey(stats);
 
   return (
@@ -24,7 +27,9 @@ export default function StatisticsSection({
       />
 
       <div className="relative container mx-auto px-4">
-        <h2 className="text-spf-green-100 text-4xl">El sector en cifras</h2>
+        <h2 className="text-spf-green-100 text-4xl">
+          {tNumbers("sectionTitle")}
+        </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3">
           {statsByKey["sector.agriculture_surface"] && (
@@ -46,7 +51,7 @@ export default function StatisticsSection({
               size="lg"
               className="border-spf-green-100 border bg-transparent"
             >
-              Más cifras <RiArrowRightUpLine />
+              {tCommon("actions.moreNumbers")} <RiArrowRightUpLine />
             </Button>
           </Link>
         </div>

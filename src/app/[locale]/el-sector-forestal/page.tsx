@@ -4,7 +4,7 @@ import StatisticsCounter from "@/components/statistics/statistics-counter";
 import { AppLocale } from "@/i18n/routing";
 import { getStatistics } from "@/lib/statistics/get-statistics";
 import { mapStatisticsByKey } from "@/lib/statistics/statistics.helper";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 export const metadata = {
@@ -16,40 +16,20 @@ export default async function StatisticsPage() {
   const stats = await getStatistics(locale);
   const statsByKey = mapStatisticsByKey(stats);
 
+  const tNumbers = await getTranslations("sectorNumbers");
+
   return (
     <article className="relative min-h-screen w-full">
       <HeroImageBackground imageSrc="/sector/bg-header-sector.webp" />
       <div className="relative z-10 flex flex-col">
-        <HeroTitle staticTitle="El Sector Forestal" titlePosition="end" />
+        <HeroTitle staticTitle={tNumbers("title")} titlePosition="end" />
 
         <section className="bg-white py-20">
           <div className="text-spf-green-900 container mx-auto flex flex-col items-start justify-center gap-8 space-y-11 px-4 lg:flex-row">
-            <div className="flex flex-col gap-4">
-              <p>
-                El sector forestal es un pilar estratégico de la economía
-                nacional, con un impacto significativo en el producto interno
-                bruto, el empleo, las exportaciones y el desarrollo territorial
-                sostenible.
-              </p>
-              <p>
-                Esta relevancia se sustenta en una expansión sostenida del
-                patrimonio forestal a lo largo de las últimas tres décadas. El
-                impulso inicial más expresivo se registró entre 1990 y 2000,
-                período en el que el área plantada se triplicó, escalando de{" "}
-                <b>178.925 hectáreas a casi 600.000 hectáreas.</b>
-              </p>
-              <p>
-                La tendencia de crecimiento se mantuvo constante en la década
-                siguiente y se consolidó hacia 2020, año en el que el sector
-                superó la barrera simbólica del millón de hectáreas (registrando
-                un acumulado superior a <b>1,16 millones de ha</b>). Según datos
-                de la Dirección General Forestal (MGAP, 2024), actualmente el{" "}
-                <b>
-                  6,6% de la superficie agropecuaria nacional está destinada a
-                  la forestación.
-                </b>
-              </p>
-            </div>
+            <div
+              className="flex flex-col gap-4"
+              dangerouslySetInnerHTML={{ __html: tNumbers.raw("description") }}
+            ></div>
 
             <div className="bg-muted-foreground w-full rounded-xl p-10 lg:min-w-xs">
               {statsByKey["sector.agriculture_surface"] && (
@@ -74,10 +54,10 @@ export default async function StatisticsPage() {
           <div className="relative container mx-auto space-y-16 px-4">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-muted text-3xl">
-                Contribución económica del sector
+                {tNumbers("contribucion.title")}
               </h2>
               <p className="text-white">
-                Principales indicadores económicos del sector forestal en 2024.
+                {tNumbers("contribucion.description")}
               </p>
             </header>
 
@@ -100,20 +80,18 @@ export default async function StatisticsPage() {
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              <div className="bg-muted rounded-xl p-8">
-                <p>
-                  El valor agregado directo del sector alcanza los{" "}
-                  <strong>US$ 2.730 millones</strong>, consolidando su
-                  relevancia dentro de la estructura productiva del país.
-                </p>
-              </div>
-              <div className="bg-muted rounded-xl p-8">
-                <p>
-                  Las exportaciones forestales suman{" "}
-                  <strong>US$ 3.000 millones</strong>, representando el{" "}
-                  <strong>23%</strong> del total de bienes exportados.
-                </p>
-              </div>
+              <div
+                className="bg-muted rounded-xl p-8"
+                dangerouslySetInnerHTML={{
+                  __html: tNumbers.raw("contribucion.boxText.1"),
+                }}
+              ></div>
+              <div
+                className="bg-muted rounded-xl p-8"
+                dangerouslySetInnerHTML={{
+                  __html: tNumbers.raw("contribucion.boxText.2"),
+                }}
+              ></div>
             </div>
           </div>
         </section>
@@ -123,12 +101,9 @@ export default async function StatisticsPage() {
           <div className="container mx-auto space-y-16 px-4">
             <header className="max-w-3xl space-y-2">
               <h2 className="text-muted text-3xl">
-                Empleo, salarios y tributos
+                {tNumbers("empleo.title")}
               </h2>
-              <p className="text-white">
-                Impacto del sector forestal en el mercado laboral y la
-                recaudación fiscal.
-              </p>
+              <p className="text-white">{tNumbers("empleo.description")}</p>
             </header>
 
             <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
@@ -146,21 +121,18 @@ export default async function StatisticsPage() {
             </div>
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              <div className="rounded-xl bg-white p-8 shadow-sm">
-                <p>
-                  Las remuneraciones brutas del sector ascienden a{" "}
-                  <strong>US$ 1.250 millones</strong>, reflejando su
-                  contribución al ingreso de los hogares.
-                </p>
-              </div>
-              <div className="rounded-xl bg-white p-8 shadow-sm">
-                <p>
-                  La contribución fiscal total alcanza los{" "}
-                  <strong>US$ 715 millones</strong>, de los cuales{" "}
-                  <strong>US$ 340 millones</strong> corresponden a impacto
-                  directo.
-                </p>
-              </div>
+              <div
+                className="rounded-xl bg-white p-8 shadow-sm"
+                dangerouslySetInnerHTML={{
+                  __html: tNumbers.raw("empleo.boxText.1"),
+                }}
+              ></div>
+              <div
+                className="rounded-xl bg-white p-8 shadow-sm"
+                dangerouslySetInnerHTML={{
+                  __html: tNumbers.raw("empleo.boxText.2"),
+                }}
+              ></div>
             </div>
           </div>
         </section>
@@ -169,12 +141,9 @@ export default async function StatisticsPage() {
         <section className="bg-white py-24">
           <div className="container mx-auto space-y-16 px-4">
             <header className="max-w-3xl space-y-2">
-              <h2 className="text-3xl">
-                Productividad y competitividad sectorial
-              </h2>
+              <h2 className="text-3xl">{tNumbers("productividad.title")}</h2>
               <p className="text-muted-foreground">
-                Indicadores que destacan la eficiencia económica del sector
-                forestal frente a otros rubros agroindustriales.
+                {tNumbers("productividad.description")}
               </p>
             </header>
 
@@ -187,18 +156,12 @@ export default async function StatisticsPage() {
                 )}
               </div>
 
-              <div className="space-y-6">
-                <p>
-                  El sector forestal <b>genera 42 empleos cada mil hectáreas</b>
-                  , lo que equivale a <b>un empleo por cada 23 hectáreas</b>,
-                  principalmente en actividades que combinan labores de
-                  silvicultura, industria, logísticas y de servicios. Se trata,
-                  en su mayoría, <b>de empleos estables</b>, con niveles de
-                  formalidad superiores al promedio nacional, y con
-                  oportunidades de formación y desarrollo de capacidades en los
-                  territorios donde opera la cadena.
-                </p>
-              </div>
+              <div
+                className="space-y-6"
+                dangerouslySetInnerHTML={{
+                  __html: tNumbers.raw("productividad.boxText.1"),
+                }}
+              ></div>
             </div>
           </div>
         </section>
