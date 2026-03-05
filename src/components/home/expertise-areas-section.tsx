@@ -13,7 +13,7 @@ export default function ExpertiseAreasSection() {
       <div className="container mx-auto flex flex-col gap-8 px-4">
         <div className="flex flex-col items-end-safe justify-between gap-8 md:flex-row">
           <h2 className="text-4xl">{tAreas("sectionTitle")}</h2>
-          <Link href="sobre-spf/areas-de-actuacion">
+          <Link href="/sobre-spf/areas-de-actuacion">
             <Button size="lg">
               {tCommon("actions.moreInfo")} <RiArrowRightUpLine />
             </Button>

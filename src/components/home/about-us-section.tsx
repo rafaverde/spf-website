@@ -7,8 +7,8 @@ import { RiArrowRightUpLine } from "@remixicon/react";
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const SUMMARY_IMAGES = [
   "/summary-carousel/image-1.webp",
