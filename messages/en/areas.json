@@ -1,6 +1,7 @@
 {
   "sectionTitle": "Areas of Action",
   "sectionDescription": "We represent the different actors in the forestry chain in Uruguay with the objective of promoting sustainable development of the sector from the economic, social and environmental perspectives. We promote the development of plantations and the conservation and management of natural forests in the country. We contribute to improving commercial integration and positioning of the Uruguayan forestry industry in the world.",
+  "sectionSubtitle": "Today, nearly 90% of the industrial plantations in Uruguay belong to our members.",
   "sanidadTitle": "Sanity Commission",
   "sanidadDescription": "Forest protection is a matter of fundamental importance for the sustainable development of the sector. In this sense, the Forest Sanity Commission of SPF coordinates efforts among the different involved agents, which it considers key to obtain the benefits of the important investments made in implementing, developing and conserving the current and future forest heritage.",
   "paifTitle": "PAIF Operation",
@@ -9,5 +10,24 @@
   "laboralesDescription": "SPF has legal advice on labor matters and a commission that works in this area, integrated with representatives of the member companies. Its main function is to develop guidelines for the tripartite negotiation as representative of the sector in the Salary Council, and to address other labor-related issues.",
   "comunicacionTitle": "Communication Commission",
   "comunicacionDescription": "Communication is a fundamental pillar in all business areas and sectors. From this area, annual communication plans are developed and digital tools, press actions, the Forest Review and institutional strategies are coordinated. The relationship with different actors and stakeholders of interest is also promoted, ensuring clear, coherent and aligned communication with the institution's objectives. The work of the area is cross-cutting to all areas of SPF, supporting and strengthening their initiatives.",
-  "comunicacionCta": "Go to the Forest Magazine"
+  "comunicacionCta": "Go to the Forest Magazine",
+  "linkCardTeamTitle": "Authorities and Team",
+  "linkCardAreasTitle": "Areas of Action",
+
+  "empowerSection": {
+    "title": "We empower",
+    "cfm": {
+      "title": "Forest Timber Consortium",
+      "description": "<p>The consortium, made up of SPF, INIA, and Fundación Latitud – LATU, aims to coordinate, complement, and promote capabilities among public and private organizations, both national and foreign, dedicated to research and technological development, together with forest producers.</p><p> Its purpose is to improve the productivity and competitiveness of the forestry sector, strengthening its insertion in the international market.</p>"
+    },
+    "ctfm": {
+      "title": "Forest Timber Technology Center",
+      "description": "<p>The FOREST TIMBER TECHNOLOGY CENTER (CTFM) was created under the ROU – UPM Investment Agreement, which established a trust fund and the Sectoral Innovation Fund (FIS).</p><p>The CTFM governance is composed of the Ministry of Industry, Energy and Mining (MIEM, which presides), the Ministry of Livestock, Agriculture and Fishing (MGAP, through the General Forestry Directorate), the Planning and Budget Office (OPP), the Society of Forest Producers (SPF) and the Association of Wood Entrepreneurs and Related Industries (ADEMA).</p><p>The CTFM's mission is to promote the articulation and coordination of all actors in the forest-timber chain, identifying challenges and seeking innovative solutions, improving competitiveness and driving sustainable development.</p>"
+    },
+    "pefc": {
+      "title": "PEFC and FSC<sup class='text-base'>®</sup>",
+      "subtitle": "What does it mean to be certified?",
+      "description": "<p><span class='font-bold uppercase'>What does it mean to be certified?</span><br />It guarantees that forest production meets international standards for sustainable management, environmental conservation and social responsibility. It is key for wood and pulp products to be accepted in demanding global markets.</p><p class='font-bold'>FSC and PEFC are the two international labels that certify that forests meet international standards related to sustainability</p><p>PEFC Uruguay is the national body of the international PEFC system (Programme for the Endorsement of Forest Certification), which promotes sustainable forest management through a globally recognized certification system. Its objective is to ensure that forest products—such as wood, paper and derivatives—come from forests managed in an environmentally responsible, socially beneficial and economically viable manner. In Uruguay, PEFC adapts these standards to local reality, guaranteeing traceability, best practices and transparency throughout the forestry chain.</p><p>FSC (Forest Stewardship Council) is an international non-profit organization that promotes environmentally appropriate, socially beneficial and economically viable management of forests worldwide. Through its certification system, FSC ensures that forest products—such as wood, paper and derivatives—come from responsibly managed forests, following strict standards that protect biodiversity, community rights and labor conditions. Its seal is globally recognized and represents a commitment to sustainability throughout the forest value chain.</p>"
+    }
+  }
 }

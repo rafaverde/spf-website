@@ -3,6 +3,7 @@ import { HeroVideoBackground } from "@/components/layout/hero-video-background";
 import LinkCard from "../../../components/about-us/link-card";
 import VinculationsSection from "../../../components/about-us/vinculations-section";
 import { Metadata } from "next";
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
   title: "Quiénes Somos",
@@ -12,40 +13,32 @@ export const metadata: Metadata = {
 };
 
 export default function AboutUsPage() {
+  const tAreas = useTranslations("areas");
+
   return (
     <div className="relative min-h-screen w-full">
       <HeroVideoBackground />
       <div className="relative z-10 flex flex-col">
         <HeroTitle
-          staticTitle="Quiénes Somos"
+          staticTitle={tAreas("sectionTitle")}
           titlePosition="end"
           scrollIndicator
         />
 
         <section className="bg-white py-20">
           <div className="text-spf-green-900 container mx-auto space-y-6 px-4">
-            <p>
-              Somos la Sociedad de Productores Forestales del Uruguay (SPF), una
-              asociación civil fundada en 1959 que reúne a los principales
-              actores de la cadena forestal uruguaya: productores rurales,
-              empresas forestales, administradores de fondos de inversión y de
-              pensión, viveristas, técnicos, empresas de servicios e industrias
-              vinculadas al sector.
-            </p>
-            <h4 className="text-2xl">
-              Hoy, cerca del 90% de los bosques plantados con destino industrial
-              en Uruguay pertenecen a nuestros socios.
-            </h4>
+            <p>{tAreas("sectionDescription")}</p>
+            <h4 className="text-2xl">{tAreas("sectionSubtitle")}</h4>
 
             <div className="grid grid-cols-1 gap-6 pt-5 md:grid-cols-2">
               <LinkCard
-                title="Autoridades y Equipo"
+                title={tAreas("linkCardTeamTitle")}
                 image="/about-us/bg-card-autoridades.webp"
                 href="/sobre-spf/autoridades-y-equipo"
               />
 
               <LinkCard
-                title="Áreas de Actuación"
+                title={tAreas("linkCardAreasTitle")}
                 image="/about-us/bg-card-areas-actuacion.webp"
                 href="/sobre-spf/areas-de-actuacion"
               />
