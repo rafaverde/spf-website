@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { RiAddLine, RiArrowRightUpLine } from "@remixicon/react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,6 +19,8 @@ export default function AreasCard({
   isExpanded,
   className,
 }: AreasCardProps) {
+  const tCommon = useTranslations("common");
+
   return (
     <Link
       href={href}
@@ -47,7 +50,7 @@ export default function AreasCard({
           <div className="bg-spf-highlight-400 group-hover:bg-spf-green-500 hover:bg-spf-green-900 flex size-12 items-center justify-center overflow-hidden rounded-full text-white transition-all duration-700 group-hover:w-auto">
             <div className="flex w-0 items-center gap-1 px-0 opacity-0 transition-all duration-300 group-hover:w-auto group-hover:px-6 group-hover:opacity-100">
               <span className="hidden whitespace-nowrap group-hover:block">
-                Ver más
+                {tCommon("actions.seeMore")}
               </span>
               <RiArrowRightUpLine />
             </div>
@@ -58,10 +61,10 @@ export default function AreasCard({
         <div className="absolute bottom-6 left-4">
           <h3
             className={cn(
-              "absolute bottom-0 origin-bottom-left text-2xl leading-tight text-white transition-all duration-500 ease-in-out md:text-4xl md:leading-0 md:whitespace-nowrap",
+              "absolute bottom-0 origin-bottom-left text-2xl leading-tight text-white transition-all duration-500 ease-in-out md:text-4xl md:leading-none md:whitespace-pre-wrap",
               isExpanded
                 ? "rotate-0 md:bottom-4 md:left-4"
-                : "md:inset-0 md:left-5 md:-rotate-90",
+                : "md:inset-0 md:left-0 md:-rotate-90",
             )}
           >
             {title}

@@ -3,37 +3,40 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import AreasCard from "./areas-card";
-
-// Dados mockados
-const AREAS = [
-  {
-    id: "sanidad",
-    title: "Sanidad Forestal",
-    image: "/areas/sanidad.webp",
-    href: "/sobre-spf/areas-de-actuacion/#sanidad",
-  },
-  {
-    id: "paif",
-    title: "Operativo PAIF",
-    image: "/areas/paif.webp",
-    href: "/sobre-spf/areas-de-actuacion/#paif",
-  },
-  {
-    id: "laborales",
-    title: "Asuntos Laborales",
-    image: "/areas/laborales.webp",
-    href: "/sobre-spf/areas-de-actuacion/#laborales",
-  },
-  {
-    id: "comunicacion",
-    title: "Comunicación",
-    image: "/areas/comunicacion.webp",
-    href: "/sobre-spf/areas-de-actuacion/#comunicacion",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function AreasGrid() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  const tAreas = useTranslations("areas");
+
+  // Dados mockados
+  const AREAS = [
+    {
+      id: "sanidad",
+      title: tAreas("sanidadTitle"),
+      image: "/areas/sanidad.webp",
+      href: "/sobre-spf/areas-de-actuacion/#sanidad",
+    },
+    {
+      id: "paif",
+      title: tAreas("paifTitle"),
+      image: "/areas/paif.webp",
+      href: "/sobre-spf/areas-de-actuacion/#paif",
+    },
+    {
+      id: "laborales",
+      title: tAreas("laboralesTitle"),
+      image: "/areas/laborales.webp",
+      href: "/sobre-spf/areas-de-actuacion/#laborales",
+    },
+    {
+      id: "comunicacion",
+      title: tAreas("comunicacionTitle"),
+      image: "/areas/comunicacion.webp",
+      href: "/sobre-spf/areas-de-actuacion/#comunicacion",
+    },
+  ];
 
   return (
     <div className="w-full">

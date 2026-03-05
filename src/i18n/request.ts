@@ -13,6 +13,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const aboutUs = (await import(`../../messages/${locale}/aboutUs.json`))
     .default;
   const slider = (await import(`../../messages/${locale}/slider.json`)).default;
+  const areas = (await import(`../../messages/${locale}/areas.json`)).default;
 
   return {
     locale,
@@ -20,6 +21,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       common,
       aboutUs,
       slider,
+      areas,
     },
   };
 });
