@@ -3,7 +3,7 @@ import NewsArchiveSkeleton from "@/components/news/news-archive-skeleton";
 import NewsFilters from "@/components/news/news-filter";
 import { AppLocale } from "@/i18n/routing";
 import { getCategories } from "@/lib/wp/get-categories";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
 interface NewsPageProps {
@@ -26,18 +26,16 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
   const category = params?.category ?? "";
   const locale = (await getLocale()) as AppLocale;
 
+  const tNews = await getTranslations("news");
+
   const categories = await getCategories(locale);
 
   return (
     <>
       <section className="bg-spf-green-900 w-full py-20">
         <div className="container mx-auto mt-[180px] space-y-4 px-4">
-          <h2 className="text-4xl text-white">Actualidad</h2>
-          <p className="text-muted w-1/2">
-            Las últimas noticias sobre trabajos de investigación en áreas
-            relacionadas a la forestación, sanidad forestal, prácticas en el
-            manejo de suelos, protección contra incendios o economía.
-          </p>
+          <h2 className="text-4xl text-white">{tNews("title")}</h2>
+          <p className="text-muted w-1/2">{tNews("description")}</p>
         </div>
       </section>
 

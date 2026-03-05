@@ -9,7 +9,8 @@
     "previous": "Anterior",
     "next": "Siguiente",
     "searchNews": "Buscar noticias...",
-    "filterByCategory": "Filtrar por categoría"
+    "filterByCategory": "Filtrar por categoría",
+    "allCategories": "Todas las categorías"
   },
   "form": {
     "name": "Nombre",

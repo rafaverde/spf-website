@@ -9,7 +9,8 @@
     "previous": "Previous",
     "next": "Next",
     "searchNews": "Search news...",
-    "filterByCategory": "Filter by category"
+    "filterByCategory": "Filter by category",
+    "allCategories": "All categories"
   },
   "form": {
     "name": "Name",

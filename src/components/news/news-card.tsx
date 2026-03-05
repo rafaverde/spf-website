@@ -3,12 +3,16 @@ import Image from "next/image";
 import { Card } from "../ui/card";
 import { formatDate } from "@/lib/utils";
 import { Link } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
+import { AppLocale } from "@/i18n/routing";
 
 interface NewsCardProps {
   news: NewsItem;
 }
 
 export default function NewsCard({ news }: NewsCardProps) {
+  const locale = useLocale() as AppLocale;
+
   return (
     <Link href={`/actualidad/${news.slug}`}>
       <Card
@@ -38,7 +42,7 @@ export default function NewsCard({ news }: NewsCardProps) {
           </h3>
           <p className="text-white">{news.excerpt}</p>
           <p className="text-xs text-white uppercase">
-            {formatDate(news.publishedAt)}
+            {formatDate(news.publishedAt, locale)}
           </p>
         </div>
       </Card>

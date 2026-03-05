@@ -20,6 +20,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const publications = (
     await import(`../../messages/${locale}/publications.json`)
   ).default;
+  const news = (await import(`../../messages/${locale}/news.json`)).default;
 
   return {
     locale,
@@ -30,6 +31,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       areas,
       sectorNumbers,
       publications,
+      news,
     },
   };
 });
