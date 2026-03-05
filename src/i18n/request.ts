@@ -17,6 +17,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const sectorNumbers = (
     await import(`../../messages/${locale}/sectorNumbers.json`)
   ).default;
+  const publications = (
+    await import(`../../messages/${locale}/publications.json`)
+  ).default;
 
   return {
     locale,
@@ -26,6 +29,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       slider,
       areas,
       sectorNumbers,
+      publications,
     },
   };
 });

@@ -3,7 +3,7 @@ import PublicationCard from "@/components/publications/publication-card";
 import { AppLocale } from "@/i18n/routing";
 import { getPublications } from "@/lib/wp/get-publications";
 import { RiEmotionSadLine } from "@remixicon/react";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 interface PublicationsPageProps {
   searchParams?: Promise<{
@@ -27,15 +27,14 @@ export default async function PublicationsPage({
     locale,
   });
 
+  const tPubli = await getTranslations("publications");
+
   return (
     <>
       <section className="bg-spf-green-900 w-full py-20">
         <div className="container mx-auto mt-[180px] space-y-4 px-4">
-          <h2 className="text-4xl text-white">Publicaciones</h2>
-          <p className="text-muted w-1/2">
-            Informes, estudios y documentos técnicos vinculados al sector
-            forestal.
-          </p>
+          <h2 className="text-4xl text-white">{tPubli("title")}</h2>
+          <p className="text-muted w-1/2">{tPubli("description")}</p>
         </div>
       </section>
 
