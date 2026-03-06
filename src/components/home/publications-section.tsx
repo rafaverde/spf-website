@@ -10,13 +10,16 @@ import {
 } from "../ui/carousel";
 import { getPublications } from "@/lib/wp/get-publications";
 import PublicationCard from "../publications/publication-card";
-import Link from "next/link";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { AppLocale } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 
 export default async function PublicationsSection() {
   const locale = (await getLocale()) as AppLocale;
   const { publications } = await getPublications({ perPage: 6, locale });
+
+  const tPubli = await getTranslations("publications");
+  const tCommon = await getTranslations("common");
 
   return (
     <section className="bg-spf-green-300 relative w-full py-20">
@@ -32,21 +35,15 @@ export default async function PublicationsSection() {
         <div className="flex flex-col justify-between gap-6 p-2 md:order-2 lg:col-span-2">
           <div className="space-y-3">
             <h2 className="text-spf-green-900 text-3xl md:text-4xl">
-              Publicaciones
+              {tPubli("title")}
             </h2>
 
-            <p>
-              SPF apoya el desarrollo y la difusión de investigaciones en áreas
-              relacionadas con la silvicultura, como el uso del agua, las
-              mejores prácticas en el manejo del suelo y los informes del
-              sector. Manténgase al día con las últimas publicaciones, artículos
-              y trabajos académicos.
-            </p>
+            <p>{tPubli("sectionDescription")}</p>
           </div>
           <div className="text-right">
             <Link href="/publicaciones">
               <Button size="lg">
-                Ver todas las publicaciones <RiArrowRightUpLine />
+                {tCommon("actions.viewAllPosts")} <RiArrowRightUpLine />
               </Button>
             </Link>
           </div>
