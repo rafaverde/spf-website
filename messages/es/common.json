@@ -17,6 +17,14 @@
     "email": "Correo electrónico",
     "subject": "Asunto",
     "message": "Mensaje",
-    "submit": "Enviar mensaje"
+    "submit": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "¡Gracias! Tu mensaje fue enviado correctamente.",
+    "errors": {
+      "nameRequired": "El nombre es obligatorio.",
+      "emailRequired": "El correo electrónico es obligatorio o es inválido.",
+      "subjectRequired": "El asunto es obligatorio.",
+      "messageRequired": "El mensaje es obligatorio o message es muy corto."
+    }
   }
 }

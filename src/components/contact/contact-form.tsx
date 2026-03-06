@@ -35,7 +35,7 @@ export default function ContactForm() {
   if (success) {
     return (
       <div className="rounded-xl bg-green-100 p-6 text-green-800">
-        ¡Gracias! Tu mensaje fue enviado correctamente.
+        {tCommon("form.success")}
       </div>
     );
   }
@@ -43,35 +43,39 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="space-y-1">
-        <Input placeholder="Nombre" {...register("name")} />
+        <Input placeholder={tCommon("form.name")} {...register("name")} />
         {errors.name && (
           <p className="text-xs text-red-500">{errors.name.message}</p>
         )}
       </div>
 
       <div className="space-y-1">
-        <Input placeholder="Email" {...register("email")} />
+        <Input placeholder={tCommon("form.email")} {...register("email")} />
         {errors.email && (
           <p className="text-xs text-red-500">{errors.email.message}</p>
         )}
       </div>
 
       <div className="space-y-1">
-        <Input placeholder="Asunto" {...register("subject")} />
+        <Input placeholder={tCommon("form.subject")} {...register("subject")} />
         {errors.subject && (
           <p className="text-xs text-red-500">{errors.subject.message}</p>
         )}
       </div>
 
       <div className="space-y-1">
-        <Textarea placeholder="Mensaje" rows={5} {...register("message")} />
+        <Textarea
+          placeholder={tCommon("form.message")}
+          rows={5}
+          {...register("message")}
+        />
         {errors.message && (
           <p className="text-sm text-red-500">{errors.message.message}</p>
         )}
       </div>
 
       <Button type="submit" size="lg" disabled={isSubmitting}>
-        {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+        {isSubmitting ? tCommon("form.sending") : tCommon("form.submit")}
       </Button>
     </form>
   );
