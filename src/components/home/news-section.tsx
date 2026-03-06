@@ -4,22 +4,23 @@ import { RiArrowRightUpLine } from "@remixicon/react";
 import NewsCarousel from "../news/news-carousel";
 import { Suspense } from "react";
 import NewsCarouselSkeleton from "../news/news-carousel-skeleton";
+import { useTranslations } from "next-intl";
 
-export default async function NewsSection() {
+export default function NewsSection() {
+  const tNews = useTranslations("news");
+  const tCommon = useTranslations("common");
+
   return (
     <section className="bg-spf-highlight-400 w-full py-20">
       <div className="container mx-auto flex flex-col items-end justify-between gap-8 px-4 md:flex-row md:items-start">
         <div className="lg:max-w-3xl">
-          <h2 className="text-4xl text-white">Actualidad</h2>
-          <p className="text-white">
-            Las últimas noticias sobre trabajos de investigación en áreas
-            relacionadas a la forestación, sanidad forestal, prácticas en el
-            manejo de suelos, protección contra incendios o economía
-          </p>
+          <h2 className="text-4xl text-white">{tNews("title")}</h2>
+          <p className="text-white">{tNews("description")}</p>
         </div>
         <Link href="/actualidad" title="Ver más noticias">
           <Button size="lg">
-            Ver más <RiArrowRightUpLine className="size-6" />
+            {tCommon("actions.seeMore")}{" "}
+            <RiArrowRightUpLine className="size-6" />
           </Button>
         </Link>
       </div>
