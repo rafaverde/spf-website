@@ -3,6 +3,7 @@ import PublicationCard from "@/components/publications/publication-card";
 import { AppLocale } from "@/i18n/routing";
 import { getPublications } from "@/lib/wp/get-publications";
 import { RiEmotionSadLine } from "@remixicon/react";
+import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 
 interface PublicationsPageProps {
@@ -11,9 +12,30 @@ interface PublicationsPageProps {
   }>;
 }
 
-export const metadata = {
-  title: "Publicaciones",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const typedLocale = locale as AppLocale;
+  const tPublications = await getTranslations({
+    locale,
+    namespace: "publications",
+  });
+
+  return {
+    title: tPublications("title"),
+    description: tPublications("description"),
+    alternates: {
+      canonical: `/${typedLocale}/publicaciones`,
+      languages: {
+        es: "/es/publicaciones",
+        en: "/en/publicaciones",
+      },
+    },
+  };
+}
 
 export default async function PublicationsPage({
   searchParams,

@@ -3,6 +3,7 @@ import NewsArchiveSkeleton from "@/components/news/news-archive-skeleton";
 import NewsFilters from "@/components/news/news-filter";
 import { AppLocale } from "@/i18n/routing";
 import { getCategories } from "@/lib/wp/get-categories";
+import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
@@ -14,9 +15,27 @@ interface NewsPageProps {
   }>;
 }
 
-export const metadata = {
-  title: "Actualidad",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const typedLocale = locale as AppLocale;
+  const tNews = await getTranslations({ locale, namespace: "news" });
+
+  return {
+    title: tNews("title"),
+    description: tNews("description"),
+    alternates: {
+      canonical: `/${typedLocale}/actualidad`,
+      languages: {
+        es: "/es/actualidad",
+        en: "/en/actualidad",
+      },
+    },
+  };
+}
 
 export default async function NewsPage({ searchParams }: NewsPageProps) {
   const params = await searchParams;

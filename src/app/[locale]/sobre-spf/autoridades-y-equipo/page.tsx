@@ -10,9 +10,27 @@ import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { AppLocale } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Autoridades y Equipo",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const typedLocale = locale as AppLocale;
+  const tTeam = await getTranslations({ locale, namespace: "team" });
+
+  return {
+    title: tTeam("title"),
+    description: tTeam("description"),
+    alternates: {
+      canonical: `/${typedLocale}/sobre-spf/autoridades-y-equipo`,
+      languages: {
+        es: "/es/sobre-spf/autoridades-y-equipo",
+        en: "/en/sobre-spf/autoridades-y-equipo",
+      },
+    },
+  };
+}
 
 export default async function AuthorityTeamPage() {
   const locale = (await getLocale()) as AppLocale;

@@ -4,12 +4,31 @@ import StatisticsCounter from "@/components/statistics/statistics-counter";
 import { AppLocale } from "@/i18n/routing";
 import { getStatistics } from "@/lib/statistics/get-statistics";
 import { mapStatisticsByKey } from "@/lib/statistics/statistics.helper";
+import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export const metadata = {
-  title: "El Sector Forestal",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const typedLocale = locale as AppLocale;
+  const tNumbers = await getTranslations({ locale, namespace: "sectorNumbers" });
+
+  return {
+    title: tNumbers("title"),
+    description: tNumbers("sectionTitle"),
+    alternates: {
+      canonical: `/${typedLocale}/el-sector-forestal`,
+      languages: {
+        es: "/es/el-sector-forestal",
+        en: "/en/el-sector-forestal",
+      },
+    },
+  };
+}
 
 export default async function StatisticsPage() {
   const locale = (await getLocale()) as AppLocale;

@@ -3,17 +3,36 @@ import { HeroVideoBackground } from "@/components/layout/hero-video-background";
 import LinkCard from "../../../components/about-us/link-card";
 import VinculationsSection from "../../../components/about-us/vinculations-section";
 import { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { AppLocale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Quiénes Somos",
-  robots: {
-    index: false,
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const typedLocale = locale as AppLocale;
+  const tAboutUs = await getTranslations({ locale, namespace: "aboutUs" });
 
-export default function AboutUsPage() {
-  const tAreas = useTranslations("areas");
+  return {
+    title: tAboutUs("title"),
+    description: tAboutUs("description"),
+    robots: {
+      index: false,
+    },
+    alternates: {
+      canonical: `/${typedLocale}/sobre-spf`,
+      languages: {
+        es: "/es/sobre-spf",
+        en: "/en/sobre-spf",
+      },
+    },
+  };
+}
+
+export default async function AboutUsPage() {
+  const tAreas = await getTranslations("areas");
 
   return (
     <div className="relative min-h-screen w-full">

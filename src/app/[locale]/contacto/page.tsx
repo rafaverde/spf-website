@@ -4,12 +4,31 @@ import HeroTitle from "@/components/layout/hero-title";
 import { AppLocale } from "@/i18n/routing";
 import { getGlobalOptions } from "@/lib/site/get-global-options";
 import * as Icons from "@remixicon/react";
+import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Contacto",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const typedLocale = locale as AppLocale;
+  const tContact = await getTranslations({ locale, namespace: "contact" });
+
+  return {
+    title: tContact("title"),
+    description: tContact("boxText"),
+    alternates: {
+      canonical: `/${typedLocale}/contacto`,
+      languages: {
+        es: "/es/contacto",
+        en: "/en/contacto",
+      },
+    },
+  };
+}
 
 export default async function ContactPage() {
   const locale = (await getLocale()) as AppLocale;

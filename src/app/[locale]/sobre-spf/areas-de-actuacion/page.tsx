@@ -4,13 +4,32 @@ import { Button } from "@/components/ui/button";
 import { AppLocale } from "@/i18n/routing";
 import { getGlobalOptions } from "@/lib/site/get-global-options";
 import { RiArrowRightUpLine } from "@remixicon/react";
+import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Áreas de Actuación",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const typedLocale = locale as AppLocale;
+  const tAreas = await getTranslations({ locale, namespace: "areas" });
+
+  return {
+    title: tAreas("sectionTitle"),
+    description: tAreas("sectionDescription"),
+    alternates: {
+      canonical: `/${typedLocale}/sobre-spf/areas-de-actuacion`,
+      languages: {
+        es: "/es/sobre-spf/areas-de-actuacion",
+        en: "/en/sobre-spf/areas-de-actuacion",
+      },
+    },
+  };
+}
 
 export default async function ExpertiseAreasPage() {
   const locale = (await getLocale()) as AppLocale;
