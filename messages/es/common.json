@@ -26,5 +26,14 @@
       "subjectRequired": "El asunto es obligatorio.",
       "messageRequired": "El mensaje es obligatorio o message es muy corto."
     }
+  },
+  "footer": {
+    "colTitles": {
+      "menu": "Navegar",
+      "social": "Redes Sociales",
+      "cta": "¿Te interesa ser socio? Escribinos.",
+      "contact": "Contacto"
+    },
+    "developedBy": "Desarrollado por"
   }
 }

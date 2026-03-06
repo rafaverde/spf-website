@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,11 +8,13 @@ interface MacondoSignatureProps {
 }
 
 export default function MacondoSignature({ className }: MacondoSignatureProps) {
+  const tCommon = useTranslations("common");
+
   return (
     <section className={cn("w-full bg-zinc-900 py-4 text-zinc-100", className)}>
       <div className="container mx-auto">
         <div className="mx-auto flex w-fit flex-col items-center justify-center gap-3 md:flex-row">
-          <p className="text-xs leading-0">Desarrollado por</p>
+          <p className="text-xs leading-0">{tCommon("footer.developedBy")}</p>
           <div className="flex items-center justify-center gap-3">
             <Link
               href="https://www.macondo.com.uy"

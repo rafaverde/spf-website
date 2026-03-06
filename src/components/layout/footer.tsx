@@ -6,6 +6,7 @@ import { Link as LocaleLink } from "@/i18n/navigation";
 import * as Icons from "@remixicon/react";
 import { Button } from "../ui/button";
 import { GlobalOptions } from "@/lib/site/global.types";
+import { useTranslations } from "next-intl";
 
 interface FooterProps {
   globalOptions: GlobalOptions;
@@ -18,6 +19,8 @@ export default function Footer({ globalOptions }: FooterProps) {
     const normalized = href.replace(localePrefixRegex, "");
     return normalized === "" ? "/" : normalized;
   };
+
+  const tCommon = useTranslations("common");
 
   const isInternalHref = (href: string) => href.startsWith("/");
 
@@ -52,7 +55,7 @@ export default function Footer({ globalOptions }: FooterProps) {
           <div className="space-y-6">
             <div className="space-y-3">
               <h2 className="text-sm font-normal tracking-wide text-white uppercase">
-                Navegar
+                {tCommon("footer.colTitles.menu")}
               </h2>
 
               <ul className="flex flex-col gap-1 text-white">
@@ -89,7 +92,7 @@ export default function Footer({ globalOptions }: FooterProps) {
 
             <div className="space-y-3">
               <h2 className="text-sm font-normal tracking-wide text-white uppercase">
-                Redes Sociales
+                {tCommon("footer.colTitles.social")}
               </h2>
 
               <div className="flex gap-2">
@@ -109,7 +112,7 @@ export default function Footer({ globalOptions }: FooterProps) {
           <div className="space-y-6">
             <div className="space-y-3">
               <h2 className="text-sm font-normal tracking-wide text-white uppercase">
-                ¿Te interesa ser socio? Escribinos. 
+                {tCommon("footer.colTitles.cta")}
               </h2>
 
               {globalOptions.footer?.cta.href &&
@@ -136,7 +139,7 @@ export default function Footer({ globalOptions }: FooterProps) {
 
             <div className="space-y-3">
               <h2 className="text-sm font-normal tracking-wide text-white uppercase">
-                Contacto
+                {tCommon("footer.colTitles.contact")}
               </h2>
 
               <ul className="flex flex-col gap-6 text-white">

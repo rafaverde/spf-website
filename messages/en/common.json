@@ -26,5 +26,14 @@
       "subjectRequired": "The subject is required.",
       "messageRequired": "The message is required or too short."
     }
+  },
+  "footer": {
+    "colTitles": {
+      "menu": "Navigate",
+      "social": "Social Media",
+      "cta": "Interested in becoming a member? Write to us.",
+      "contact": "Contact"
+    },
+    "developedBy": "Developed by"
   }
 }
