@@ -11,10 +11,10 @@ export function mapAuthorities(items: RawAuthorityItem[]): AuthoritiesPageData {
     items.filter((item) => item.role === role);
 
   const mapListSection = (
-    sectionTitle: string,
+    sectionKey: string,
     role: AuthorityRole,
   ): AuthorityListSection => ({
-    sectionTitle,
+    sectionKey,
     members: byRole(role).map((item) => ({ name: item.name })),
   });
 
@@ -31,17 +31,17 @@ export function mapAuthorities(items: RawAuthorityItem[]): AuthoritiesPageData {
     titularMembers: {
       presidency,
 
-      secretary: mapListSection("Secretario", AuthorityRole.SECRETARY),
-      treasury: mapListSection("Tesorero", AuthorityRole.TREASURER),
-      vowels: mapListSection("Vocales", AuthorityRole.VOWEL),
-      alternates: mapListSection("Suplentes", AuthorityRole.ALTERNATE),
+      secretary: mapListSection("secretary", AuthorityRole.SECRETARY),
+      treasury: mapListSection("treasury", AuthorityRole.TREASURER),
+      vowels: mapListSection("vowels", AuthorityRole.VOWEL),
+      alternates: mapListSection("alternates", AuthorityRole.ALTERNATE),
 
       fiscalCommition: {
-        sectionTitle: "Comisión Fiscal",
+        sectionKey: "fiscalCommission",
         members: byRole(AuthorityRole.FISCAL).map((item) => ({
           name: item.name,
         })),
-        subsectionTitle: "Suplentes",
+        subsectionKey: "alternates",
         subSectionMembers: byRole(AuthorityRole.FISCAL_ALTERNATE).map(
           (item) => ({
             name: item.name,

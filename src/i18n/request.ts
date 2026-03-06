@@ -25,6 +25,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
     .default;
   const youtube = (await import(`../../messages/${locale}/youtube.json`))
     .default;
+  const team = (await import(`../../messages/${locale}/team.json`)).default;
+  const authorities = (await import(`../../messages/${locale}/authorities.json`))
+    .default;
 
   return {
     locale,
@@ -38,6 +41,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
       news,
       contact,
       youtube,
+      team,
+      authorities,
     },
   };
 });

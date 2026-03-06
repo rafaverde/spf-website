@@ -7,7 +7,7 @@ import { getAuthorities } from "@/lib/authorities/get-authorities";
 import ErrorDataLoading from "@/components/errors/error-data-loading";
 import getTeam from "@/lib/team/get-team";
 import { Metadata } from "next";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { AppLocale } from "@/i18n/routing";
 
 export const metadata: Metadata = {
@@ -19,22 +19,21 @@ export default async function AuthorityTeamPage() {
 
   const { titularMembers } = await getAuthorities(locale);
   const team = await getTeam(locale);
+  const tTeam = await getTranslations("team");
+  const tAuthorities = await getTranslations("authorities");
 
   return (
     <div className="relative min-h-screen w-full">
       <HeroImageBackground imageSrc="/about-us/team/bg-header-team.webp" />
       <div className="relative z-10 flex flex-col">
-        <HeroTitle staticTitle="Autoridades y Equipo" titlePosition="end" />
+        <HeroTitle staticTitle={tTeam("title")} titlePosition="end" />
 
         <section className="bg-white py-20">
           <div className="text-spf-green-900 container mx-auto space-y-11 px-4">
             <div className="space-y-4">
-              <p>
-                La Sociedad de Productores Forestales es dirigida y gestionada
-                por una Comisión Directiva, electa por los socios cada dos años.
-              </p>
+              <p>{tTeam("description")}</p>
               <h3 className="text-spf-green-500 text-4xl">
-                Miembros Titulares
+                {tTeam("subtitle")}
               </h3>
             </div>
 
@@ -55,31 +54,45 @@ export default async function AuthorityTeamPage() {
                 {/* Membros */}
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                   <AuthorityMembersList
-                    sectionTitle={titularMembers.secretary.sectionTitle}
+                    sectionTitle={tAuthorities(
+                      `sections.${titularMembers.secretary.sectionKey}`,
+                    )}
                     names={titularMembers.secretary.members}
                   />
 
                   <AuthorityMembersList
-                    sectionTitle={titularMembers.treasury.sectionTitle}
+                    sectionTitle={tAuthorities(
+                      `sections.${titularMembers.treasury.sectionKey}`,
+                    )}
                     names={titularMembers.treasury.members}
                     className="col-span-2"
                   />
 
                   <AuthorityMembersList
-                    sectionTitle={titularMembers.vowels.sectionTitle}
+                    sectionTitle={tAuthorities(
+                      `sections.${titularMembers.vowels.sectionKey}`,
+                    )}
                     names={titularMembers.vowels.members}
                   />
 
                   <AuthorityMembersList
-                    sectionTitle={titularMembers.alternates.sectionTitle}
+                    sectionTitle={tAuthorities(
+                      `sections.${titularMembers.alternates.sectionKey}`,
+                    )}
                     names={titularMembers.alternates.members}
                   />
 
                   <AuthorityMembersList
-                    sectionTitle={titularMembers.fiscalCommition.sectionTitle}
+                    sectionTitle={tAuthorities(
+                      `sections.${titularMembers.fiscalCommition.sectionKey}`,
+                    )}
                     names={titularMembers.fiscalCommition.members}
                     subSectionTitle={
-                      titularMembers.fiscalCommition.subsectionTitle
+                      titularMembers.fiscalCommition.subsectionKey
+                        ? tAuthorities(
+                            `sections.${titularMembers.fiscalCommition.subsectionKey}`,
+                          )
+                        : undefined
                     }
                     subSectionNames={
                       titularMembers.fiscalCommition.subSectionMembers
