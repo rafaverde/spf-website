@@ -19,6 +19,7 @@ import {
 import { Button } from "../ui/button";
 import { RiMenuLine } from "@remixicon/react";
 import { GlobalOptions } from "@/lib/site/global.types";
+import LocaleSwitcher from "./locale-switcher";
 
 interface HeaderProps {
   globalOptions: GlobalOptions;
@@ -141,6 +142,8 @@ export default function Header({ globalOptions }: HeaderProps) {
               </div>
             );
           })}
+
+          <LocaleSwitcher />
         </nav>
 
         {/* Mobile Navigation */}
