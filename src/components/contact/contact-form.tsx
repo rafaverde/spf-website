@@ -2,17 +2,23 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema, ContactFormData } from "@/lib/contact/contact.schema";
+import {
+  ContactFormData,
+  createContactSchema,
+} from "@/lib/contact/contact.schema";
 import { sendContactEmail } from "@/lib/contact/contact.action";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
-  const tCommon = useTranslations("common");
   const [success, setSuccess] = useState(false);
+
+  const tCommon = useTranslations("common");
+  const t = useTranslations();
+  const schema = useMemo(() => createContactSchema(t), [t]);
 
   const {
     register,
@@ -20,7 +26,7 @@ export default function ContactForm() {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(schema),
   });
 
   async function onSubmit(data: ContactFormData) {
@@ -70,7 +76,7 @@ export default function ContactForm() {
           {...register("message")}
         />
         {errors.message && (
-          <p className="text-sm text-red-500">{errors.message.message}</p>
+          <p className="text-xs text-red-500">{errors.message.message}</p>
         )}
       </div>
 
