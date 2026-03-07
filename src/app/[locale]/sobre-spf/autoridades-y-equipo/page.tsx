@@ -127,7 +127,9 @@ export default async function AuthorityTeamPage() {
         {/* Equipo */}
         <section className="bg-spf-green-100 py-20">
           <div className="text-spf-green-900 container mx-auto space-y-11 px-4">
-            <h3 className="text-spf-green-500 text-4xl">Nuestro equipo</h3>
+            <h3 className="text-spf-green-500 text-4xl">
+              {tTeam("teamTitle")}
+            </h3>
 
             {team && team.length > 0 ? (
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
