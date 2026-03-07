@@ -1,0 +1,40 @@
+{
+  "actions": {
+    "moreInfo": "Más información",
+    "moreNumbers": "Más cifras",
+    "viewAllPosts": "Ver todas las publicaciones",
+    "goToYoutube": "Ir a YouTube",
+    "seeMore": "Ver más",
+    "view": "Vista",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "searchNews": "Buscar noticias...",
+    "filterByCategory": "Filtrar por categoría",
+    "allCategories": "Todas las categorías",
+    "backToNews": "Volver a actualidades"
+  },
+  "form": {
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "submit": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "¡Gracias! Tu mensaje fue enviado correctamente.",
+    "errors": {
+      "nameRequired": "El nombre es obligatorio.",
+      "emailRequired": "El correo electrónico es obligatorio o es inválido.",
+      "subjectRequired": "El asunto es obligatorio.",
+      "messageRequired": "El mensaje es obligatorio o message es muy corto."
+    }
+  },
+  "footer": {
+    "colTitles": {
+      "menu": "Navegar",
+      "social": "Redes Sociales",
+      "cta": "¿Te interesa ser socio? Escribinos.",
+      "contact": "Contacto"
+    },
+    "developedBy": "Desarrollado por"
+  }
+}

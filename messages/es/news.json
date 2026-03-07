@@ -1,0 +1,7 @@
+{
+  "title": "Actualidad",
+  "description": "Las últimas noticias sobre trabajos de investigación en áreas relacionadas a la forestación, sanidad forestal, prácticas en el manejo de suelos, protección contra incendios o economía.",
+  "warnings": {
+    "noNews": "<p className='text-muted-foreground text-sm'>No se encontraron noticias con los filtros seleccionados. <br /><strong>Inténtalo de nuevo con los otros filtros.</strong></p>"
+  }
+}

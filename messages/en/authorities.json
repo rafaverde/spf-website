@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "secretary": "Secretary",
+    "treasury": "Treasurer",
+    "vowels": "Members",
+    "alternates": "Alternates",
+    "fiscalCommission": "Fiscal Commission"
+  }
+}

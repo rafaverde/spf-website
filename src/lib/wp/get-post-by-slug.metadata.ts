@@ -1,20 +1,22 @@
 import { WpPost } from "./wp.types";
 import { mapWPPostToNews } from "./mappers";
+import { AppLocale } from "@/i18n/routing";
+import { fetchWp } from "./wp.client";
 
 const WP_BASE_URL = process.env.WORDPRESS_API_URL;
 
-export async function getPostBySlugForMetadata(slug: string) {
-  const url = new URL(`${WP_BASE_URL}/wp-json/wp/v2/posts`);
-  url.searchParams.set("slug", slug);
-  url.searchParams.set("_embed", "wp:featuredmedia,wp:term");
-
-  const response = await fetch(url.toString(), {
-    cache: "no-store",
+export async function getPostBySlugForMetadata(
+  slug: string,
+  locale: AppLocale = "es",
+) {
+  const { data } = await fetchWp<WpPost[]>("posts", {
+    params: {
+      slug,
+      _embed: "wp:featuredmedia,wp:term",
+    },
+    locale,
+    revalidate: 60,
   });
-
-  if (!response.ok) return null;
-
-  const data: WpPost[] = await response.json();
 
   if (!data.length) return null;
 

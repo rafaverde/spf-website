@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useTranslations } from "next-intl";
 
 interface NewsFiltersProps {
   initialSearch?: string;
@@ -31,6 +32,8 @@ export default function NewsFilters({
 
   const [search, setSearch] = useState(initialSearch);
   const [category, setCategory] = useState(initialCategory);
+
+  const tCommon = useTranslations("common");
 
   // debounce simples para busca
   useEffect(() => {
@@ -69,7 +72,7 @@ export default function NewsFilters({
     <div className="flex flex-col gap-4 md:flex-row md:items-center">
       {/* Search */}
       <Input
-        placeholder="Buscar noticias..."
+        placeholder={tCommon("actions.searchNews")}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="md:max-w-lg"
@@ -79,10 +82,12 @@ export default function NewsFilters({
       {/* Category */}
       <Select value={category} onValueChange={setCategory}>
         <SelectTrigger className="hover:text-white md:max-w-lg">
-          <SelectValue placeholder="Filtrar por categoría" />
+          <SelectValue placeholder={tCommon("actions.filterByCategory")} />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="todas">Todas las categorías</SelectItem>
+          <SelectItem value="todas">
+            {tCommon("actions.allCategories")}
+          </SelectItem>
 
           {categories.map((cat) => (
             <SelectItem key={cat.slug} value={cat.slug}>

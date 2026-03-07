@@ -9,9 +9,9 @@ export interface AuthorityListMember {
 }
 
 export interface AuthorityListSection {
-  sectionTitle: string;
+  sectionKey: string;
   members: AuthorityListMember[];
-  subsectionTitle?: string;
+  subsectionKey?: string;
   subSectionMembers?: AuthorityListMember[];
 }
 

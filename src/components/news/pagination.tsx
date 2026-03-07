@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
@@ -15,6 +16,7 @@ export default function Pagination({
 }: PaginationProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const tCommon = useTranslations("common");
 
   function createPageUrl(page: number) {
     const params = new URLSearchParams(searchParams.toString());
@@ -50,7 +52,7 @@ export default function Pagination({
         scroll={false}
       >
         <RiArrowLeftSLine />
-        Anterior
+        {tCommon("actions.previous")}
       </Link>
 
       {/* Page Numbers */}
@@ -85,7 +87,7 @@ export default function Pagination({
         )}
         scroll={false}
       >
-        Siguiente
+        {tCommon("actions.next")}
         <RiArrowRightSLine className="size-5" />
       </Link>
     </nav>

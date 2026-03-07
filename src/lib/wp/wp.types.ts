@@ -35,4 +35,8 @@ export interface WpPost {
       }>
     >;
   };
+
+  lang?: "es" | "en" | string;
+  translations?: Record<string, number>;
+  modified?: string;
 }

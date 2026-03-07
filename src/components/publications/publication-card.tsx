@@ -4,12 +4,17 @@ import { Card, CardContent } from "../ui/card";
 import { RiFilePdf2Fill } from "@remixicon/react";
 import { Badge } from "../ui/badge";
 import { formatDate } from "@/lib/utils";
+import { useLocale, useTranslations } from "next-intl";
+import { AppLocale } from "@/i18n/routing";
 
 interface PublicationCardProps {
   publication: Publication;
 }
 
 export default function PublicationCard({ publication }: PublicationCardProps) {
+  const tCommon = useTranslations("common");
+  const locale = useLocale() as AppLocale;
+
   return (
     <Link href={publication.pdfUrl} target="_blank">
       <Card className="bg-spf-green-100 group h-full p-6">
@@ -18,9 +23,11 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
           <h3 className="text-center leading-tight">{publication.title}</h3>
 
           <span className="text-center text-sm">
-            {formatDate(publication.documentDate)}
+            {formatDate(publication.documentDate, locale)}
           </span>
-          <Badge className="tracking-wide uppercase">vista</Badge>
+          <Badge className="tracking-wide uppercase">
+            {tCommon("actions.view")}
+          </Badge>
         </CardContent>
       </Card>
     </Link>

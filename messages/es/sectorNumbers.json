@@ -1,0 +1,28 @@
+{
+  "title": "El Sector Forestal",
+  "sectionTitle": "El sector en cifras",
+  "description": "<p>El sector forestal es un pilar estratégico de la economía nacional, con un impacto significativo en el producto interno bruto, el empleo, las exportaciones y el desarrollo territorial sostenible.</p><p>Esta relevancia se sustenta en una expansión sostenida del patrimonio forestal a lo largo de las últimas tres décadas. El impulso inicial más expresivo se registró entre 1990 y 2000, período en el que el área plantada se triplicó, escalando de <b>178.925 hectáreas a casi 600.000 hectáreas.</b></p><p>La tendencia de crecimiento se mantuvo constante en la década siguiente y se consolidó hacia 2020, año en el que el sector superó la barrera simbólica del millón de hectáreas (registrando un acumulado superior a <b>1,16 millones de ha</b>). Según datos de la Dirección General Forestal (MGAP, 2024), actualmente el <b>6,6% de la superficie agropecuaria nacional está destinada a la forestación.</b></p>",
+  "contribucion": {
+    "title": "Contribución económica del sector",
+    "description": "Principales indicadores económicos del sector forestal en 2024.",
+    "boxText": {
+      "1": "<p>El valor agregado directo del sector alcanza los <strong>US$ 2.730 millones</strong>, consolidando su relevancia dentro de la estructura productiva del país.</p>",
+      "2": "<p>Las exportaciones forestales suman <strong>US$ 3.000 millones</strong>, representando el <strong>23%</strong> del total de bienes exportados.</p>"
+    }
+  },
+  "empleo": {
+    "title": "Empleo, salarios y tributos",
+    "description": "Impacto del sector forestal en el mercado laboral y la recaudación fiscal.",
+    "boxText": {
+      "1": "<p>Las remuneraciones brutas del sector ascienden a <strong>US$ 1.250 millones</strong>, reflejando su contribución al ingreso de los hogares.</p>",
+      "2": "<p>La contribución fiscal total alcanza los <strong>US$ 715 millones</strong>, de los cuales <strong>US$ 340 millones</strong> corresponden a impacto directo.</p>"
+    }
+  },
+  "productividad": {
+    "title": "Productividad y competitividad sectorial",
+    "description": "Indicadores que destacan la eficiencia económica del sector forestal frente a otros rubros agroindustriales.",
+    "boxText": {
+      "1": "<p>El sector forestal <b>genera 42 empleos cada mil hectáreas</b>, lo que equivale a <b>un empleo por cada 23 hectáreas</b>, principalmente en actividades que combinan labores de silvicultura, industria, logísticas y de servicios. Se trata, en su mayoría, <b>de empleos estables</b>, con niveles de formalidad superiores al promedio nacional, y con oportunidades de formación y desarrollo de capacidades en los territorios donde opera la cadena.</p>"
+    }
+  }
+}

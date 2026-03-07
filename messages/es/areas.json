@@ -1,0 +1,33 @@
+{
+  "sectionTitle": "Áreas de Actuación",
+  "sectionDescription": "Representamos a los distintos actores de la cadena forestal en Uruguay con el objetivo de fomentar el desarrollo sostenible del sector desde lo económico, social y ambiental. Promovemos el desarrollo de plantaciones y la conservación y manejo de bosques naturales en el país. Contribuimos en la mejora de la inserción comercial y el posicionamiento de la industria forestal uruguaya en el mundo.",
+  "sectionSubtitle": "Hoy, cerca del 90% de los bosques plantados con destino industrial en Uruguay pertenecen a nuestros socios.",
+  "sanidadTitle": "Comisión de Sanidad",
+  "sanidadDescription": "La protección forestal es un tema de fundamental importancia para el desarrollo sostenible del sector. Es en este sentido que la Comisión de Sanidad Forestal de la SPF coordina esfuerzos entre los distintos agentes involucrados, los que considera clave a efectos de obtener los beneficios de las importantes inversiones realizadas en implantar, desarrollar y conservar el patrimonio forestal actual y futuro.",
+  "paifTitle": "Operativo PAIF",
+  "paifDescription": "<p>Es un sistema de alcance nacional, financiado por las empresas socias, que cada verano trabaja para lograr la detección inmediata de cualquier foco de incendio que pueda amenazar las plantaciones protegidas.</p><p>Una vez identificado un foco, se activa de forma rápida y coordinada la respuesta necesaria para impedir su propagación, mediante un ataque inicial rápido y eficaz.</p><p>Los pilares fundamentales del sistema son: prevención, detección, coordinación y despacho, y combate.</p>",
+  "laboralesTitle": "Asuntos Laborales",
+  "laboralesDescription": "La SPF cuenta con asesoramiento legal en el tema laboral y una Comisión que trabaja en esa área, integrada con representantes de las empresas socias. Su principal función es elaborar las pautas para la negociación tripartita como representante del sector en el Consejo de Salarios, y atender otros asuntos de índole laboral.",
+  "comunicacionTitle": "Comisión de Comunicación",
+  "comunicacionDescription": "<p>La comunicación es un pilar fundamental en todos los ámbitos y sectores empresariales. Desde esta área se elaboran los <b>planes anuales de comunicación</b> y se coordinan las <b>herramientas digitales, las acciones de prensa, la Revista Forestal y las estrategias definidas en los planes institucionales.</b></p><p>También se impulsa el <b>relacionamiento con distintos actores y públicos de interés</b>, promoviendo una comunicación clara, coherente y alineada con los objetivos de la institución.</p><p>El trabajo del área es <b>transversal a todas las áreas de la SPF</b>, acompañando y fortaleciendo sus iniciativas.</p>",
+  "comunicacionCta": "Ir a la Revista Forestal",
+  "linkCardTeamTitle": "Autoridades y Equipo",
+  "linkCardAreasTitle": "Áreas de Actuación",
+
+  "empowerSection": {
+    "title": "Impulsamos",
+    "cfm": {
+      "title": "Consorcio Forestal Maderero",
+      "description": "<p>El consorcio, integrado por la SPF, INIA y Fundación Latitud – LATU, tiene como objetivo coordinar, complementar y promover capacidades entre los organismos públicos y privados, tanto nacionales como extranjeros, que se dedican a la investigación y el desarrollo tecnológico, junto con los productores forestales.</p> <p>Su finalidad es mejorar la productividad y competitividad del sector forestal, fortaleciendo su inserción en el mercado internacional.</p>"
+    },
+    "ctfm": {
+      "tittle": "Centro Tecnológico Forestal Maderero",
+      "description": "<p>El CENTRO TECNOLÓGICO FORESTAL MADERERO (CTFM) surge en el marco del Acuerdo de Inversión ROU – UPM, en el que se crea un fideicomiso y el Fondo de Innovación Sectorial (FIS).</p><p>  La gobernanza del CTFM está constituida por el Ministerio de Industria, Energía y Minería (MIEM, quien preside), el Ministerio de Ganadería, Agricultura y Pesca (MGAP, a través de la Dirección General Forestal), la Oficina de Planeamiento y Presupuesto (OPP), la Sociedad de Productores Forestales (SPF) y la Asociación de Empresarios de la Madera y Afines (ADEMA).</p><p>La misión del CTFM es promover la articulación y coordinación de todos los actores de la cadena forestal-maderera, identificando desafíos y buscando soluciones innovadoras, mejorando la competitividad e impulsando el desarrollo sostenible.</p>"
+    },
+    "pefc": {
+      "title": "PEFC y FSC<sup class='text-base'>®</sup>",
+      "subtitle": "¿Qué significa estar certificados?",
+      "description": "<p><span class='font-bold uppercase'>¿Qué significa estar certificados?</span><br />Garantiza que la producción forestal cumple con estándaresinternacionales de manejo sostenible, conservación ambiental y responsabilidad social. Es clave para que los productos de madera y celulosa sean aceptados en mercados globales exigentes.</p><p class='font-bold'>FSC y PEFC son los dos sellos internacionales que certifican que el bosque cuide los estándares internacionales relacionados a la sostenibilidad</p><p>PEFC Uruguay es la instancia nacional del sistema internacional PEFC (Programme for the Endorsement of Forest Certification), que promueve la gestión sostenible de los bosques mediante un sistema de certificación reconocido globalmente. Su objetivo es asegurar que los productos forestales —como madera, papel y sus derivados— provengan de bosques manejados de forma ambientalmente responsable, socialmente beneficiosa y económicamente viable. En Uruguay, PEFC adapta estos estándares a la realidad local, garantizando trazabilidad, buenas prácticas y transparencia en toda la cadena forestal.</p><p>FSC (Forest Stewardship Council) es una organización internacional sin fines de lucro que promueve la gestión ambientalmente apropiada, socialmente beneficiosa y económicamente viable de los bosques del mundo. A través de su sistema de certificación, el FSC garantiza que los productos forestales —como madera, papel y derivados— provienen de bosques gestionados de manera responsable, siguiendo estrictos estándares que protegen la biodiversidad, los derechos de las comunidades y las condiciones laborales. Su sello es reconocido globalmente y representa un compromiso con la sostenibilidad en toda la cadena de valor forestal.</p>"
+    }
+  }
+}

@@ -1,21 +1,22 @@
 import { RiArrowDownWideLine } from "@remixicon/react";
 import { motion, useAnimation } from "motion/react";
+import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 
 interface ScrollIndicatorProps {
-  className?: string;
   delay?: number; // Tempo de atraso para entrada do indicador. Padrão 2s
   jumpTimes?: number; // Número de vezes que o indicador pula. Padrão 3
   repeatTimes?: number | "infinity"; // Número de vezes que se repete a sequência. Padrão 1
 }
 
 export function ScrollIndicator({
-  className,
   delay = 2000,
   jumpTimes = 3,
   repeatTimes = 1,
 }: ScrollIndicatorProps) {
   const controls = useAnimation();
+
+  const tCommon = useTranslations("common");
 
   useEffect(() => {
     let isMounted = true; // Flag para evitar updates se o componente desmontar
@@ -77,7 +78,7 @@ export function ScrollIndicator({
     >
       <div className="flex flex-col items-center">
         <span className="text-spf-green-100/50 text-xs tracking-widest uppercase">
-          Ver más
+          {tCommon("actions.seeMore")}
         </span>
         <RiArrowDownWideLine className="text-spf-green-500/60" />
       </div>

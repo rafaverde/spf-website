@@ -2,12 +2,15 @@ import { getAllNews } from "@/lib/news/get-all-news";
 import { RiEmotionSadLine } from "@remixicon/react";
 import NewsCard from "./news-card";
 import Pagination from "./pagination";
+import { AppLocale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 interface NewsArchiveProps {
   page: number;
   pageSize: number;
   search?: string;
   category?: string;
+  locale?: AppLocale;
 }
 
 export default async function NewsArchive({
@@ -15,13 +18,17 @@ export default async function NewsArchive({
   pageSize,
   search,
   category,
+  locale = "es",
 }: NewsArchiveProps) {
   const { news, totalPages } = await getAllNews({
     page,
     perPage: pageSize,
     search,
     category: category,
+    locale,
   });
+
+  const tNews = await getTranslations("news");
 
   return (
     <div className="space-y-12">
@@ -35,10 +42,9 @@ export default async function NewsArchive({
       ) : (
         <div className="flex w-full flex-col items-center justify-center gap-1 py-10 text-center">
           <RiEmotionSadLine className="text-spf-green-500 size-10" />
-          <p className="text-muted-foreground text-sm">
-            No se encontraron noticias con los filtros seleccionados. <br />
-            <strong>Inténtalo de nuevo con los otros filtros.</strong>
-          </p>
+          <div
+            dangerouslySetInnerHTML={{ __html: tNews.raw("warnings.noNews") }}
+          ></div>
         </div>
       )}
 

@@ -1,0 +1,40 @@
+{
+  "actions": {
+    "moreInfo": "More information",
+    "moreNumbers": "More numbers",
+    "viewAllPosts": "View all posts",
+    "goToYoutube": "Go to YouTube",
+    "seeMore": "See more",
+    "view": "View",
+    "previous": "Previous",
+    "next": "Next",
+    "searchNews": "Search news...",
+    "filterByCategory": "Filter by category",
+    "allCategories": "All categories",
+    "backToNews": "Back to news"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit message",
+    "sending": "Sending...",
+    "success": "Thank you! Your message has been sent successfully.",
+    "errors": {
+      "nameRequired": "The name is required.",
+      "emailRequired": "The email is required or invalid.",
+      "subjectRequired": "The subject is required.",
+      "messageRequired": "The message is required or too short."
+    }
+  },
+  "footer": {
+    "colTitles": {
+      "menu": "Navigate",
+      "social": "Social Media",
+      "cta": "Interested in becoming a member? Write to us.",
+      "contact": "Contact"
+    },
+    "developedBy": "Developed by"
+  }
+}

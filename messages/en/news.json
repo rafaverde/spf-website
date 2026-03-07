@@ -1,0 +1,7 @@
+{
+  "title": "News",
+  "description": "The latest news about research works in areas related to reforestation, forest health, practices in soil management, fire protection, and economy.",
+  "warnings": {
+    "noNews": "<p className='text-muted-foreground text-sm'>No news found with the selected filters. <br /><strong>Try again with other filters.</strong></p>"
+  }
+}

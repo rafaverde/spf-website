@@ -1,0 +1,28 @@
+{
+  "title": "The Forest Sector",
+  "sectionTitle": "The sector in numbers",
+  "description": "<p>The forest sector is a strategic pillar of the national economy, with significant impact on gross domestic product, employment, exports, and sustainable territorial development.</p><p>This relevance is sustained by steady expansion of forest assets over the last three decades. The most significant initial boost occurred between 1990 and 2000, a period in which planted area tripled, rising from <b>178,925 hectares to nearly 600,000 hectares.</b></p><p>The growth trend remained constant in the following decade and consolidated by 2020, the year the sector surpassed the symbolic barrier of one million hectares (registering an accumulated total exceeding <b>1.16 million hectares</b>). According to data from the General Forestry Directorate (MGAP, 2024), currently <b>6.6% of the national agricultural land is dedicated to forestry.</b></p>",
+  "contribucion": {
+    "title": "Economic contribution of the sector",
+    "description": "Key economic indicators of the forest sector in 2024.",
+    "boxText": {
+      "1": "<p>The direct added value of the sector reaches <strong>US$ 2.730 billion</strong>, consolidating its relevance within the country's productive structure.</p>",
+      "2": "<p>Forest exports total <strong>US$ 3.000 billion</strong>, representing <strong>23%</strong> of total goods exported.</p>"
+    }
+  },
+  "empleo": {
+    "title": "Employment, wages, and taxes",
+    "description": "Impact of the forest sector on the labor market and tax collection.",
+    "boxText": {
+      "1": "<p>Gross remuneration in the sector amounts to <strong>US$ 1.250 billion</strong>, reflecting its contribution to household income.</p>",
+      "2": "<p>Total fiscal contribution reaches <strong>US$ 715 million</strong>, of which <strong>US$ 340 million</strong> corresponds to direct impact.</p>"
+    }
+  },
+  "productividad": {
+    "title": "Productivity and sectoral competitiveness",
+    "description": "Indicators highlighting the economic efficiency of the forest sector compared to other agro-industrial sectors.",
+    "boxText": {
+      "1": "<p>The forest sector <b>generates 42 jobs per thousand hectares</b>, which equals <b>one job for every 23 hectares</b>, mainly in activities combining silviculture, industry, logistics, and services. These are, for the most part, <b>stable jobs</b>, with formality levels above the national average, and with training opportunities and capacity development in the territories where the supply chain operates.</p>"
+    }
+  }
+}

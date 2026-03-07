@@ -1,10 +1,12 @@
 import "server-only";
 import { wpConfig } from "./wp.config";
+import { AppLocale } from "@/i18n/routing";
 
 interface FetchWpOptions {
   params?: Record<string, string | number | undefined>;
   revalidate?: number;
   namespace?: string;
+  locale?: AppLocale;
 }
 
 export async function fetchWp<T>(
@@ -20,6 +22,10 @@ export async function fetchWp<T>(
         url.searchParams.set(key, String(value));
       }
     });
+  }
+
+  if (options.locale) {
+    url.searchParams.set("lang", options.locale);
   }
 
   const response = await fetch(url.toString(), {

@@ -9,12 +9,16 @@ import {
 import NewsCard from "./news-card";
 import { getLatestNews } from "@/lib/news/get-latest-news";
 import { RiEmotionSadLine } from "@remixicon/react";
+import { getLocale } from "next-intl/server";
+import { AppLocale } from "@/i18n/routing";
 
 export default async function NewsCarousel() {
+  const locale = (await getLocale()) as AppLocale;
+
   let news: NewsItem[] = [];
 
   try {
-    news = await getLatestNews(12);
+    news = await getLatestNews(12, locale);
   } catch (error) {
     console.error("Failed to load news: ", error);
   }

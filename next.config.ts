@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   images: {
@@ -14,6 +17,20 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "www.app.spf.com.uy",
         port: "",
+        pathname: "/wp-content/uploads/**",
+        search: "",
+      },
+      {
+        protocol: "https",
+        hostname: "spf.com.uy",
+        port: "8890",
+        pathname: "/wp-content/uploads/**",
+        search: "",
+      },
+      {
+        protocol: "http",
+        hostname: "spf.com.uy",
+        port: "8890",
         pathname: "/wp-content/uploads/**",
         search: "",
       },
@@ -35,4 +52,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

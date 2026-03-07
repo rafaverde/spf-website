@@ -1,3 +1,4 @@
+import { AppLocale } from "@/i18n/routing";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -6,17 +7,20 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Formata a data para padrão es-UY
-export function formatDate(date: string) {
+export function formatDate(date: string, locale: AppLocale = "es") {
   const convertedDate =
     date.length === 8
       ? `${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`
       : date;
 
-  const formattedDate = new Date(convertedDate).toLocaleDateString("es-UY", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  const localeCode = locale === "en" ? "en-US" : "es-UY";
 
-  return formattedDate;
+  const options: Intl.DateTimeFormatOptions =
+    locale === "en"
+      ? { dateStyle: "medium" }
+      : { day: "numeric", month: "long", year: "numeric" };
+
+  return new Intl.DateTimeFormat(localeCode, options).format(
+    new Date(convertedDate),
+  );
 }
