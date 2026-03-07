@@ -10,7 +10,8 @@
     "next": "Next",
     "searchNews": "Search news...",
     "filterByCategory": "Filter by category",
-    "allCategories": "All categories"
+    "allCategories": "All categories",
+    "backToNews": "Back to news"
   },
   "form": {
     "name": "Name",

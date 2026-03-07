@@ -10,7 +10,8 @@
     "next": "Siguiente",
     "searchNews": "Buscar noticias...",
     "filterByCategory": "Filtrar por categoría",
-    "allCategories": "Todas las categorías"
+    "allCategories": "Todas las categorías",
+    "backToNews": "Volver a actualidades"
   },
   "form": {
     "name": "Nombre",

@@ -9,7 +9,7 @@ import { formatDate } from "@/lib/utils";
 import { getPostBySlugForMetadata } from "@/lib/wp/get-post-by-slug.metadata";
 import { RiArrowLeftLine } from "@remixicon/react";
 import { Metadata } from "next";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
 import { getPostAlternatesBySlug } from "@/lib/wp/get-post-alternates-by-slug";
@@ -45,6 +45,8 @@ export default async function NewsSinglePage({ params }: NewsSinglePageProps) {
   const { slug } = await params;
   const locale = (await getLocale()) as AppLocale;
 
+  const tCommon = await getTranslations("common")
+
   const news = await getNewsBySlug(slug, locale);
 
   if (!news) {
@@ -64,7 +66,7 @@ export default async function NewsSinglePage({ params }: NewsSinglePageProps) {
             categoryBadge={
               news.category?.name ? news.category.name : "Sin categorización"
             }
-            postDate={formatDate(news.publishedAt)}
+            postDate={formatDate(news.publishedAt, locale)}
           />
 
           <section className="bg-white py-20">
@@ -72,7 +74,7 @@ export default async function NewsSinglePage({ params }: NewsSinglePageProps) {
               <Link href="/actualidad">
                 <Button variant="outline" size="lg">
                   <RiArrowLeftLine />
-                  Volver a actualidades
+                  {tCommon("actions.backToNews")}
                 </Button>{" "}
               </Link>
               <div className="prose prose-lg prose-headings:font-semibold prose-a:text-spf-highlight-400 mx-auto mt-12 [&_h2]:text-3xl">
