@@ -22,6 +22,7 @@ export default function AuthorityCard({
                 src={imageSrc}
                 alt={name}
                 fill
+                unoptimized
                 className="inset-0 z-0 object-cover"
               />
               <div className="bg-spf-green-500/20 relative h-full w-full"></div>
