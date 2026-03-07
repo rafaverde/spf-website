@@ -10,6 +10,7 @@ import { Link as LocaleLink } from "@/i18n/navigation";
 
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -183,7 +184,7 @@ export default function Header({ globalOptions }: HeaderProps) {
                 className="size-10"
               />
             </SheetHeader>
-
+            <div className="flex w-full justify-center"></div>
             <nav className="mx-auto flex h-full flex-col items-center justify-center gap-4 font-bold uppercase">
               {globalOptions.navigation?.map((item, index) => {
                 const href = toLocaleHref(item.href);
@@ -216,6 +217,7 @@ export default function Header({ globalOptions }: HeaderProps) {
                   </div>
                 );
               })}
+              <LocaleSwitcher />
             </nav>
           </SheetContent>
         </Sheet>

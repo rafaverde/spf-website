@@ -44,7 +44,7 @@ export default function LocaleSwitcher() {
               alt={current.label}
               width={16}
               height={16}
-              className="size-4"
+              className="size-6 md:size-4"
             />
           </span>
         </SelectValue>
