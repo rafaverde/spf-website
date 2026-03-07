@@ -33,13 +33,14 @@ export async function generateMetadata({
 
 export default async function AboutUsPage() {
   const tAreas = await getTranslations("areas");
+  const tAboutUs = await getTranslations("aboutUs");
 
   return (
     <div className="relative min-h-screen w-full">
       <HeroVideoBackground />
       <div className="relative z-10 flex flex-col">
         <HeroTitle
-          staticTitle={tAreas("sectionTitle")}
+          staticTitle={tAboutUs("title")}
           titlePosition="end"
           scrollIndicator
         />
