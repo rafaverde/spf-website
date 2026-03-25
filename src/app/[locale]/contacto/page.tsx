@@ -41,7 +41,7 @@ export default async function ContactPage() {
       <HeroImageBackground imageSrc="/sector/bg-header-sector.webp" />
       <div className="relative z-10 flex flex-col">
         <HeroTitle staticTitle={tContact("title")} titlePosition="end" />
-        <section className="bg-white py-20">
+        <section className="bg-white py-20" id="contactForm">
           <div className="text-spf-green-900 container mx-auto space-y-11 px-4">
             <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
               <div className="h-full lg:col-span-7">
